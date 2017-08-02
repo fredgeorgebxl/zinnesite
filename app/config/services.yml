@@ -1,0 +1,11 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+    app.form.user_edit:
+        class: AppBundle\Form\UserEditType
+        arguments: ['@security.token_storage']
+        tags:
+            - { name: form.type }

@@ -1,0 +1,26 @@
+{% trans_default_domain 'App' %}
+{% extends "admin/base-admin.html.twig" %}
+{% form_theme form with 'bootstrap_3_layout.html.twig' %}
+
+{% block title %}{{'general.administration'|trans}} | {{ 'general.edit'|trans }} '{{ form.username.vars.value }}'{% endblock %}
+{% block body %}
+    <h1> {{ 'general.edit'|trans }} '{{ form.firstname.vars.value }} {{ form.lastname.vars.value }}'</h1>
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{ form_row(form._token) }}
+        {{ form_row(form.firstname) }}
+        {{ form_row(form.lastname) }}
+        {{ form_row(form.email) }}
+        {{ form_row(form.phone) }}
+        {{ form_row(form.voice) }}
+        {% if form.roles is defined %}
+            {{ form_row(form.roles) }}
+        {% endif %}
+    <fieldset>
+        <legend>{{ form_label(form.picture) }}</legend>
+        <div class="form-group">
+            {{ form_row(form.picture) }}
+        </div>
+    </fieldset>
+        {{ form_row(form.save) }}
+    {{ form_end(form, {'render_rest': false}) }}
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="main-hp text-center">
+        <nav class="main-hp-menu menu-centered">
+            <ul class="menu">
+                <li><a href="#">Agenda</a></li>
+                <li><a href="#">Répertoires</a></li>
+                <li><a href="#">Membres</a></li>
+                <li><a href="#">Photos</a></li>
+                <li><a href="#">Vidéos</a></li>
+                <li><a href="#">Nous (re)joindre</a></li>
+            </ul>
+            <div class="social-networks menu-centered">
+                <ul class="menu">
+                    <li><a href="#" class="facebook">Facebook</a></li>
+                    <li><a href="#" class="youtube">Youtube</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div>
+                <img src="{{ asset('images/main-hp-logo.png') }}" alt="Logo Zinnechœur" />
+        </div>
+        <div>
+            <h1 class="main-hp-slogan">Zinnechœur, la chorale bruxelloise qui a du chien&nbsp;!</h1>
+        </div>
+        <div class="main-hp-scroll-link">
+            <a href="#presentation">Découvrez la chorale</a>
+        </div>
+    </section>
+    <section class="presentation">
+        <div class="orbit" role="region" data-orbit>
+            <ul class="orbit-container">
+                <li class="is-active orbit-slide">
+                    <img class="orbit-image" src="{{ asset('images/carrousel1.jpg') }}" alt="Carrousel 1">
+                </li>
+            </ul>
+        </div>
+        <div class="column row">
+            <h2 class="text-center">Zinnechœur, une chorale bruxelloise pas comme les autres&nbsp;!</h2>
+            <p>Nous sommes une trentaine de choristes d'horizons divers, à l'image du zinneke, ce chien des bords de Senne venu de partout mais aussi de nulle part. Chacun met la main à la *patte* pour le choix du répertoire, l'organisation des concerts et la vie de notre groupe cosmopolite.
+            <p>Depuis octobre 2016, nous sommes dirigés par Emily Allison</p>
+            <p class="text-center">
+                <a class="button large">Découvrez les choristes</a>
+            </p>
+        </div>
+    </section>
+    <section class="presentation">
+        <div class="column row">
+            <h2 class="text-center">Un répertoire éclectique</h2>
+            <p>Dans nos portées nous apportons du rock, du jazz mais aussi pas mal de chants du monde et du classique un peu dingo. Un répertoire éclectique que nous répétons à Ixelles.</p>
+            <p>En bref, Zinnechœur, une chorale qui chante à tue-tête et à toute heure, des chants entêtants de tous temps, tantôt à tâtons ou tout en titubant, mais surtout sans jamais se prendre la tête.</p>
+            <p class="text-center">
+                <a class="button large">Découvrez notre répertoire</a>
+            </p>
+        </div>
+    </section>
+{% endblock %}

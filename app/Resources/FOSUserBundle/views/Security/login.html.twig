@@ -1,0 +1,10 @@
+{% trans_default_domain 'App' %}
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block title %}{{ 'website.title'|trans }} | {{ 'security.login.login'|trans }}{% endblock %}
+{% block header %}{% endblock %}
+
+{% block fos_user_content %}
+    <h1>{{ 'security.login.login'|trans }}</h1>
+    {{ include('FOSUserBundle:Security:login_content.html.twig') }}
+{% endblock fos_user_content %}
