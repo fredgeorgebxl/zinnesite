@@ -1,7 +1,7 @@
 app:
     resource: "@AppBundle/Controller/"
-    type:     annotation
-    
+    type: annotation
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
@@ -15,4 +15,4 @@ fos_user_change_password:
     
 responsive_image:
     resource: "@ResponsiveImageBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix: /

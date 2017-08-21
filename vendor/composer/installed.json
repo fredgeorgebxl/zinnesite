@@ -2600,5 +2600,52 @@
         "keywords": [
             "menu"
         ]
+    },
+    {
+        "name": "irishdan/responsive-image-bundle",
+        "version": "v1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/irishdan/ResponsiveImageBundle.git",
+            "reference": "e8ca7466d614534af4c3d1dd86226d3446184a1d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/irishdan/ResponsiveImageBundle/zipball/e8ca7466d614534af4c3d1dd86226d3446184a1d",
+            "reference": "e8ca7466d614534af4c3d1dd86226d3446184a1d",
+            "shasum": ""
+        },
+        "require": {
+            "intervention/image": "^2.3",
+            "php": ">=5.6.4",
+            "symfony/framework-bundle": "^3.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.8"
+        },
+        "suggest": {
+            "aws/aws-sdk-php": "^3.18"
+        },
+        "time": "2017-06-06T16:20:59+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "IrishDan\\ResponsiveImageBundle\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Daniel Byrne",
+                "email": "danielbyrne@outlook.com"
+            }
+        ],
+        "description": "A bundle for creating style and responsive images in symfony framework",
+        "homepage": "http://danbyrne.me/projects/responsive-image-bundle"
     }
 ]
