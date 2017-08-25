@@ -17,7 +17,7 @@
         {% block header %}
         <header>
             <div data-sticky-container>
-                <div class="top-bar" data-sticky data-options="marginTop:0;">
+                <div class="top-bar">
                     <div class="column row">
                         <div class="top-bar-title">
                             Zinnechœur
@@ -42,6 +42,7 @@
                 </div>
             </div>
         </header>
+        <div id="menu-trigger"></div>
         {% endblock %}
         <main>
             {% block body %}{% endblock %}
@@ -53,9 +54,7 @@
         {% endblock %}
         {% block javascripts %}
             <script src="{{ asset('js/script.js') }}"></script>
-            <script>
-                $(document).foundation();
-            </script>
+            <script src="{{ asset('js/zinne.js') }}"></script>
         {% endblock %}
     </body>
 </html>

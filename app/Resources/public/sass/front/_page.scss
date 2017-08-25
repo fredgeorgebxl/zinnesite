@@ -4,4 +4,9 @@
         a{color: $white;}
     }
     h1{color: $white;}
+    height: 100vh;
+    position: relative;
+    .main-hp-content{
+        @include absolute-center;
+    }
 }

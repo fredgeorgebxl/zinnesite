@@ -3921,13 +3921,22 @@ h6 {
 .top-bar {
   width: 100%;
   background-color: #fff;
-  border-bottom: 5px solid #2cb28c; }
+  border-bottom: 5px solid #2cb28c;
+  position: fixed;
+  z-index: 1000; }
   .top-bar ul {
     background-color: inherit; }
 
 .main-hp {
-  background-color: #2cb28c; }
+  background-color: #2cb28c;
+  height: 100vh;
+  position: relative; }
   .main-hp .main-hp-menu a {
     color: #fff; }
   .main-hp h1 {
     color: #fff; }
+  .main-hp .main-hp-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }

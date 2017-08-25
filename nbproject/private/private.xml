@@ -3,27 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/www/symfony_test/app/Resources/views/admin/gallery/edit.html.twig</file>
-            <file>file:/www/symfony_test/src/AppBundle/Entity/User.php</file>
-            <file>file:/www/symfony_test/app/Resources/views/default/index.html.twig</file>
-            <file>file:/www/symfony_test/src/AppBundle/Controller/Admin/EventController.php</file>
-            <file>file:/www/symfony_test/app/Resources/translations/App.fr.yml</file>
-            <file>file:/www/symfony_test/src/AppBundle/Form/EventType.php</file>
-            <file>file:/www/symfony_test/src/AppBundle/Menu/Builder.php</file>
-            <file>file:/www/symfony_test/app/AppKernel.php</file>
-            <file>file:/www/symfony_test/src/AppBundle/Entity/Gallery.php</file>
-            <file>file:/www/symfony_test/src/AppBundle/Controller/Admin/RepertoireController.php</file>
             <file>file:/www/symfony_test/app/Resources/views/admin/gallery/index.html.twig</file>
-            <file>file:/www/symfony_test/src/AppBundle/Form/GalleryType.php</file>
-            <file>file:/www/symfony_test/src/AppBundle/Controller/Admin/UserController.php</file>
+            <file>file:/www/symfony_test/src/AppBundle/Form/ImageType.php</file>
+            <file>file:/www/symfony_test/gulpfile.js</file>
             <file>file:/www/symfony_test/app/Resources/views/admin/user/edit.html.twig</file>
-            <file>file:/www/symfony_test/src/AppBundle/Form/RegistrationType.php</file>
-            <file>file:/www/symfony_test/app/Resources/views/base.html.twig</file>
-            <file>file:/www/symfony_test/src/AppBundle/Controller/Admin/GalleryController.php</file>
+            <file>file:/www/symfony_test/web/js/jquery.cropper.js</file>
             <file>file:/www/symfony_test/src/AppBundle/Entity/ResponsiveImage.php</file>
-            <file>file:/www/symfony_test/app/Resources/views/admin/user/new.html.twig</file>
             <file>file:/www/symfony_test/src/AppBundle/Form/UserEditType.php</file>
-            <file>file:/www/symfony_test/app/config/routing.yml</file>
+            <file>file:/www/symfony_test/src/AppBundle/Form/EventType.php</file>
+            <file>file:/www/symfony_test/app/Resources/ResponsiveImageBundle/views/cropfocus.html.twig</file>
         </group>
     </open-files>
 </project-private>

@@ -2,6 +2,7 @@
     width: 100%;
     background-color: $white;
     border-bottom: 5px solid $primary-color;
-    
+    position: fixed;
+    z-index: 1000;
     ul{ background-color: inherit; }
 }
