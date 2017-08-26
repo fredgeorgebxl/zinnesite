@@ -12,7 +12,7 @@ fos_user_profile:
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /profile
-    
+   
 responsive_image:
     resource: "@ResponsiveImageBundle/Resources/config/routing.yml"
     prefix:   /
