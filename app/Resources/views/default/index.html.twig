@@ -2,30 +2,32 @@
 
 {% block body %}
     <section class="main-hp text-center">
-        <nav class="main-hp-menu menu-centered">
-            <ul class="menu">
-                <li><a href="#">Agenda</a></li>
-                <li><a href="#">Répertoires</a></li>
-                <li><a href="#">Membres</a></li>
-                <li><a href="#">Photos</a></li>
-                <li><a href="#">Vidéos</a></li>
-                <li><a href="#">Nous (re)joindre</a></li>
-            </ul>
-            <div class="social-networks menu-centered">
+        <div class="main-hp-content">
+            <nav class="main-hp-menu menu-centered">
                 <ul class="menu">
-                    <li><a href="#" class="facebook">Facebook</a></li>
-                    <li><a href="#" class="youtube">Youtube</a></li>
+                    <li><a href="#">Agenda</a></li>
+                    <li><a href="#">Répertoires</a></li>
+                    <li><a href="#">Membres</a></li>
+                    <li><a href="#">Photos</a></li>
+                    <li><a href="#">Vidéos</a></li>
+                    <li><a href="#">Nous (re)joindre</a></li>
                 </ul>
+                <div class="social-networks menu-centered">
+                    <ul class="menu">
+                        <li><a href="#" class="facebook">Facebook</a></li>
+                        <li><a href="#" class="youtube">Youtube</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div>
+                    <img src="{{ asset('images/main-hp-logo.png') }}" alt="Logo Zinnechœur" />
             </div>
-        </nav>
-        <div>
-                <img src="{{ asset('images/main-hp-logo.png') }}" alt="Logo Zinnechœur" />
-        </div>
-        <div>
-            <h1 class="main-hp-slogan">Zinnechœur, la chorale bruxelloise qui a du chien&nbsp;!</h1>
-        </div>
-        <div class="main-hp-scroll-link">
-            <a href="#presentation">Découvrez la chorale</a>
+            <div>
+                <h1 class="main-hp-slogan">Zinnechœur, la chorale bruxelloise qui a du chien&nbsp;!</h1>
+            </div>
+            <div class="main-hp-scroll-link">
+                <a href="#presentation">Découvrez la chorale</a>
+            </div>
         </div>
     </section>
     <section class="presentation">

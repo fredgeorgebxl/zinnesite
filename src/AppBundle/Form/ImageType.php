@@ -10,7 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
-use ResponsiveImageBundle\Form\Type\CropFocusType;
+use IrishDan\ResponsiveImageBundle\Form\CropFocusType;
 
 class ImageType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {

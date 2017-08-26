@@ -1,0 +1,4 @@
+# Route for generating images
+responsive_image:
+    path:     /%image_directory%/%image_styles_directory%/{stylename}/{filename}
+    defaults: { _controller: ResponsiveImageBundle:Image:index }

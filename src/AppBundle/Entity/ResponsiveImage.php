@@ -5,7 +5,7 @@ namespace AppBundle\Entity;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use ResponsiveImageBundle\Utils\ResponsiveImageInterface;
+use IrishDan\ResponsiveImageBundle\ResponsiveImageInterface;
 
 /**
  * Image

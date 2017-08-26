@@ -20,8 +20,21 @@ gulp.task('back_js', function () {
 gulp.task('js', function () {
     return gulp.src(['bower_components/jquery/dist/jquery.js',
         'bower_components/what-input/dist/what-input.js',
-        'bower_components/foundation-sites/dist/js/foundation.js'])
+        'bower_components/foundation-sites/dist/js/foundation.js',
+        'bower_components/greensock-js/src/uncompressed/plugins/CSSPlugin.js',
+        'bower_components/greensock-js/src/uncompressed/easing/EasePack.js',
+        'bower_components/greensock-js/src/uncompressed/TweenLite.js',
+        'bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js',
+        'bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js'])
         .pipe(concat('script.js'))
+        .pipe(gulpif(env === 'prod', uglify()))
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest('web/js'));
+});
+
+gulp.task('site_js', function () {
+    return gulp.src(['app/Resources/public/js/zinne.js'])
+        .pipe(concat('zinne.js'))
         .pipe(gulpif(env === 'prod', uglify()))
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('web/js'));

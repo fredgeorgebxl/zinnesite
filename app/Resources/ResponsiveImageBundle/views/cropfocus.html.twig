@@ -1,0 +1,17 @@
+{% block crop_focus_widget %}
+    <div class="crop-focus-widget bundle-folder">
+        <div class="crop-focus-image">
+            <img src="{{ asset(image) }}" alt="" 
+        </div>
+        <div class="crop-focus-coordinates">
+            {% set type = coordinate_field_type %}
+            {{ block('form_widget_simple') }}
+        </div>
+    </div>
+    {% if include_js_css == true %}
+        <style>
+            {{ css | raw }}
+        </style>
+        <script src="{{ asset('js/jquery.cropper.js')}}"></script>
+    {% endif %}
+{% endblock %}
