@@ -1,10 +1,11 @@
 $(document).foundation();
 
 // init
+/*
 $(document).ready(function(){
     $(".top-bar").css("marginTop", "-200px");
 });
-
+*/
 var controller = new ScrollMagic.Controller();
 
 // Top menu animation

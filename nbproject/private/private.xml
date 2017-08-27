@@ -3,9 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/www/zinnesite/app/Resources/public/sass/front/_page.scss</file>
+            <file>file:/www/zinnesite/app/Resources/public/sass/front/_header.scss</file>
             <file>file:/www/zinnesite/composer.json</file>
             <file>file:/www/zinnesite/app/config/routing.yml</file>
             <file>file:/www/zinnesite/app/config/config.yml</file>
+            <file>file:/www/zinnesite/app/Resources/views/default/index.html.twig</file>
+            <file>file:/www/zinnesite/app/Resources/views/base.html.twig</file>
+            <file>file:/www/zinnesite/app/Resources/public/js/zinne.js</file>
             <file>file:/www/zinnesite/app/AppKernel.php</file>
             <file>file:/www/zinnesite/app/config/parameters.yml</file>
         </group>

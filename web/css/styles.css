@@ -3927,6 +3927,10 @@ h6 {
   .top-bar ul {
     background-color: inherit; }
 
+@media screen and (min-width: 40em) {
+  .top-bar {
+    margin-top: -200px; } }
+
 .main-hp {
   background-color: #2cb28c;
   height: 100vh;
