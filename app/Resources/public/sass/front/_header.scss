@@ -6,3 +6,9 @@
     z-index: 1000;
     ul{ background-color: inherit; }
 }
+
+@include breakpoint(medium up) {
+    .top-bar{
+        margin-top: -200px;
+    }
+}
