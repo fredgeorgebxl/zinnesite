@@ -3,15 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/www/symfony_test/app/Resources/views/admin/gallery/index.html.twig</file>
-            <file>file:/www/symfony_test/src/AppBundle/Form/ImageType.php</file>
+            <file>file:/www/symfony_test/app/Resources/public/sass/front/_header.scss</file>
+            <file>file:/www/symfony_test/app/Resources/views/default/index.html.twig</file>
             <file>file:/www/symfony_test/gulpfile.js</file>
-            <file>file:/www/symfony_test/app/Resources/views/admin/user/edit.html.twig</file>
-            <file>file:/www/symfony_test/web/js/jquery.cropper.js</file>
-            <file>file:/www/symfony_test/src/AppBundle/Entity/ResponsiveImage.php</file>
-            <file>file:/www/symfony_test/src/AppBundle/Form/UserEditType.php</file>
-            <file>file:/www/symfony_test/src/AppBundle/Form/EventType.php</file>
-            <file>file:/www/symfony_test/app/Resources/ResponsiveImageBundle/views/cropfocus.html.twig</file>
+            <file>file:/www/symfony_test/app/Resources/public/sass/front/_page.scss</file>
+            <file>file:/www/symfony_test/app/Resources/public/js/zinne.js</file>
+            <file>file:/www/symfony_test/app/Resources/views/base.html.twig</file>
+            <file>file:/www/symfony_test/app/Resources/public/sass/front/foundation.scss</file>
         </group>
     </open-files>
 </project-private>
