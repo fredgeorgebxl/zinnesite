@@ -82,6 +82,32 @@ class GalleryController extends Controller
             'form' => $form->createView(),
         ));
     }
+    
+    /**
+     * @Route("/addimages/{gal_id}", requirements={"gal_id" = "\d+"}, name="gallery_addimages")
+     */
+    public function addfileAction($gal_id, Request $request){
+
+        $em = $this->getDoctrine()->getManager();
+        $gallery = $em->getRepository(Gallery::class)->find($gal_id);
+        
+        if (!$gallery) {
+            throw $this->createNotFoundException(
+                'No gallery found for id '.$gal_id
+            );
+        }
+        
+        $form = $this->createFormBuilder()->setAction($this->generateUrl('gallery_addimages', ['gal_id' => $gal_id]))->getForm();
+        $form->handleRequest($request);
+        
+        if($form->isSubmitted() && $form->isValid()){
+            
+        }
+        
+        return $this->render('admin/gallery/addimages.html.twig', array(
+            'form' => $form->createView(),
+        ));
+    }
 
      /**
      * @Route("/delete/{gal_id}", requirements={"gal_id" = "\d+"}, name="gallery_delete")
