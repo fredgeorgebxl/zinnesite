@@ -7,10 +7,16 @@
 {% endblock %}
 {% block body %}
     <h1></h1>
-    {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'dropzone'}}) }}
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'dropzone', 'id': 'mydropzone'}}) }}
         <div class="fallback">
-            <input name="file" type="file" multiple />
+            {{ form_row(form.file) }}
         </div>
     {{ form_end(form) }}
     <script src="{{ asset('js/dropzone.min.js') }}"></script>
+    <script type="text/javascript">
+        Dropzone.options.mydropzone = {
+            paramName: "form[file]",
+            dictDefaultMessage: "Déposez les images ici"  
+        };
+    </script>
 {% endblock %}

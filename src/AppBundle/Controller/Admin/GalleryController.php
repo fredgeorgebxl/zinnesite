@@ -3,10 +3,12 @@
 namespace AppBundle\Controller\Admin;
 
 use AppBundle\Entity\Gallery;
+use AppBundle\Entity\ResponsiveImage;
 use AppBundle\Form\GalleryType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 /**
   * @Route("/admin/gallery")
@@ -75,7 +77,12 @@ class GalleryController extends Controller
             $gallery->setDateModified(new \DateTime());
             $em->flush();
             
-            return $this->redirectToRoute('gallery_list');
+            if($form->get('addimages')->isClicked()){
+                return $this->redirectToRoute('gallery_addimages', ['gal_id' => $gal_id]);
+            } else {
+                return $this->redirectToRoute('gallery_list');
+            }
+            
         }
         
         return $this->render('admin/gallery/edit.html.twig', array(
@@ -97,11 +104,30 @@ class GalleryController extends Controller
             );
         }
         
-        $form = $this->createFormBuilder()->setAction($this->generateUrl('gallery_addimages', ['gal_id' => $gal_id]))->getForm();
+        $form = $this->createFormBuilder()
+            ->setAction($this->generateUrl('gallery_addimages', ['gal_id' => $gal_id]))
+            ->add('file', FileType::class)
+            ->getForm();
+        
         $form->handleRequest($request);
         
         if($form->isSubmitted() && $form->isValid()){
+            $em = $this->getDoctrine()->getManager();
             
+            $picture = new ResponsiveImage();
+            $picture->setPath('');
+            $em->persist($picture);
+            
+            
+            // Upload picture
+            $data = $form->getData();
+            $file = $data["file"];
+            if($file){
+                $picture->setFile($file);
+                $picture->setGallery($gallery);
+                $this->get('responsive_image.uploader')->upload($picture);
+            }
+            $em->flush();
         }
         
         return $this->render('admin/gallery/addimages.html.twig', array(
