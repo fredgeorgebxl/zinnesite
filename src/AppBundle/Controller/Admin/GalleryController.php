@@ -9,6 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
   * @Route("/admin/gallery")
@@ -107,31 +109,46 @@ class GalleryController extends Controller
         $form = $this->createFormBuilder()
             ->setAction($this->generateUrl('gallery_addimages', ['gal_id' => $gal_id]))
             ->add('file', FileType::class)
+            ->add('edit_gallery', SubmitType::class, array('label' => 'gallery.edit_gallery', 'translation_domain' => 'App'))
+            ->add('edit_images', SubmitType::class, array('label' => 'gallery.edit_images', 'translation_domain' => 'App'))
             ->getForm();
         
         $form->handleRequest($request);
         
         if($form->isSubmitted() && $form->isValid()){
+            
+            
             $em = $this->getDoctrine()->getManager();
-            
-            $picture = new ResponsiveImage();
-            $picture->setPath('');
-            $em->persist($picture);
-            
             
             // Upload picture
             $data = $form->getData();
             $file = $data["file"];
             if($file){
+                $picture = new ResponsiveImage();
+                $picture->setPath('');
+                $em->persist($picture);
                 $picture->setFile($file);
                 $picture->setGallery($gallery);
-                $this->get('responsive_image.uploader')->upload($picture);
+                try{
+                    $this->get('responsive_image.uploader')->upload($picture);
+                }catch(Exception $e){
+                    return new JsonResponse(['error' => $e->getMessage()]);
+                }
+                $em->flush();
+                return new JsonResponse(['success' => true]);
             }
-            $em->flush();
+            
+            if($form->get('edit_gallery')->isClicked()){
+                return $this->redirectToRoute('gallery_edit', ['gal_id' => $gal_id]);
+            }
+            if($form->get('edit_images')->isClicked()){
+                return $this->redirectToRoute('gallery_edit', ['gal_id' => $gal_id]);
+            }
         }
         
         return $this->render('admin/gallery/addimages.html.twig', array(
             'form' => $form->createView(),
+            'gallery' => $gallery,
         ));
     }
 

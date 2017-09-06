@@ -3,7 +3,7 @@
 {% form_theme form 'bootstrap_3_layout.html.twig' %}
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/backend_styles.css') }}"/>
-    <link rel="stylesheet" href="{{ asset('css/dropzone.min.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/dropzone.css') }}"/>
 {% endblock %}
 {% block body %}
     <h1></h1>
@@ -11,12 +11,23 @@
         <div class="fallback">
             {{ form_row(form.file) }}
         </div>
+        <div class="form-buttons">
+            {{ form_widget(form.edit_gallery) }}
+            {{ form_widget(form.edit_images) }}
+        </div>
     {{ form_end(form) }}
     <script src="{{ asset('js/dropzone.min.js') }}"></script>
     <script type="text/javascript">
         Dropzone.options.mydropzone = {
             paramName: "form[file]",
-            dictDefaultMessage: "Déposez les images ici"  
+            dictDefaultMessage: "{{ "gallery.drop_files_here"|trans }}",
+            processing: function(file){
+                $('#form_edit_gallery').prop('disabled', true);
+            },
+            queuecomplete: function(){
+                $('#form_edit_images').css('visibility', 'visible');
+                $('#form_edit_gallery').prop('disabled', false);
+            }
         };
     </script>
 {% endblock %}
