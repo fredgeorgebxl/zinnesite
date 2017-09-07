@@ -72,6 +72,8 @@ class GalleryController extends Controller
             );
         }
         
+        $images = $gallery->getPictures();
+        
         $form = $this->createForm(GalleryType::class,$gallery);
         $form->handleRequest($request);
         
@@ -89,6 +91,7 @@ class GalleryController extends Controller
         
         return $this->render('admin/gallery/edit.html.twig', array(
             'form' => $form->createView(),
+            'images' => $images,
         ));
     }
     

@@ -5,6 +5,11 @@
     <h1> {{ 'general.edit'|trans }} '{{ form.title.vars.value }}'</h1>
     {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
         {{ form_row(form.title) }}
+        <div>
+            {% for key, image in images %}
+                <div>{{ styled_image(image, 'project_thumb') }}</div>
+            {% endfor %}
+        </div>
         {{ form_row(form.addimages) }}
         {{ form_row(form.save) }}
     {{ form_end(form) }}

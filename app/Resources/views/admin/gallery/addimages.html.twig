@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="{{ asset('css/dropzone.css') }}"/>
 {% endblock %}
 {% block body %}
-    <h1></h1>
+    <h1>{{ "gallery.add_images_to"|trans }} '{{ gallery.title }}'</h1>
     {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'dropzone', 'id': 'mydropzone'}}) }}
         <div class="fallback">
             {{ form_row(form.file) }}
