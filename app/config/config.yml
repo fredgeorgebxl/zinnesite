@@ -8,6 +8,7 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
+    responsive_image.image_entity_class: 'AppBundle\Entity\ResponsiveImage'
 
 framework:
     #esi:             ~
@@ -81,14 +82,13 @@ knp_menu:
         template: KnpMenuBundle::menu.html.twig
     templating: false
     default_renderer: twig
-
-# Responsive Image Configuration
+            
 responsive_image:
     debug: TRUE                        # If true debug info is printed on generated images
     image_compression: 80               # The compression quality of the generated images
     image_directory: 'uploads/images'   # '%uploads_directory%' # The directory where uploaded images are saved
     image_styles_directory: 'styles'    # The directory within the uploads directory where generated images are saved
-    image_entity_class: [ 'AppBundle:ResponsiveImage' ] # The image entity
+    #image_entity_class: 'AppBundle\Entity\ResponsiveImage'  # The image entity
     image_driver: gd                    # The php image library
     breakpoints:                        # Breakpoint definitions
         base: 'min-width: 0px'

@@ -10,7 +10,7 @@ use IrishDan\ResponsiveImageBundle\ResponsiveImageInterface;
 /**
  * Image
  *
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="IrishDan\ResponsiveImageBundle\Repository\ImageRepository")
  * @ORM\Table(name="zsf_image")
  * @ORM\HasLifecycleCallbacks()
  */
