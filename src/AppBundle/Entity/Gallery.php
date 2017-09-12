@@ -33,6 +33,7 @@ class Gallery extends ContentBase
     /**
      * 
      * @ORM\OneToMany(targetEntity="ResponsiveImage", mappedBy="gallery")
+     * @ORM\OrderBy({"weight" = "ASC"})
      * 
      */
     private $pictures;

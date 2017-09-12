@@ -6722,3 +6722,13 @@ body {
 .listtable {
   margin-top: 20px;
 }
+.imgremove,
+.imgdrag {
+  font-size: 2.5rem;
+}
+.imgremove {
+  color: #d9534f;
+}
+.imgremove:hover {
+  text-decoration: none;
+}

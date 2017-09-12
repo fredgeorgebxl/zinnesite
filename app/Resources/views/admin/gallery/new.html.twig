@@ -5,7 +5,9 @@
 {% block body %}
     <h1>{{'general.add'|trans}} {{'gallery.gallery'|trans}}</h1>
     {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{ form_row(form._token) }}
         {{ form_row(form.title) }}
+        {{ form_row(form.addimages) }}
         {{ form_row(form.save) }}
-    {{ form_end(form) }}
+    {{ form_end(form, {'render_rest': false}) }}
 {% endblock %}

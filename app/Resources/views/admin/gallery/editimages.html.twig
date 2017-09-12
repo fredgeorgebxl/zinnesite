@@ -1,0 +1,25 @@
+{% trans_default_domain 'App' %}
+{% extends "admin/base-admin.html.twig" %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+{% block title %}{{'general.administration'|trans}} | {{ 'gallery.editimages'|trans }} '{{ form.title.vars.value }}'{% endblock %}
+{% block body %}
+    <h1> {{ 'gallery.editimages'|trans }} '{{ form.title.vars.value }}'</h1>
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    {{ form_row(form._token) }}
+    {{ form_row(form.title) }}
+        <div class="grid clearfix container">
+            {% for imageField in form.pictures %}
+            <div id="image-{{ imageField.id.vars.value }}" class="image-element col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                <span class="glyphicon glyphicon-move imgdrag" aria-hidden="true"></span>
+                {% include 'ResponsiveImageBundle::img.html.twig' with {'image' : {'style' : 'uploads/images/styles/thumb/' ~ imageField.path.vars.value, 'title' : '', 'alt' : ''}} %}
+                <a href="#" title="{{ 'gallery.deleteimage'|trans }}" class="glyphicon glyphicon-remove-circle imgremove" aria-hidden="true"></a>
+                {{ form_widget(imageField.title) }}
+                {{ form_widget(imageField.alt) }}
+                {{ form_widget(imageField.weight) }}
+                {{ form_widget(imageField.path) }}
+            </div>
+            {% endfor %}
+        </div>
+        {{ form_row(form.save) }}
+    {{ form_end(form, {'render_rest': false}) }}
+{% endblock %}

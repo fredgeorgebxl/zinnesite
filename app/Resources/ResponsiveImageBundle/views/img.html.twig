@@ -1,1 +1,1 @@
-<img src="{{ asset(image.style) }}" title="{{ image.title }}" alt="{{ image.alt }}"/>
+<img src="{{ asset(image.style) }}" title="{{ image.title }}" alt="{{ image.alt }}"{% if classes is defined and classes is not empty %} class="{{ classes }}" {% endif %}/>

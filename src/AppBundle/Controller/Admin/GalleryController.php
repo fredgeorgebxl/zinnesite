@@ -5,12 +5,16 @@ namespace AppBundle\Controller\Admin;
 use AppBundle\Entity\Gallery;
 use AppBundle\Entity\ResponsiveImage;
 use AppBundle\Form\GalleryType;
+use AppBundle\Form\GalleryImageType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
   * @Route("/admin/gallery")
@@ -83,6 +87,8 @@ class GalleryController extends Controller
             
             if($form->get('addimages')->isClicked()){
                 return $this->redirectToRoute('gallery_addimages', ['gal_id' => $gal_id]);
+            } elseif ($form->get('edit_images')->isClicked()) {
+                return $this->redirectToRoute('gallery_editimages', ['gal_id' => $gal_id]);
             } else {
                 return $this->redirectToRoute('gallery_list');
             }
@@ -145,13 +151,62 @@ class GalleryController extends Controller
                 return $this->redirectToRoute('gallery_edit', ['gal_id' => $gal_id]);
             }
             if($form->get('edit_images')->isClicked()){
-                return $this->redirectToRoute('gallery_edit', ['gal_id' => $gal_id]);
+                return $this->redirectToRoute('gallery_editimages', ['gal_id' => $gal_id]);
             }
         }
         
         return $this->render('admin/gallery/addimages.html.twig', array(
             'form' => $form->createView(),
             'gallery' => $gallery,
+        ));
+    }
+    
+    /**
+     * @Route("/editimages/{gal_id}", requirements={"gal_id" = "\d+"}, name="gallery_editimages")
+     */
+    public function editimagesAction($gal_id, Request $request){
+
+        $em = $this->getDoctrine()->getManager();
+        $gallery = $em->getRepository(Gallery::class)->find($gal_id);
+        
+        if (!$gallery) {
+            throw $this->createNotFoundException(
+                'No gallery found for id '.$gal_id
+            );
+        }
+        $form = $this->createFormBuilder($gallery)
+                ->add('title', HiddenType::class)
+                ->add('pictures', CollectionType::class, array('allow_delete' => true, 'entry_type' => GalleryImageType::class, 'entry_options' => array('attr' => array('class' => 'image-box'))))
+                ->add('save', SubmitType::class, array('label' => 'gallery.save', 'translation_domain' => 'App'))
+                ->getForm();
+        
+        $originalImages = new ArrayCollection();
+        
+        foreach ($gallery->getPictures() as $image) {
+            $originalImages->add($image);
+        }
+        
+        $form->handleRequest($request);
+        
+        if($form->isSubmitted() && $form->isValid()){
+            
+            foreach ($originalImages as $image) {
+                if (false === $gallery->getPictures()->contains($image)) {
+                    $gallery->removePicture($image);
+                    $this->get('responsive_image')->deleteImageFiles($image);
+                    $em->remove($image);
+                }
+            }
+            
+            $em->persist($gallery);
+            $em->flush();
+            
+            return $this->redirectToRoute('gallery_edit', ['gal_id' => $gal_id]);
+        }
+        
+        return $this->render('admin/gallery/editimages.html.twig', array(
+            'form' => $form->createView(),
+            //'images' => $images,
         ));
     }
 
@@ -162,6 +217,12 @@ class GalleryController extends Controller
         
         $em = $this->getDoctrine()->getManager();
         $gallery = $em->getRepository(Gallery::class)->find($gal_id);
+        $images = $gallery->getPictures();
+        foreach ($images as $image){
+            $this->get('responsive_image')->deleteImageFiles($image);
+            $em->remove($image);
+        }
+        
         $em->remove($gallery);
         $em->flush();
         

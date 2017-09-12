@@ -4,6 +4,7 @@
 {% block body %}
     <h1> {{ 'general.edit'|trans }} '{{ form.title.vars.value }}'</h1>
     {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{ form_row(form._token) }}
         {{ form_row(form.title) }}
         <div class="form-group">
             <div class="clearfix">
@@ -12,7 +13,7 @@
                 {% endfor %}
             </div>
         </div>
-        {{ form_row(form.addimages) }}
+        <div class="form-group">{{ form_widget(form.addimages) }} {% if images|length %}{{ form_widget(form.edit_images) }}{% endif %}</div>
         {{ form_row(form.save) }}
-    {{ form_end(form) }}
+    {{ form_end(form, {'render_rest': false}) }}
 {% endblock %}
