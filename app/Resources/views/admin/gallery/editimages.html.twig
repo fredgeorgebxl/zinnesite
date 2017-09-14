@@ -3,23 +3,99 @@
 {% form_theme form 'bootstrap_3_layout.html.twig' %}
 {% block title %}{{'general.administration'|trans}} | {{ 'gallery.editimages'|trans }} '{{ form.title.vars.value }}'{% endblock %}
 {% block body %}
-    <h1> {{ 'gallery.editimages'|trans }} '{{ form.title.vars.value }}'</h1>
+    <h1> {{ 'gallery.editimagesof'|trans }} '{{ form.title.vars.value }}'</h1>
     {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
     {{ form_row(form._token) }}
     {{ form_row(form.title) }}
-        <div class="grid clearfix container">
+        <div class="grid clearfix container-fluid">
+            <div id="grid" class="row">
             {% for imageField in form.pictures %}
-            <div id="image-{{ imageField.id.vars.value }}" class="image-element col-xs-6 col-sm-4 col-md-3 col-lg-2">
+            <div class="image-element col-xs-6 col-sm-4 col-md-3 col-lg-2">
                 <span class="glyphicon glyphicon-move imgdrag" aria-hidden="true"></span>
-                {% include 'ResponsiveImageBundle::img.html.twig' with {'image' : {'style' : 'uploads/images/styles/thumb/' ~ imageField.path.vars.value, 'title' : '', 'alt' : ''}} %}
-                <a href="#" title="{{ 'gallery.deleteimage'|trans }}" class="glyphicon glyphicon-remove-circle imgremove" aria-hidden="true"></a>
-                {{ form_widget(imageField.title) }}
-                {{ form_widget(imageField.alt) }}
-                {{ form_widget(imageField.weight) }}
+                <div class="thumbnail">
+                {% include 'ResponsiveImageBundle::img.html.twig' with {'image' : {'style' : 'uploads/images/styles/thumb/' ~ imageField.path.vars.value, 'title' : '', 'alt' : ''}, 'classes' : 'img-rounded'} %}
+                <div class="alt-title">
+                    <a href="#" class="glyphicon glyphicon-remove closeform" aria-hidden="true"></a>
+                    {{ form_label(imageField.title) }}
+                    {{ form_widget(imageField.title) }}
+                    {{ form_label(imageField.alt) }}
+                    {{ form_widget(imageField.alt) }}
+                </div>
+                {{ form_widget(imageField.weight, { 'attr': {'class': 'weight'} }) }}
                 {{ form_widget(imageField.path) }}
+                <button type="button" class="btn btn-default btn-xs openform" aria-label="Left Align"><span class="glyphicon glyphicon-list"></span> {{ 'gallery.alttitleedit'|trans }}</button>
+                </div>
             </div>
             {% endfor %}
+            </div>
         </div>
         {{ form_row(form.save) }}
     {{ form_end(form, {'render_rest': false}) }}
+    <script src="{{ asset('js/Sortable.min.js') }}"></script>
+    <script>
+        jQuery(document).ready(function() {
+            var grid = document.getElementById("grid");
+            Sortable.create(grid, {
+                animation: 150,
+                handle: ".imgdrag",
+                draggable: ".image-element",
+                onUpdate: function (evt){
+                    var item = evt.item;
+                    setImagesOrder();
+                }
+            });
+            
+            $collectionHolder = $('div.grid');
+            
+            $collectionHolder.find('.image-element').each(function() {
+                addImageDeleteLink($(this));
+                addOpenFormLink($(this));
+                addCloseFormLink($(this).find('.alt-title'));
+            });
+        });
+        
+        function addImageDeleteLink(imageElement){
+            var deleteLink = $('<a href="#" title="{{ 'gallery.deleteimage'|trans }}" class="glyphicon glyphicon-remove-circle imgremove" aria-hidden="true"></a>');
+            imageElement.find('.thumbnail').before(deleteLink);
+            deleteLink.on('click', function(e) {
+                e.preventDefault();
+                $.confirm({
+                    title: '{{ 'gallery.deleteimage'|trans }}',
+                    content: '{{ 'gallery.deleteimageconfirm'|trans }}',
+                    buttons: {
+                        confirm: {
+                            text : '{{ 'general.confirm'|trans }}',
+                            action: function(){
+                                imageElement.remove();
+                            }
+                        },
+                        cancel: {
+                            text : '{{ 'general.cancel'|trans }}'                         
+                        }
+                    }
+                });
+            });
+        }
+        
+        function setImagesOrder(){
+            collection = $('div.grid');
+            collection.find('.image-element').each(function(index){
+                $(this).find('.weight').val(index + 1);
+            });
+        }
+        
+        function addCloseFormLink(formelement){
+            formelement.find('.closeform').on('click', function(e){
+                e.preventDefault();
+                formelement.css('visibility', 'hidden');
+            });
+        }
+        
+        function addOpenFormLink(imageelement){
+            imageelement.find('.openform').on('click', function(e){
+                e.preventDefault();
+                imageelement.find('.alt-title').css('visibility', 'visible');
+            });
+        }
+    </script>
 {% endblock %}

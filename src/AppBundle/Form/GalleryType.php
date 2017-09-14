@@ -12,8 +12,8 @@ class GalleryType extends AbstractType{
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
             ->add('title', TextType::class, array('label' => 'gallery.title', 'translation_domain' => 'App'))
-            ->add('addimages', SubmitType::class, array('label' => 'events.addimages', 'translation_domain' => 'App'))
-            ->add('edit_images', SubmitType::class, array('label' => 'gallery.edit_images', 'translation_domain' => 'App'))
+            ->add('addimages', SubmitType::class, array('label' => 'gallery.addimages', 'translation_domain' => 'App'))
+            ->add('edit_images', SubmitType::class, array('label' => 'gallery.editimages', 'translation_domain' => 'App'))
             ->add('save', SubmitType::class, array('label' => 'events.save', 'translation_domain' => 'App'));
     }
 }
