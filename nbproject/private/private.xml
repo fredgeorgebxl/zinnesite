@@ -5,13 +5,15 @@
         <group>
             <file>file:/www/symfony_test/app/Resources/views/admin/gallery/addimages.html.twig</file>
             <file>file:/www/symfony_test/app/Resources/views/admin/gallery/edit.html.twig</file>
-            <file>file:/www/symfony_test/src/AppBundle/Entity/Gallery.php</file>
-            <file>file:/www/symfony_test/src/AppBundle/Form/GalleryType.php</file>
             <file>file:/www/symfony_test/src/AppBundle/Form/GalleryImageType.php</file>
-            <file>file:/www/symfony_test/app/Resources/public/less/admin/variables.less</file>
+            <file>file:/www/symfony_test/app/Resources/translations/App.fr.yml</file>
+            <file>file:/www/symfony_test/app/Resources/ResponsiveImageBundle/views/img.html.twig</file>
+            <file>file:/www/symfony_test/app/AppKernel.php</file>
+            <file>file:/www/symfony_test/src/AppBundle/Entity/Gallery.php</file>
+            <file>file:/www/symfony_test/composer.json</file>
+            <file>file:/www/symfony_test/src/AppBundle/Form/GalleryType.php</file>
             <file>file:/www/symfony_test/src/AppBundle/Controller/Admin/UserController.php</file>
             <file>file:/www/symfony_test/app/Resources/views/admin/gallery/editimages.html.twig</file>
-            <file>file:/www/symfony_test/app/Resources/ResponsiveImageBundle/views/img.html.twig</file>
             <file>file:/www/symfony_test/app/Resources/public/less/admin/overwrite.less</file>
             <file>file:/www/symfony_test/src/AppBundle/Controller/Admin/GalleryController.php</file>
             <file>file:/www/symfony_test/app/Resources/views/admin/gallery/new.html.twig</file>

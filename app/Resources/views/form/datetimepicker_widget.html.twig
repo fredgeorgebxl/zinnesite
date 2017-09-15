@@ -1,0 +1,21 @@
+{% block datetimepicker_widget %}
+    {% if widget == "single_text" %}
+        {{ block("form_widget_simple") }}
+    {% endif %}
+    <script type="text/javascript">
+            var assets = '<link rel=\"stylesheet\" href=\"{{ asset("css/flatpickr.min.css") }}\" \/><script src=\"{{ asset("js/flatpickr/flatpickr.min.js") }}\"><\/script><script src=\"{{ asset("js/flatpickr/l10n/fr.js") }}\"><\/script>';
+            $('head').append(assets);
+        {# Configuration de flatpickr #}
+        {# http://www.jqueryrain.com/?lo_EWr2U #}
+            jQuery(document).ready(function() {
+                $("#{{ id }}").flatpickr({
+                    utc: false,
+                    locale: French,
+                    enableTime: true,
+                    time_24hr: true,
+                    defaultDate: "{{ value }}",
+                    dateFormat: "d-m-Y H:i"
+                });
+            });
+    </script>
+{% endblock %}

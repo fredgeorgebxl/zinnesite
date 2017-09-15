@@ -38,6 +38,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form_themes:
+        - 'form/datetimepicker_widget.html.twig'
 
 # Doctrine Configuration
 doctrine:
@@ -149,3 +151,9 @@ responsive_image:
         directory: 'directory_name'
         access_key_id: KEY_ID
         secret_access_key: ACCESS_SECRET
+        
+ivory_ck_editor:
+    default_config: base_config
+    configs:
+        base_config:
+            toolbar: standard
