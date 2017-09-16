@@ -3,20 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/www/symfony_test/app/Resources/public/sass/front/_header.scss</file>
             <file>file:/www/symfony_test/app/Resources/views/admin/gallery/addimages.html.twig</file>
             <file>file:/www/symfony_test/app/Resources/views/admin/gallery/edit.html.twig</file>
-            <file>file:/www/symfony_test/app/Resources/views/default/index.html.twig</file>
             <file>file:/www/symfony_test/src/AppBundle/Form/GalleryImageType.php</file>
-            <file>file:/www/symfony_test/app/Resources/public/js/zinne.js</file>
-            <file>file:/www/symfony_test/web/css/dropzone.css</file>
-            <file>file:/www/symfony_test/app/Resources/public/sass/front/foundation.scss</file>
+            <file>file:/www/symfony_test/app/Resources/translations/App.fr.yml</file>
+            <file>file:/www/symfony_test/app/Resources/ResponsiveImageBundle/views/img.html.twig</file>
+            <file>file:/www/symfony_test/app/AppKernel.php</file>
             <file>file:/www/symfony_test/src/AppBundle/Entity/Gallery.php</file>
-            <file>file:/www/symfony_test/gulpfile.js</file>
-            <file>file:/www/symfony_test/app/Resources/public/sass/front/_page.scss</file>
+            <file>file:/www/symfony_test/composer.json</file>
             <file>file:/www/symfony_test/src/AppBundle/Form/GalleryType.php</file>
+            <file>file:/www/symfony_test/src/AppBundle/Controller/Admin/UserController.php</file>
             <file>file:/www/symfony_test/app/Resources/views/admin/gallery/editimages.html.twig</file>
-            <file>file:/www/symfony_test/app/Resources/views/base.html.twig</file>
+            <file>file:/www/symfony_test/app/Resources/public/less/admin/overwrite.less</file>
             <file>file:/www/symfony_test/src/AppBundle/Controller/Admin/GalleryController.php</file>
             <file>file:/www/symfony_test/app/Resources/views/admin/gallery/new.html.twig</file>
         </group>

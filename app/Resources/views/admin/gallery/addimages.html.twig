@@ -1,13 +1,13 @@
 {% trans_default_domain 'App' %}
 {% extends "admin/base-admin.html.twig" %}
 {% form_theme form 'bootstrap_3_layout.html.twig' %}
-{% block title %}{{'general.administration'|trans}} | {{ "gallery.add_images_to"|trans }} '{{ gallery.title }}'{% endblock %}
+{% block title %}{{'general.administration'|trans}} | {{ "gallery.addimagesto"|trans }} '{{ gallery.title }}'{% endblock %}
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/backend_styles.css') }}"/>
     <link rel="stylesheet" href="{{ asset('css/dropzone.css') }}"/>
 {% endblock %}
 {% block body %}
-    <h1>{{ "gallery.add_images_to"|trans }} '{{ gallery.title }}'</h1>
+    <h1>{{ "gallery.addimagesto"|trans }} '{{ gallery.title }}'</h1>
     {{ form_start(form, {'attr': {'novalidate': 'novalidate', 'class': 'dropzone', 'id': 'mydropzone'}}) }}
         <div class="fallback">
             {{ form_row(form.file) }}
@@ -21,7 +21,7 @@
     <script type="text/javascript">
         Dropzone.options.mydropzone = {
             paramName: "form[file]",
-            dictDefaultMessage: "{{ "gallery.drop_files_here"|trans }}",
+            dictDefaultMessage: "{{ "gallery.dropfileshere"|trans }}",
             processing: function(file){
                 $('#form_edit_gallery').prop('disabled', true);
             },

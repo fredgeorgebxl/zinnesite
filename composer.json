@@ -30,7 +30,9 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "intervention/image": "^2.3",
-        "knplabs/knp-menu-bundle": "^2.0"
+        "knplabs/knp-menu-bundle": "^2.0",
+        "irishdan/responsive-image-bundle": "^1.0",
+        "egeloen/ckeditor-bundle": "^6.0"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

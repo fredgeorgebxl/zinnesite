@@ -10,7 +10,8 @@ var env = process.env.GULP_ENV;
 
 gulp.task('back_js', function () {
     return gulp.src(['bower_components/jquery/dist/jquery.js',
-        'bower_components/bootstrap/dist/js/bootstrap.js'])
+        'bower_components/bootstrap/dist/js/bootstrap.js',
+        'bower_components/jquery-confirm2/js/jquery-confirm.js'])
         .pipe(concat('backend_script.js'))
         .pipe(gulpif(env === 'prod', uglify()))
         .pipe(sourcemaps.write('./'))
@@ -42,7 +43,8 @@ gulp.task('site_js', function () {
 
 gulp.task('back_style', function () {
     return gulp.src([
-        'app/Resources/public/less/admin/styles.less'])
+        'app/Resources/public/less/admin/styles.less',
+        'bower_components/jquery-confirm2/css/jquery-confirm.less'])
         .pipe(gulpif(/[.]less/, less()))
         .pipe(concat('backend_styles.css'))
         .pipe(gulpif(env === 'prod', uglifycss()))

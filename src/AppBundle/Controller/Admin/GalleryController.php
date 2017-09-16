@@ -53,7 +53,11 @@ class GalleryController extends Controller
             $em->persist($gallery);
             $em->flush();
             
-            return $this->redirectToRoute('gallery_list');
+            if($form->get('addimages')->isClicked()){
+                return $this->redirectToRoute('gallery_addimages', ['gal_id' => $gallery->getId()]);
+            } else {
+                return $this->redirectToRoute('gallery_list');
+            }
         }
 
         return $this->render('admin/gallery/new.html.twig', array(
@@ -118,8 +122,8 @@ class GalleryController extends Controller
         $form = $this->createFormBuilder()
             ->setAction($this->generateUrl('gallery_addimages', ['gal_id' => $gal_id]))
             ->add('file', FileType::class)
-            ->add('edit_gallery', SubmitType::class, array('label' => 'gallery.edit_gallery', 'translation_domain' => 'App'))
-            ->add('edit_images', SubmitType::class, array('label' => 'gallery.edit_images', 'translation_domain' => 'App'))
+            ->add('edit_gallery', SubmitType::class, array('label' => 'gallery.editgallery', 'translation_domain' => 'App'))
+            ->add('edit_images', SubmitType::class, array('label' => 'gallery.editimages', 'translation_domain' => 'App'))
             ->getForm();
         
         $form->handleRequest($request);
@@ -193,7 +197,7 @@ class GalleryController extends Controller
             foreach ($originalImages as $image) {
                 if (false === $gallery->getPictures()->contains($image)) {
                     $gallery->removePicture($image);
-                    $this->get('responsive_image')->deleteImageFiles($image);
+                    $this->get('responsive_image')->deleteImageFiles($image, TRUE, TRUE);
                     $em->remove($image);
                 }
             }
@@ -219,7 +223,7 @@ class GalleryController extends Controller
         $gallery = $em->getRepository(Gallery::class)->find($gal_id);
         $images = $gallery->getPictures();
         foreach ($images as $image){
-            $this->get('responsive_image')->deleteImageFiles($image);
+            $this->get('responsive_image')->deleteImageFiles($image, TRUE, TRUE);
             $em->remove($image);
         }
         

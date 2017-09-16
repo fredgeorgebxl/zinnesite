@@ -13,11 +13,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class GalleryImageType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {     
         $builder
-            ->add('id', HiddenType::class)
             ->add('path',HiddenType::class)
             ->add('title', TextType::class, array('required' => FALSE, 'label' => 'image.title', 'translation_domain' => 'App'))
             ->add('alt', TextType::class, array('required' => FALSE, 'label' => 'image.alt', 'translation_domain' => 'App'))
-            ->add('weight', TextType::class);
+            ->add('weight', HiddenType::class);
     }
     
     public function configureOptions(OptionsResolver $resolver) {

@@ -60,6 +60,8 @@ class ComposerStaticInit2bacd54528de0599260d3905a1eaec01
         ),
         'I' => 
         array (
+            'Ivory\\JsonBuilder\\' => 18,
+            'Ivory\\CKEditorBundle\\' => 21,
             'IrishDan\\ResponsiveImageBundle\\' => 31,
             'Intervention\\Image\\' => 19,
             'Incenteev\\ParameterHandler\\' => 27,
@@ -183,6 +185,14 @@ class ComposerStaticInit2bacd54528de0599260d3905a1eaec01
         'Knp\\Bundle\\MenuBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/knplabs/knp-menu-bundle',
+        ),
+        'Ivory\\JsonBuilder\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/egeloen/json-builder/src',
+        ),
+        'Ivory\\CKEditorBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/egeloen/ckeditor-bundle',
         ),
         'IrishDan\\ResponsiveImageBundle\\' => 
         array (

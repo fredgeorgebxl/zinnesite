@@ -12,6 +12,10 @@ general:
     edit: 'Éditer'
     add: 'Ajouter'
     delete: 'Supprimer'
+    deleteentity: "Supprimer l'entité"
+    deleteentityconfirm: 'Voulez-vous réellement supprimer cette entité de manière définitive ?'
+    confirm: 'Confirmer'
+    cancel: 'Annuler'
 users:
     users: 'Membres'
     user: 'membre'
@@ -61,5 +65,15 @@ gallery:
     galleries: 'Galeries'
     create: 'Créer'
     title: 'Titre'
+    editimagesof: 'Editer les images de'
+    addimages: 'Ajouter des images'
+    addimagesto: 'Ajouter des images à'
+    editgallery: 'Editer la galerie'
+    editimages: 'Editer les images'
+    alttitleedit: 'Modifier description'
+    dropfileshere : 'Glissez les fichiers dans cette zone ou cliquez pour sélectionner des fichers de votre ordinateur'
+    save: 'Enregistrer'
+    deleteimage: "Supprimer l'image"
+    deleteimageconfirm: 'Voulez-vous réellement supprimer cette image de manière définitive ?'
 website:
     title: 'Website'
