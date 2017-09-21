@@ -43,6 +43,14 @@ class Event extends ContentBase{
      */
     private $season;
     
+    /**
+     * @ORM\OneToOne(targetEntity="ResponsiveImage", inversedBy="event", cascade={"persist", "remove"}, orphanRemoval=true)
+     * @ORM\JoinColumn(name="picture_id", referencedColumnName="id", nullable=true)
+     * @Assert\Type(type="AppBundle\Entity\ResponsiveImage")
+     * @Assert\Valid()
+     */
+    protected $picture;
+    
 
     /**
      * Get id
@@ -148,5 +156,29 @@ class Event extends ContentBase{
     public function getSeason()
     {
         return $this->season;
+    }
+    
+     /**
+     * Set picture
+     *
+     * @param \AppBundle\Entity\ResponsiveImage $picture
+     *
+     * @return User
+     */
+    public function setPicture(\AppBundle\Entity\ResponsiveImage $picture = null)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return \AppBundle\Entity\ResponsiveImage
+     */
+    public function getPicture()
+    {
+        return $this->picture;
     }
 }

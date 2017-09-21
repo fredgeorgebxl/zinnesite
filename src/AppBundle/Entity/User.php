@@ -54,8 +54,8 @@ class User extends BaseUser
     protected $voice;
 
     /**
-     * @ORM\OneToOne(targetEntity="ResponsiveImage", inversedBy="user")
-     * @ORM\JoinColumn(name="picture_id", referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity="ResponsiveImage", inversedBy="user", cascade={"persist", "remove"}, orphanRemoval=true)
+     * @ORM\JoinColumn(name="picture_id", referencedColumnName="id", nullable=true)
      * @Assert\Type(type="AppBundle\Entity\ResponsiveImage")
      * @Assert\Valid()
      */

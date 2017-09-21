@@ -51,6 +51,8 @@ image:
     file: 'Fichier'
     crop_focus: 'Cadrage et focus'
     change_file: 'Nouvelle photo'
+    add: "Ajouter l'image"
+    remove: "Supprimer l'image"
 events:
     events: 'Événements'
     event: 'Événement'
