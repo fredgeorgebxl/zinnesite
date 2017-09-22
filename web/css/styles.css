@@ -3928,8 +3928,14 @@ h6 {
     background-color: inherit; }
 
 @media screen and (min-width: 40em) {
-  .top-bar {
+  .homepage .top-bar {
     margin-top: -200px; } }
+
+main {
+  padding-top: 80px; }
+
+.homepage main {
+  padding-top: 0; }
 
 .main-hp {
   background-color: #2cb28c;

@@ -1,3 +1,11 @@
+main{
+    padding-top: 80px;
+}
+.homepage{
+    main{
+        padding-top: 0;
+    }
+}
 .main-hp{
     background-color: $primary-color;
     .main-hp-menu{

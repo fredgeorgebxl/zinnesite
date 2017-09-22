@@ -1,0 +1,25 @@
+{% trans_default_domain 'App' %}
+{% extends 'base.html.twig' %}
+{% block title %}{{ 'website.title'|trans }} | {{ 'website.agenda'|trans }}{% endblock %}
+{% block body %}
+    <div class="column row">
+        <h1>{{ 'website.agenda'|trans }}</h1>
+        <div class="column row">
+            <h2>{{ 'website.nextevents'|trans }}</h2>
+            {% for event in events %}
+                <h3>{{ event.name }}</h3>
+            {% endfor %}
+        </div>
+        <div class="column row">
+            <h2>{{ 'website.pastevents'|trans }}</h2>
+            {% set curseason = null %}
+            {% for pastevent in pastevents %}
+                {% if curseason != pastevent.season %}
+                <h3>{{ 'website.season'|trans }} {{ pastevent.season }}</h3>
+                {% endif %}
+                <h4><a href="{{ path('event', {'slug': pastevent.slug}) }}">{{ pastevent.name }}</a></h4>
+                {% set curseason = pastevent.season %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

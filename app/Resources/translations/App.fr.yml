@@ -78,4 +78,12 @@ gallery:
     deleteimage: "Supprimer l'image"
     deleteimageconfirm: 'Voulez-vous réellement supprimer cette image de manière définitive ?'
 website:
-    title: 'Website'
+    title: 'Zinnechœur - Chorale à Bruxelles'
+    agenda: 'Agenda'
+    repertoire: 'Répertoire'
+    membres: 'Membres'
+    photos: 'Photos'
+    contact: 'Contact'
+    nextevents: 'Prochains concerts'
+    pastevents: 'Concerts passés'
+    season: 'Saison'

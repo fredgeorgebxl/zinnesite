@@ -8,7 +8,9 @@
 }
 
 @include breakpoint(medium up) {
-    .top-bar{
-        margin-top: -200px;
+    .homepage{
+        .top-bar{
+            margin-top: -200px;
+        }
     }
 }

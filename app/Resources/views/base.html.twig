@@ -13,24 +13,21 @@
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
+    {% if ishome is defined %}
+    <body class="homepage">
+    {% else %}
     <body>
+    {% endif %}
         {% block header %}
         <header>
             <div data-sticky-container>
                 <div class="top-bar">
                     <div class="column row">
                         <div class="top-bar-title">
-                            Zinnechœur
+                            <a href="./">Zinnechœur</a>
                         </div>
                         <nav class="main-nav top-bar-left">
-                            <ul class="menu">
-                                <li><a href="#">Agenda</a></li>
-                                <li><a href="#">Répertoires</a></li>
-                                <li><a href="#">Membres</a></li>
-                                <li><a href="#">Photos</a></li>
-                                <li><a href="#">Vidéos</a></li>
-                                <li><a href="#">Nous (re)joindre</a></li>
-                            </ul>
+                            {{ knp_menu_render('AppBundle:Builder:mainMenu',{'currentClass' : 'active'}) }}
                         </nav>
                         <div class="social-networks top-bar-right">
                             <ul class="menu">
@@ -53,7 +50,6 @@
         {% endblock %}
         {% block javascripts %}
             <script src="{{ asset('js/script.js') }}"></script>
-            <script src="{{ asset('js/zinne.js') }}"></script>
         {% endblock %}
     </body>
 </html>

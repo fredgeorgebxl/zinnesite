@@ -1,0 +1,10 @@
+{% trans_default_domain 'App' %}
+{% extends 'base.html.twig' %}
+{% block title %}{{ 'website.title'|trans }} | {{ event.name }}{% endblock %}
+{% block body %}
+    <div class="column row">
+        <h1>{{ event.name }}</h1>
+        <div class="date">{{ event.date|date('d-m-Y') }}</div>
+        <div class="event-content">{{ event.description|raw }}</div>
+    </div>
+{% endblock %}

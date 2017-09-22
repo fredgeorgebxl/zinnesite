@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Gallery
@@ -37,8 +38,13 @@ class Gallery extends ContentBase
      * 
      */
     private $pictures;
-
     
+    /**
+     * @Gedmo\Slug(fields={"title"})
+     * @ORM\Column(length=200, unique=true, nullable=true)
+     */
+    private $slug;
+
     public function __construct() {
         $this->pictures = new ArrayCollection();
     }
@@ -123,5 +129,15 @@ class Gallery extends ContentBase
     public function removePicture(\AppBundle\Entity\ResponsiveImage $picture)
     {
         $this->pictures->removeElement($picture);
+    }
+    
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

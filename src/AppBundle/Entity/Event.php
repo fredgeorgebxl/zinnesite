@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use AppBundle\Entity\ContentBase;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity
@@ -51,6 +52,11 @@ class Event extends ContentBase{
      */
     protected $picture;
     
+    /**
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(length=200, unique=true, nullable=true)
+     */
+    private $slug;
 
     /**
      * Get id
@@ -180,5 +186,15 @@ class Event extends ContentBase{
     public function getPicture()
     {
         return $this->picture;
+    }
+    
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }
