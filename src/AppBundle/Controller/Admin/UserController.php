@@ -20,7 +20,7 @@ class UserController extends Controller{
     public function indexAction()
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $users = $entityManager->getRepository(User::class)->findAll();
+        $users = $entityManager->getRepository(User::class)->findBy([], ['firstname' => 'asc']);
 
         return $this->render('admin/user/index.html.twig', ['users' => $users]);
     }

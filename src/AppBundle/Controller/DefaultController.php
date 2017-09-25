@@ -24,11 +24,13 @@ class DefaultController extends Controller
         $entityManager = $this->getDoctrine()->getManager();
         $repository = $entityManager->getRepository(\AppBundle\Entity\Event::class);
         $queryEvents = $repository->createQueryBuilder('ev')
+                ->where('ev.published = 1')
                 ->where('ev.date >= :datenow')
                 ->setParameter('datenow', date('Y-m-d H:i:s'))
                 ->orderBy('ev.date', 'DESC')
                 ->getQuery();
         $pastEventsQuery = $repository->createQueryBuilder('ev')
+                ->where('ev.published = 1')
                 ->where('ev.date < :datenow')
                 ->setParameter('datenow', date('Y-m-d H:i:s'))
                 ->orderBy('ev.season', 'DESC')
@@ -46,7 +48,13 @@ class DefaultController extends Controller
     public function eventAction($slug)
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $event = $entityManager->getRepository(\AppBundle\Entity\Event::class)->findOneBySlug($slug);
+        $event = $entityManager->getRepository(\AppBundle\Entity\Event::class)->findOneBy([ 'slug' => $slug, 'published' => 1]);
+        
+        if (!$event) {
+            throw $this->createNotFoundException(
+                'No event found for slug '.$slug
+            );
+        }
         
         return $this->render('default/event.html.twig', ['event' => $event]);
     }
@@ -57,9 +65,10 @@ class DefaultController extends Controller
     public function repertoireAction()
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $repertoire = $entityManager->getRepository(\AppBundle\Entity\Repertoire::class)->findBy([], ['title' => 'asc']);
+        $repertoire = $entityManager->getRepository(\AppBundle\Entity\Repertoire::class)->findBy(['published' => 1, 'active' => 1], ['title' => 'asc']);
+        $oldrepertoire = $entityManager->getRepository(\AppBundle\Entity\Repertoire::class)->findBy(['published' => 1, 'active' => 0], ['title' => 'asc']);
         
-        return $this->render('default/repertoire.html.twig', ['repertoire' => $repertoire]);
+        return $this->render('default/repertoire.html.twig', ['repertoire' => $repertoire, 'oldrepertoire' => $oldrepertoire]);
     }
     
     /**
@@ -68,9 +77,16 @@ class DefaultController extends Controller
     public function membresAction()
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $membres = $entityManager->getRepository(\AppBundle\Entity\User::class)->findBy([], ['firstname' => 'asc']);
+        $repository = $entityManager->getRepository(\AppBundle\Entity\User::class);
+        $queryMembers = $repository->createQueryBuilder('m')
+                ->where('m.enabled = 1')
+                ->where('m.voice != \'chef\'')
+                ->orderBy('m.firstname', 'ASC')
+                ->getQuery();
+        $members = $queryMembers->getResult();
+        $chef = $entityManager->getRepository(\AppBundle\Entity\User::class)->findOneBy([ 'voice' => 'chef', 'enabled' => 1]);
         
-        return $this->render('default/membres.html.twig', ['membres' => $membres]);
+        return $this->render('default/membres.html.twig', ['chef' => $chef, 'members' => $members]);
     }
     
     /**
@@ -79,9 +95,20 @@ class DefaultController extends Controller
     public function photosAction()
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $galleries = $entityManager->getRepository(\AppBundle\Entity\Gallery::class)->findBy([], ['datecreated' => 'desc']);
+        $galleries = $entityManager->getRepository(\AppBundle\Entity\Gallery::class)->findBy(['published' => 1], ['datecreated' => 'desc']);
         
         return $this->render('default/photos.html.twig', ['galleries' => $galleries]);
+    }
+    
+    /**
+     * @Route("/photos/{slug}", name="gallery")
+     */
+    public function galleryAction($slug)
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $gallery = $entityManager->getRepository(\AppBundle\Entity\Gallery::class)->findOneBy([ 'slug' => $slug, 'published' => 1]);
+        
+        return $this->render('default/gallery.html.twig', ['gallery' => $gallery]);
     }
     
     /**

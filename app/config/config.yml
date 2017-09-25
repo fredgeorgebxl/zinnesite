@@ -114,10 +114,15 @@ responsive_image:
         project_full:
             effect: scale
             width: 940
+        project_square:
+            effect: crop
+            width: 500
+            height: 500
+            greyscale: TRUE
         project_thumb:
             effect: crop
-            width: 540
-            height: 400
+            width: 500
+            height: 500
     picture_sets:                       # Picture set definitions
         thumb_picture:
             base:                       # Breakpoint name

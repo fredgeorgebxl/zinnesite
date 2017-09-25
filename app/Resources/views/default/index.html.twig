@@ -4,14 +4,7 @@
     <section class="main-hp text-center">
         <div class="main-hp-content">
             <nav class="main-hp-menu menu-centered">
-                <ul class="menu">
-                    <li><a href="#">Agenda</a></li>
-                    <li><a href="#">Répertoires</a></li>
-                    <li><a href="#">Membres</a></li>
-                    <li><a href="#">Photos</a></li>
-                    <li><a href="#">Vidéos</a></li>
-                    <li><a href="#">Nous (re)joindre</a></li>
-                </ul>
+                {{ knp_menu_render('AppBundle:Builder:mainMenu',{'currentClass' : 'active'}) }}
                 <div class="social-networks menu-centered">
                     <ul class="menu">
                         <li><a href="#" class="facebook">Facebook</a></li>

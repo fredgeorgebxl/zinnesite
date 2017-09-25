@@ -7,7 +7,12 @@
         <div class="column row">
             <h2>{{ 'website.nextevents'|trans }}</h2>
             {% for event in events %}
+                <div class="date">{{ event.date|date('d-m-Y') }}</div>
                 <h3>{{ event.name }}</h3>
+                {% if event.picture is defined and event.picture is not null %}
+                    {{ styled_image(event.picture, 'project_full') }}
+                {% endif %}
+                <div class="event-content">{{ event.description|raw }}</div>
             {% endfor %}
         </div>
         <div class="column row">
@@ -17,6 +22,7 @@
                 {% if curseason != pastevent.season %}
                 <h3>{{ 'website.season'|trans }} {{ pastevent.season }}</h3>
                 {% endif %}
+                <div class="date">{{ pastevent.date|date('d-m-Y') }}</div>
                 <h4><a href="{{ path('event', {'slug': pastevent.slug}) }}">{{ pastevent.name }}</a></h4>
                 {% set curseason = pastevent.season %}
             {% endfor %}
