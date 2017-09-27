@@ -15,3 +15,11 @@ services:
         arguments: ['@service_container']
         tags:
             - { name: form.type }
+            
+# Twig extensions
+    app.twig_extension:
+        class: AppBundle\Twig\AppExtension
+        public: false
+        arguments: [ '@responsive_image.style_manager' ]
+        tags:
+            - { name: twig.extension }

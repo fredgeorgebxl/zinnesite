@@ -1,15 +1,23 @@
 {% trans_default_domain 'App' %}
 {% extends 'base.html.twig' %}
 {% block title %}{{ 'website.title'|trans }} | {{ gallery.title }}{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('css/fresco/fresco.css') }}"/>
+{% endblock %}
 {% block body %}
     <div class="column row">
         <h1>{{ gallery.title }}</h1>
         <div class="row">
         {% for image in gallery.pictures %}
             <div class="small-12 medium-4 large-3 columns end">
-                <div>{{ styled_image(image, 'project_thumb') }}</div>
+                <a href="{{ asset('uploads/images/'~image.path) }}" class="fresco"{% if image.title is not empty %} data-fresco-caption="{{ image.title }}"{% endif %} data-fresco-group="current-gallery">{{ styled_image(image, 'project_thumb') }}</a>
             </div>
         {% endfor %}
         </div>
     </div>
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('js/script.js') }}"></script>
+    <script src="{{ asset('js/fresco/fresco.js') }}"></script>
 {% endblock %}

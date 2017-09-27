@@ -3950,3 +3950,27 @@ main {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); }
+
+.galleryfront {
+  position: relative; }
+  .galleryfront .galleryfront-1 {
+    position: relative;
+    -ms-transform: rotate(-5deg);
+    /* IE 9 */
+    -webkit-transform: rotate(-5deg);
+    /* Chrome, Safari, Opera */
+    transform: rotate(-5deg);
+    left: -10px; }
+  .galleryfront .galleryfront-2 {
+    position: absolute;
+    top: 0;
+    left: 0; }
+  .galleryfront .galleryfront-3 {
+    position: absolute;
+    top: 0;
+    left: 10px;
+    -ms-transform: rotate(5deg);
+    /* IE 9 */
+    -webkit-transform: rotate(5deg);
+    /* Chrome, Safari, Opera */
+    transform: rotate(5deg); }

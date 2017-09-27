@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
@@ -114,10 +115,30 @@ class DefaultController extends Controller
     /**
      * @Route("/contact", name="contact")
      */
-    public function contactAction()
+    public function contactAction(Request $request)
     {
+        $form = $this->createForm(\AppBundle\Form\ContactType::class);
+        $form->handleRequest($request);
+        $messagesent = NULL;
         
-        return $this->render('default/contact.html.twig');
+        if($form->isSubmitted() &&  $form->isValid()){
+            $name = $form['name']->getData();
+            $email = $form['email']->getData();
+            $subject = $form['subject']->getData();
+            $message = $form['message']->getData();
+            
+            $swiftmessage = (new \Swift_Message($subject))
+               ->setFrom($email)
+               ->setTo($this->getParameter('contact_mail'))
+               ->setBody($this->renderView('mails/contactmail.html.twig',array('name' => $name, 'email' => $email, 'message' => $message)),'text/html');
+            
+            if($this->get('mailer')->send($swiftmessage)){
+                $messagesent = TRUE;
+            } else {
+                $messagesent = FALSE;
+            }
+        }
+        
+        return $this->render('default/contact.html.twig', ['form' => $form->createView(), 'messagesent' => $messagesent]);
     }
-    
 }
