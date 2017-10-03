@@ -2962,5 +2962,47 @@
             "translatable",
             "tree"
         ]
+    },
+    {
+        "name": "isometriks/spam-bundle",
+        "version": "v1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/isometriks/IsometriksSpamBundle.git",
+            "reference": "6750758208eacff872fb072843c39e0bda0a60f7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/isometriks/IsometriksSpamBundle/zipball/6750758208eacff872fb072843c39e0bda0a60f7",
+            "reference": "6750758208eacff872fb072843c39e0bda0a60f7",
+            "shasum": ""
+        },
+        "time": "2016-09-23T18:48:09+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Isometriks\\Bundle\\SpamBundle\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "authors": [
+            {
+                "name": "Craig Blanchette",
+                "email": "craig.blanchette@gmail.com",
+                "homepage": "http://isometriks.com"
+            },
+            {
+                "name": "Patrik Pacin",
+                "email": "github@exploit.cz",
+                "homepage": "https://exploit.cz"
+            }
+        ],
+        "description": "Provides spam protection for Symfony3 forms",
+        "keywords": [
+            "spam",
+            "symfony3"
+        ]
     }
 ]

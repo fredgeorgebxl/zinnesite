@@ -7,9 +7,9 @@
         <h1>{{ 'website.contact'|trans }}</h1>
         {% if messagesent is defined and messagesent is not null %}
             {% if messagesent == 1 %}
-            <div class="callout success large">{{ 'website.contactform.sendconfirm' }}</div>
+                <div class="callout success large">{{ 'website.contactform.sendconfirm'|trans }}</div>
             {% else %}
-            <div class="callout alert large">{{ 'website.contactform.senderror' }}</div>
+                <div class="callout alert large">{{ 'website.contactform.senderror'|trans }}</div>
             {% endif %}
         {% else %}
         {{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}

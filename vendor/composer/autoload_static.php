@@ -63,6 +63,7 @@ class ComposerStaticInit2bacd54528de0599260d3905a1eaec01
         array (
             'Ivory\\JsonBuilder\\' => 18,
             'Ivory\\CKEditorBundle\\' => 21,
+            'Isometriks\\Bundle\\SpamBundle\\' => 29,
             'IrishDan\\ResponsiveImageBundle\\' => 31,
             'Intervention\\Image\\' => 19,
             'Incenteev\\ParameterHandler\\' => 27,
@@ -198,6 +199,10 @@ class ComposerStaticInit2bacd54528de0599260d3905a1eaec01
         'Ivory\\CKEditorBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/egeloen/ckeditor-bundle',
+        ),
+        'Isometriks\\Bundle\\SpamBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/isometriks/spam-bundle',
         ),
         'IrishDan\\ResponsiveImageBundle\\' => 
         array (

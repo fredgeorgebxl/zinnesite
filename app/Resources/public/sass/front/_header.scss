@@ -1,3 +1,8 @@
+.title-bar{
+    width: 100%;
+    position: fixed;
+    z-index: 1001;
+}
 .top-bar{
     width: 100%;
     background-color: $white;
@@ -5,6 +10,12 @@
     position: fixed;
     z-index: 1000;
     ul{ background-color: inherit; }
+}
+
+@include breakpoint(small only) {
+    .top-bar{
+        margin-top: 45px !important;
+    }
 }
 
 @include breakpoint(medium up) {

@@ -35,7 +35,7 @@ class Builder implements ContainerAwareInterface
     
     public function mainMenu(FactoryInterface $factory, array $options)
     {
-        $menu = $factory->createItem('root', array('childrenAttributes' => array('class' => 'menu')));
+        $menu = $factory->createItem('root', array('childrenAttributes' => array('class' => 'vertical medium-horizontal menu')));
         
         $menu->addChild('website.agenda', array('route' => 'agenda'))
                 ->setExtra('translation_domain', 'App');

@@ -21,7 +21,11 @@
         {% block header %}
         <header>
             <div data-sticky-container>
-                <div class="top-bar">
+                <div class="title-bar" data-responsive-toggle="main-menu">
+                    <button class="menu-icon" type="button" data-toggle="main-menu"></button>
+                    <div class="title-bar-title">Menu</div>
+                </div>
+                <div class="top-bar" id="main-menu">
                     <div class="column row">
                         <div class="top-bar-title">
                             <a href="{{ path('homepage') }}">Zinnechœur</a>
@@ -30,7 +34,7 @@
                             {{ knp_menu_render('AppBundle:Builder:mainMenu',{'currentClass' : 'active'}) }}
                         </nav>
                         <div class="social-networks top-bar-right">
-                            <ul class="menu">
+                            <ul class="vertical medium-horizontal menu">
                                 <li><a href="#" class="facebook">Facebook</a></li>
                                 <li><a href="#" class="youtube">Youtube</a></li>
                             </ul>
@@ -50,6 +54,7 @@
         {% endblock %}
         {% block javascripts %}
             <script src="{{ asset('js/script.js') }}"></script>
+            <script src="{{ asset('js/zinne.js') }}"></script>
         {% endblock %}
     </body>
 </html>

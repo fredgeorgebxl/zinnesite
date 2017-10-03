@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new Isometriks\Bundle\SpamBundle\IsometriksSpamBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

@@ -3,7 +3,7 @@
 {% block body %}
     <section class="main-hp text-center">
         <div class="main-hp-content">
-            <nav class="main-hp-menu menu-centered">
+            <nav class="main-hp-menu menu-centered hide-for-small-only">
                 {{ knp_menu_render('AppBundle:Builder:mainMenu',{'currentClass' : 'active'}) }}
                 <div class="social-networks menu-centered">
                     <ul class="menu">
@@ -51,8 +51,4 @@
             </p>
         </div>
     </section>
-{% endblock %}
-{% block javascripts %}
-    <script src="{{ asset('js/script.js') }}"></script>
-    <script src="{{ asset('js/zinne.js') }}"></script>
 {% endblock %}

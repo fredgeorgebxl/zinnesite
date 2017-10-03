@@ -38,10 +38,19 @@ class ContactType extends AbstractType{
             ->add('save', SubmitType::class, array('label' => 'website.contactform.send', 'translation_domain' => 'App'));
     }
     
-    public function setDefaultOptions(OptionsResolver $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'error_bubbling' => true
+            'error_bubbling' => true,
+            'timed_spam' => true,
+            'timed_spam_min' => 3,
+            'timed_spam_max' => 1500,
+            'timed_spam_message' => 'website.contactform.timeerror',
+            'honeypot' => true,
+            'honeypot_field' => 'email_address',
+            'honeypot_use_class' => false,
+            'honeypot_hide_class' => 'hidden',
+            'honeypot_message' => 'website.contactform.invalid',
         ));
     }
 }

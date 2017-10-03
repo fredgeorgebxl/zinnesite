@@ -3918,6 +3918,11 @@ h5 {
 h6 {
   font-family: 'source_sans_problack', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; }
 
+.title-bar {
+  width: 100%;
+  position: fixed;
+  z-index: 1001; }
+
 .top-bar {
   width: 100%;
   background-color: #fff;
@@ -3926,6 +3931,10 @@ h6 {
   z-index: 1000; }
   .top-bar ul {
     background-color: inherit; }
+
+@media screen and (max-width: 39.9375em) {
+  .top-bar {
+    margin-top: 45px !important; } }
 
 @media screen and (min-width: 40em) {
   .homepage .top-bar {
