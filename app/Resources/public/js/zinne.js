@@ -1,11 +1,14 @@
 $(document).foundation();
 
 // init
-/*
+
 $(document).ready(function(){
-    $(".top-bar").css("marginTop", "-200px");
+    $(".main-hp-scroll-link a").on('click', function(e){
+        e.preventDefault();
+        TweenLite.to(window, 1, {scrollTo:"#presentation", ease:Power3.easeInOut});
+    });
 });
-*/
+
 var controller = new ScrollMagic.Controller();
 
 // Top menu animation

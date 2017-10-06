@@ -6,7 +6,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}{{ 'website.title'|trans }}{% endblock %}</title>
-        {% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/styles.css') }}"/>{% endblock %}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/styles.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('foundation-icons/foundation-icons.css') }}"/>
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -34,9 +37,9 @@
                             {{ knp_menu_render('AppBundle:Builder:mainMenu',{'currentClass' : 'active'}) }}
                         </nav>
                         <div class="social-networks top-bar-right">
-                            <ul class="vertical medium-horizontal menu">
-                                <li><a href="#" class="facebook">Facebook</a></li>
-                                <li><a href="#" class="youtube">Youtube</a></li>
+                            <ul class="menu">
+                                <li><a href="#" class="facebook fi-social-facebook" title="Facebook"></a></li>
+                                <li><a href="#" class="youtube fi-social-youtube" title="Youtube"></a></li>
                             </ul>
                         </div>
                     </div>

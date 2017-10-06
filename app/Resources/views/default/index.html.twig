@@ -7,8 +7,8 @@
                 {{ knp_menu_render('AppBundle:Builder:mainMenu',{'currentClass' : 'active'}) }}
                 <div class="social-networks menu-centered">
                     <ul class="menu">
-                        <li><a href="#" class="facebook">Facebook</a></li>
-                        <li><a href="#" class="youtube">Youtube</a></li>
+                        <li><a href="#" class="facebook fi-social-facebook" title="Facebook"></a></li>
+                        <li><a href="#" class="youtube fi-social-youtube" title="Youtube"></a></li>
                     </ul>
                 </div>
             </nav>
@@ -19,16 +19,24 @@
                 <h1 class="main-hp-slogan">Zinnechœur, la chorale bruxelloise qui a du chien&nbsp;!</h1>
             </div>
             <div class="main-hp-scroll-link">
-                <a href="#presentation">Découvrez la chorale</a>
+                <a href="#presentation">Découvrez la chorale<span class="fi-arrow-down"></span></a>
             </div>
         </div>
     </section>
     <section class="presentation">
+        <a id="presentation"></a>
         <div id="menu-trigger"></div>
-        <div class="orbit" role="region" data-orbit>
+        <div class="orbit" role="region" data-orbit data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;" data-timer-delay="3000" data-pause-on-hover="false">
             <ul class="orbit-container">
                 <li class="is-active orbit-slide">
-                    <img class="orbit-image" src="{{ asset('images/carrousel1.jpg') }}" alt="Carrousel 1">
+                    <figure class="orbit-figure">
+                        <img class="orbit-image" src="{{ asset('images/carrousel1.jpg') }}" alt="Carrousel 1">
+                    </figure>
+                </li>
+                <li class="orbit-slide">
+                    <figure class="orbit-figure">
+                        <img class="orbit-image" src="{{ asset('images/carrousel2.jpg') }}" alt="Carrousel 2">
+                    </figure>
                 </li>
             </ul>
         </div>

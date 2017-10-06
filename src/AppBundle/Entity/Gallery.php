@@ -30,6 +30,11 @@ class Gallery extends ContentBase
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
+    
+    /**
+     * @ORM\Column(type="boolean", nullable=TRUE)
+     */
+    private $homeslide;
 
     /**
      * 
@@ -81,6 +86,30 @@ class Gallery extends ContentBase
     public function getTitle()
     {
         return $this->title;
+    }
+    
+    /**
+     * Set homeslide
+     *
+     * @param bool $homeslide
+     *
+     * @return bool
+     */
+    public function setHomeslide($homeslide)
+    {
+        $this->homeslide = $homeslide;
+
+        return $this;
+    }
+    
+    /**
+     * Get homeslide
+     *
+     * @return bool
+     */
+    public function getHomeslide()
+    {
+        return $this->homeslide;
     }
 
     /**
