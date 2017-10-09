@@ -9,7 +9,6 @@
             <a  class="btn btn-default" href="{{ path('gallery_addimages', {'gal_id' : slideshow.id}) }}">{{ 'gallery.addimages'|trans}} <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
             {% if slideshow.pictures|length %}
                 <a  class="btn btn-default" href="{{ path('gallery_editimages', {'gal_id' : slideshow.id}) }}">{{ 'gallery.editimages'|trans}} <span class="glyphicon glyphicon-th" aria-hidden="true"></span></a>
-                <a  class="btn btn-default" href="{{ path('gallery_cropimages', {'gal_id' : slideshow.id}) }}">{{ 'gallery.cropimages'|trans}} <span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
             {% endif %}
         {% else %}
             <a  class="btn btn-primary" href="{{ path('gallery_new', {'param' : 'homeslide'}) }}">{{ 'general.create_slideshow'|trans}} <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>

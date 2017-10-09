@@ -6744,7 +6744,8 @@ body {
   top: 7px;
   left: 15px;
 }
-.image-element .openform {
+.image-element .openform,
+.image-element .imgbutton {
   width: 100%;
   margin-top: 5px;
 }

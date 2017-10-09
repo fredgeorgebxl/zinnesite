@@ -54,6 +54,7 @@ image:
     change_file: 'Nouvelle photo'
     add: "Ajouter l'image"
     remove: "Supprimer l'image"
+    save: 'Enregistrer'
 events:
     events: 'Événements'
     event: 'Événement'
@@ -74,6 +75,8 @@ gallery:
     editgallery: 'Editer la galerie'
     editimages: 'Editer les images'
     cropimages: 'Ajuster le cadrage'
+    cropedit: 'Ajuster cadrage'
+    cropslideshowimages: 'Définir les zones de cadrage'
     alttitleedit: 'Modifier description'
     dropfileshere : 'Glissez les fichiers dans cette zone ou cliquez pour sélectionner des fichers de votre ordinateur'
     save: 'Enregistrer'

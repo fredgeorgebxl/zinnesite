@@ -123,6 +123,11 @@ responsive_image:
             effect: crop
             width: 500
             height: 500
+        slideshow:
+            effect: crop
+            width: 1769
+            height: 842
+            
     picture_sets:                       # Picture set definitions
         thumb_picture:
             base:                       # Breakpoint name

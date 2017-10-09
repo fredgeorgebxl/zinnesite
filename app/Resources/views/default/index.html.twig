@@ -5,14 +5,12 @@
         <div class="main-hp-content">
             <nav class="main-hp-menu menu-centered hide-for-small-only">
                 {{ knp_menu_render('AppBundle:Builder:mainMenu',{'currentClass' : 'active'}) }}
-                <div class="social-networks menu-centered">
-                    <ul class="menu">
-                        <li><a href="#" class="facebook fi-social-facebook" title="Facebook"></a></li>
-                        <li><a href="#" class="youtube fi-social-youtube" title="Youtube"></a></li>
-                    </ul>
-                </div>
+                <ul class="menu social-networks">
+                    <li><a href="https://www.facebook.com/Zinnechoeur" target="_blank" class="facebook fi-social-facebook" title="Facebook"></a></li>
+                    <li><a href="https://www.youtube.com/channel/UC_tp-m7g0eqs0IwxhA1k9mA" target="_blank" class="youtube fi-social-youtube" title="Youtube"></a></li>
+                </ul>
             </nav>
-            <div>
+            <div class="main-logo">
                     <img src="{{ asset('images/main-hp-logo.png') }}" alt="Logo Zinnechœur" />
             </div>
             <div>
@@ -26,20 +24,19 @@
     <section class="presentation">
         <a id="presentation"></a>
         <div id="menu-trigger"></div>
+        {% if slideshow.pictures|length %}
         <div class="orbit" role="region" data-orbit data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;" data-timer-delay="3000" data-pause-on-hover="false">
             <ul class="orbit-container">
+                {% for image in slideshow.pictures %}
                 <li class="is-active orbit-slide">
                     <figure class="orbit-figure">
-                        <img class="orbit-image" src="{{ asset('images/carrousel1.jpg') }}" alt="Carrousel 1">
+                        {{ class_styled_image(image, 'slideshow', 'orbit-image') }}
                     </figure>
                 </li>
-                <li class="orbit-slide">
-                    <figure class="orbit-figure">
-                        <img class="orbit-image" src="{{ asset('images/carrousel2.jpg') }}" alt="Carrousel 2">
-                    </figure>
-                </li>
+                {% endfor %}
             </ul>
         </div>
+        {% endif %}
         <div class="column row">
             <h2 class="text-center">Zinnechœur, une chorale bruxelloise pas comme les autres&nbsp;!</h2>
             <p>Nous sommes une trentaine de choristes d'horizons divers, à l'image du zinneke, ce chien des bords de Senne venu de partout mais aussi de nulle part. Chacun met la main à la *patte* pour le choix du répertoire, l'organisation des concerts et la vie de notre groupe cosmopolite.

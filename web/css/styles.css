@@ -3958,10 +3958,22 @@ main {
   background-color: #2cb28c;
   height: 100vh;
   position: relative; }
-  .main-hp .main-hp-menu a {
-    color: #fff; }
+  .main-hp .main-hp-menu {
+    font-size: 1.5rem;
+    font-family: 'source_sans_problack', Helvetica, sans-serif;
+    margin-bottom: 5vh; }
+    .main-hp .main-hp-menu a {
+      color: #fff; }
+    .main-hp .main-hp-menu .social-networks {
+      font-size: 2.5rem;
+      position: relative;
+      top: -6px; }
   .main-hp h1 {
     color: #fff; }
+  .main-hp .main-logo {
+    position: relative; }
+    .main-hp .main-logo img {
+      max-width: 50%; }
   .main-hp .main-hp-content {
     position: absolute;
     top: 50%;

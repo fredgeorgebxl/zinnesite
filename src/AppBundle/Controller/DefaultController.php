@@ -13,8 +13,11 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', ['ishome' => true]);
+        // get slideshow images
+        $entityManager = $this->getDoctrine()->getManager();
+        $slideshow = $entityManager->getRepository(\AppBundle\Entity\Gallery::class)->findOneBy(['homeslide' => 1]);
+        
+        return $this->render('default/index.html.twig', ['ishome' => true, 'slideshow' => $slideshow]);
     }
     
     /**

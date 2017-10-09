@@ -4,5 +4,11 @@
 {% block title %}{{'general.administration'|trans}} | {{ "gallery.cropslideshoimages"|trans }}{% endblock %}
 {% block body %}
     <h1>{{ "gallery.cropslideshowimages"|trans }}</h1>
-    {{ form(form) }}
+    {{ form_start(form) }}
+    {{ form_widget(form.crop_coordinates) }}
+    <div class="form-group">
+        <br/>
+        {{ form_widget(form.save) }}
+    </div>
+    {{ form_end(form) }}
 {% endblock %}

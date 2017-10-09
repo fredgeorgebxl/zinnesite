@@ -6,11 +6,14 @@
             <file>file:/www/symfony_test/src/AppBundle/Entity/Gallery.php</file>
             <file>file:/www/symfony_test/src/AppBundle/Controller/Admin/DefaultController.php</file>
             <file>file:/www/symfony_test/app/Resources/views/admin/gallery/index.html.twig</file>
+            <file>file:/www/symfony_test/app/Resources/views/admin/gallery/addimages.html.twig</file>
             <file>file:/www/symfony_test/src/AppBundle/Entity/Repertoire.php</file>
             <file>file:/www/symfony_test/app/Resources/views/admin/default/index.html.twig</file>
+            <file>file:/www/symfony_test/src/AppBundle/Form/GalleryImageType.php</file>
             <file>file:/www/symfony_test/src/AppBundle/Controller/DefaultController.php</file>
             <file>file:/www/symfony_test/app/Resources/translations/App.fr.yml</file>
             <file>file:/www/symfony_test/src/AppBundle/Controller/Admin/GalleryController.php</file>
+            <file>file:/www/symfony_test/src/AppBundle/Form/GalleryCropType.php</file>
         </group>
     </open-files>
 </project-private>

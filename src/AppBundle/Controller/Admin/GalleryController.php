@@ -206,7 +206,7 @@ class GalleryController extends Controller
         }
         $form = $this->createFormBuilder($gallery)
                 ->add('title', HiddenType::class)
-                ->add('pictures', CollectionType::class, array('allow_delete' => true, 'entry_type' => GalleryImageType::class, 'entry_options' => array('attr' => array('class' => 'image-box'))))
+                ->add('pictures', CollectionType::class, array('error_bubbling' => FALSE, 'allow_delete' => true, 'entry_type' => GalleryImageType::class, 'entry_options' => array('attr' => array('class' => 'image-box'))))
                 ->add('save', SubmitType::class, array('label' => 'gallery.save', 'translation_domain' => 'App'))
                 ->getForm();
         
@@ -240,40 +240,40 @@ class GalleryController extends Controller
         
         return $this->render('admin/gallery/editimages.html.twig', array(
             'form' => $form->createView(),
-            //'images' => $images,
+            'homeslide' => $gallery->getHomeslide(),
+            'gal_id' => $gal_id,
         ));
     }
     
     /**
-     * @Route("/cropimages/{gal_id}", requirements={"gal_id" = "\d+"}, name="gallery_cropimages")
+     * @Route("/cropimage/{gal_id}/{img_id}", requirements={"gal_id" = "\d+", "img_id" = "\d+"}, name="gallery_cropimage")
      */
-    public function cropimagesAction($gal_id, Request $request){
+    public function cropimageAction($gal_id, $img_id, Request $request){
         $em = $this->getDoctrine()->getManager();
-        $gallery = $em->getRepository(Gallery::class)->find($gal_id);
+        $image = $em->getRepository(ResponsiveImage::class)->find($img_id);
         
-        if (!$gallery) {
+        if (!$image) {
             throw $this->createNotFoundException(
-                'No gallery found for id '.$gal_id
+                'No image found for id '.$img_id
             );
         }
-        $form = $this->createFormBuilder($gallery)
-                ->add('title', HiddenType::class)
-                ->add('pictures', CollectionType::class, array('entry_type' => \AppBundle\Form\GalleryCropType::class))
-                ->add('save', SubmitType::class, array('label' => 'gallery.save', 'translation_domain' => 'App'))
+        $form = $this->createFormBuilder($image)
+                ->add('crop_coordinates', \IrishDan\ResponsiveImageBundle\Form\CropFocusType::class, array('data' => $image, 'label' => 'image.crop_focus', 'translation_domain' => 'App'))
+                ->add('save', SubmitType::class, array('label' => 'image.save', 'translation_domain' => 'App'))
                 ->getForm();
         
         $form->handleRequest($request);
         
         if($form->isSubmitted() && $form->isValid()){
             
-            $em->persist($gallery);
+            $em->persist($image);
             $em->flush();
 
-            return $this->redirectToRoute('admin_home');
+            return $this->redirectToRoute('gallery_editimages', ['gal_id' => $gal_id]);
             
         }
         
-        return $this->render('admin/gallery/cropimages.html.twig', array(
+        return $this->render('admin/gallery/cropimage.html.twig', array(
             'form' => $form->createView(),
         ));
         
