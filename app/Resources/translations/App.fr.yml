@@ -17,6 +17,11 @@ general:
     cancel: 'Annuler'
     admin-welcome-message: "Bienvenue dans l'interface d'administration"
     homepage-slideshow: "Carrousel page d'accueil"
+    homepage-shortcuts: 'Raccourcis'
+    addevent: 'Créer un événement'
+    addrepertoire: 'Ajouter un chant au répertoire'
+    addmember: 'Ajouter un membre'
+    addgallery: 'Créer une galerie de photos'
 users:
     users: 'Membres'
     user: 'membre'

@@ -14,4 +14,23 @@
             <a  class="btn btn-primary" href="{{ path('gallery_new', {'param' : 'homeslide'}) }}">{{ 'general.create_slideshow'|trans}} <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
         {% endif %}
     </div>
+    <div class="section">
+        <h3>{{ 'general.homepage-shortcuts'|trans }}</h3>
+        <div class="row">
+            <div class="col-md-3">
+            <a href="{{ path('event_new') }}" class="home-shortcut btn btn-default"><span class="glyphicon glyphicon-calendar"></span>{{ 'general.addevent'|trans }}</a>
+            </div>
+            <div class="col-md-3">
+            <a href="{{ path('repertoire_new') }}" class="home-shortcut btn btn-default"><span class="glyphicon glyphicon-music"></span>{{ 'general.addrepertoire'|trans }}</a>
+            </div>
+            {% if is_granted('ROLE_ADMIN') %}
+            <div class="col-md-3">
+            <a href="{{ path('user_new') }}" class="home-shortcut btn btn-default"><span class="glyphicon glyphicon-user"></span>{{ 'general.addmember'|trans }}</a>
+            </div>
+            {% endif %}
+            <div class="col-md-3">
+            <a href="{{ path('gallery_new') }}" class="home-shortcut btn btn-default"><span class="glyphicon glyphicon-picture"></span>{{ 'general.addgallery'|trans }}</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

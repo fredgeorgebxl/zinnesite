@@ -97,9 +97,16 @@ class DefaultController extends Controller
      * @Route("/photos", name="photos")
      */
     public function photosAction()
-    {
+    {        
         $entityManager = $this->getDoctrine()->getManager();
-        $galleries = $entityManager->getRepository(\AppBundle\Entity\Gallery::class)->findBy(['published' => 1], ['datecreated' => 'desc']);
+        $repository = $entityManager->getRepository(\AppBundle\Entity\Gallery::class);
+        $qb = $repository->createQueryBuilder('gal');
+        $queryEvents = $qb
+                ->where('gal.homeslide != 1')
+                ->orWhere($qb->expr()->isNull('gal.homeslide'))
+                ->orderBy('gal.datecreated', 'DESC')
+                ->getQuery();
+        $galleries = $queryEvents->getResult();
         
         return $this->render('default/photos.html.twig', ['galleries' => $galleries]);
     }
