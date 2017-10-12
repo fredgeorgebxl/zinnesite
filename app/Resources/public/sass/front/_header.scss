@@ -10,6 +10,26 @@
     position: fixed;
     z-index: 1000;
     ul{ background-color: inherit; }
+    .top-bar-title{
+        a{
+            background-color: $primary-color;
+            display:inline-block;
+            img{
+                height: 50px;
+            }
+        }
+    }
+    .main-nav{
+        margin-top: 15px;
+        font-family: $body-font-bold;
+    }
+    .social-networks{
+        margin-top: 10px;
+        font-size: 2rem;
+        a{
+            padding: 8px;
+        }
+    }
 }
 
 @include breakpoint(small only) {
@@ -22,6 +42,19 @@
     .homepage{
         .top-bar{
             margin-top: -200px;
+        }
+    }
+}
+
+@include breakpoint(large up) {
+    .top-bar{
+        .main-nav{
+            font-size: 1.3rem;
+            margin-top: 11px;
+        }
+        .social-networks{
+            margin-top: 8px;
+            font-size: 2.2rem;
         }
     }
 }

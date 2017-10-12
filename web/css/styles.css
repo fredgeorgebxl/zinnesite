@@ -18,6 +18,18 @@
   font-style: normal; }
 
 @font-face {
+  font-family: 'source_sans_probold';
+  src: url("../fonts/sourcesanspro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'source_sans_prosemibold';
+  src: url("../fonts/sourcesanspro-semibold-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-semibold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
   font-family: 'source_sans_proitalic';
   src: url("../fonts/sourcesanspro-it-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-it-webfont.woff") format("woff");
   font-weight: normal;
@@ -4233,22 +4245,22 @@ a.thumbnail {
   clear: both; }
 
 h1 {
-  font-family: 'source_sans_problack', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; }
+  font-family: source_sans_problack, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; }
 
 h2 {
-  font-family: 'source_sans_problack', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; }
+  font-family: source_sans_problack, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; }
 
 h3 {
-  font-family: 'source_sans_problack', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; }
+  font-family: source_sans_problack, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; }
 
 h4 {
-  font-family: 'source_sans_problack', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; }
+  font-family: source_sans_problack, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; }
 
 h5 {
-  font-family: 'source_sans_problack', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; }
+  font-family: source_sans_problack, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; }
 
 h6 {
-  font-family: 'source_sans_problack', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; }
+  font-family: source_sans_problack, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; }
 
 a {
   outline: 0; }
@@ -4266,6 +4278,19 @@ a {
   z-index: 1000; }
   .top-bar ul {
     background-color: inherit; }
+  .top-bar .top-bar-title a {
+    background-color: #2cb28c;
+    display: inline-block; }
+    .top-bar .top-bar-title a img {
+      height: 50px; }
+  .top-bar .main-nav {
+    margin-top: 15px;
+    font-family: source_sans_prosemibold, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; }
+  .top-bar .social-networks {
+    margin-top: 10px;
+    font-size: 2rem; }
+    .top-bar .social-networks a {
+      padding: 8px; }
 
 @media screen and (max-width: 39.9375em) {
   .top-bar {
@@ -4275,8 +4300,16 @@ a {
   .homepage .top-bar {
     margin-top: -200px; } }
 
+@media screen and (min-width: 64em) {
+  .top-bar .main-nav {
+    font-size: 1.3rem;
+    margin-top: 11px; }
+  .top-bar .social-networks {
+    margin-top: 8px;
+    font-size: 2.2rem; } }
+
 main {
-  padding-top: 80px; }
+  padding-top: 90px; }
 
 .homepage main {
   padding-top: 0; }
@@ -4287,7 +4320,7 @@ main {
   position: relative; }
   .main-hp .main-hp-menu {
     font-size: 1.4rem;
-    font-family: 'source_sans_problack', Helvetica, sans-serif;
+    font-family: source_sans_problack, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
     margin-bottom: 5vh; }
     .main-hp .main-hp-menu a {
       color: #fff; }
@@ -4314,7 +4347,8 @@ main {
     .main-hp .main-hp-scroll-link a {
       color: #fff;
       text-align: center;
-      font-size: 1.5rem; }
+      font-size: 1.5rem;
+      font-family: source_sans_prosemibold, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; }
       .main-hp .main-hp-scroll-link a span {
         display: block;
         font-size: 2rem; }

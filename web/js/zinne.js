@@ -3,9 +3,9 @@ $(document).foundation();
 // init
 
 $(document).ready(function(){
-    $(".main-hp-scroll-link a").on('click', function(e){
+    $(".scrollLink").on('click', function(e){
         e.preventDefault();
-        TweenLite.to(window, 1, {scrollTo:"#presentation", ease:Power3.easeInOut});
+        scrollToAnchor($(this).attr("href"));
     });
 });
 
@@ -17,5 +17,12 @@ var scene = new ScrollMagic.Scene({
         triggerElement: "#menu-trigger"
 })
 .setTween(".homepage .top-bar", 0.5, {marginTop:"0"})
+.on("end", function (event) {
+    console.log("Hit end point of scene.");
+})
 .addIndicators({name: "1 (duration: 0)"})
 .addTo(controller);
+
+function scrollToAnchor(anchor){
+    TweenLite.to(window, 1, {scrollTo:anchor, ease:Power3.easeInOut});
+}

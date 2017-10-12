@@ -74,6 +74,9 @@ $body-font-color: $black !default;
 /// @type List
 $body-font-family: source_sans_proregular, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif !default;
 
+$body-font-bold: source_sans_prosemibold, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif !default;
+
+$title-font: source_sans_problack, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif !default;
 
 /// Set to `true` to enable antialiased type, using the `-webkit-font-smoothing` and `-moz-osx-font-smoothing` CSS properties.
 /// @type Boolean
