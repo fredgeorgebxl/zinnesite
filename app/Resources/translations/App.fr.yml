@@ -89,6 +89,12 @@ gallery:
     deleteimageconfirm: 'Voulez-vous réellement supprimer cette image de manière définitive ?'
 website:
     title: 'Zinnechœur - Chorale à Bruxelles'
+    slogan: 'Zinnechœur, la chorale bruxelloise qui a du chien !'
+    discoverthechoir: 'Découvrez la chorale'
+    homebtn:
+        choristes: 'Découvrez les choristes'
+        repertoire: 'Découvrez notre répertoire'
+        contact: 'Contactez-nous !'
     agenda: 'Agenda'
     repertoire: 'Répertoire'
     oldrepertoire: 'Ancien répertoire'

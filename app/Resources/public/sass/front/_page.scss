@@ -2,8 +2,22 @@ main{
     padding-top: 90px;
 }
 .homepage{
+    section{
+        position: relative;
+        .centercontent{
+            @include absolute-center;
+        }
+    }
     main{
         padding-top: 0;
+    }
+    .repertoire{
+        padding: 10vh 0 10vh 0;
+        background-color: $secondary-color;
+    }
+    .contact{
+        padding: 10vh 0 10vh 0;
+        background-color: $third-color;
     }
 }
 
@@ -27,7 +41,6 @@ main{
         margin-bottom: 5vh;
     }
     .main-hp-content{
-        @include absolute-center;
         .main-hp-slogan{
             font-size: 2rem;
         }
@@ -65,7 +78,12 @@ main{
         .main-hp-menu{
             font-size: 2rem;
         }
-    }       
+    }
+    .homepage{
+        p{
+            font-size: 1.5rem;
+        }
+    }
 }
 
 @include breakpoint(xlarge up) {

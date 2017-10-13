@@ -4311,8 +4311,24 @@ a {
 main {
   padding-top: 90px; }
 
+.homepage section {
+  position: relative; }
+  .homepage section .centercontent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+
 .homepage main {
   padding-top: 0; }
+
+.homepage .repertoire {
+  padding: 10vh 0 10vh 0;
+  background-color: #ff79ab; }
+
+.homepage .contact {
+  padding: 10vh 0 10vh 0;
+  background-color: #40b5ff; }
 
 .main-hp {
   background-color: #2cb28c;
@@ -4332,13 +4348,8 @@ main {
     color: #fff; }
   .main-hp .main-logo {
     margin-bottom: 5vh; }
-  .main-hp .main-hp-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); }
-    .main-hp .main-hp-content .main-hp-slogan {
-      font-size: 2rem; }
+  .main-hp .main-hp-content .main-hp-slogan {
+    font-size: 2rem; }
   .main-hp .main-hp-scroll-link {
     position: absolute;
     bottom: 15px;
@@ -4359,7 +4370,9 @@ main {
 
 @media screen and (min-width: 64em) {
   .main-hp .main-hp-menu {
-    font-size: 2rem; } }
+    font-size: 2rem; }
+  .homepage p {
+    font-size: 1.5rem; } }
 
 @media screen and (min-width: 75em) {
   .main-hp .main-hp-content .main-hp-slogan {
