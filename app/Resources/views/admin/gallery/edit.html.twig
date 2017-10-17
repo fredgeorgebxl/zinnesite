@@ -6,6 +6,7 @@
     {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
         {{ form_row(form._token) }}
         {{ form_row(form.title) }}
+        {{ form_row(form.description) }}
         <div class="form-group">
             <div class="clearfix gallery">
                 {% for key, image in images %}

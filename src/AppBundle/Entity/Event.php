@@ -53,6 +53,11 @@ class Event extends ContentBase{
     protected $picture;
     
     /**
+     * @ORM\Column(type="integer")
+     */
+    protected $gallery;
+    
+    /**
      * @Gedmo\Slug(fields={"name"})
      * @ORM\Column(length=200, unique=true, nullable=true)
      */
@@ -90,6 +95,30 @@ class Event extends ContentBase{
     public function getName()
     {
         return $this->name;
+    }
+    
+    /**
+     * Get gallery
+     *
+     * @return integer
+     */
+    public function getGallery()
+    {
+        return $this->gallery;
+    }
+    
+    /**
+     * Set gallery
+     *
+     * @param integer $gallery
+     *
+     * @return Event
+     */
+    public function setGallery($gallery)
+    {
+        $this->gallery = $gallery;
+
+        return $this;
     }
 
     /**

@@ -74,6 +74,7 @@ gallery:
     galleries: 'Galeries'
     create: 'Créer'
     title: 'Titre'
+    description: 'Description'
     editimagesof: 'Editer les images de'
     addimages: 'Ajouter des images'
     addimagesto: 'Ajouter des images à'

@@ -4309,7 +4309,7 @@ a {
     font-size: 2.2rem; } }
 
 main {
-  padding-top: 90px; }
+  padding-top: 100px; }
 
 .homepage section {
   position: relative; }
@@ -4371,6 +4371,8 @@ main {
 @media screen and (min-width: 64em) {
   .main-hp .main-hp-menu {
     font-size: 2rem; }
+  p {
+    font-size: 1.2rem; }
   .homepage p {
     font-size: 1.5rem; } }
 

@@ -32,6 +32,13 @@ class Gallery extends ContentBase
     private $title;
     
     /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text")
+     */
+    private $description;
+    
+    /**
      * @ORM\Column(type="boolean", nullable=TRUE)
      */
     private $homeslide;
@@ -77,6 +84,20 @@ class Gallery extends ContentBase
 
         return $this;
     }
+    
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Gallery
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
 
     /**
      * Get title
@@ -86,6 +107,16 @@ class Gallery extends ContentBase
     public function getTitle()
     {
         return $this->title;
+    }
+    
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
     
     /**

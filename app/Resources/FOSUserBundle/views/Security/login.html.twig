@@ -5,6 +5,8 @@
 {% block header %}{% endblock %}
 
 {% block fos_user_content %}
+    <div class="column row">
     <h1>{{ 'security.login.login'|trans }}</h1>
     {{ include('FOSUserBundle:Security:login_content.html.twig') }}
+    </div>
 {% endblock fos_user_content %}

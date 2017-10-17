@@ -113,7 +113,7 @@ responsive_image:
             height: 100
         project_full:
             effect: scale
-            width: 940
+            width: 700
         project_square:
             effect: crop
             width: 500
