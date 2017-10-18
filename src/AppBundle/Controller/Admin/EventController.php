@@ -29,18 +29,18 @@ class EventController extends Controller{
      */
     public function newAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
         $event = new Event();
         $event->setPublished(TRUE);
         $event->setDateCreated(new \DateTime());
         $event->setDateModified(new \DateTime());
 
         $zinneparams = $this->getParameter('zinne');
-        $form = $this->createForm(EventType::class,$event,['seasons-available' => $zinneparams['seasons-available']]);
+        $form = $this->createForm(EventType::class,$event,['seasons-available' => $zinneparams['seasons-available'], 'entity_manager' => $em]);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()){
             $event = $form->getData();
-            $em = $this->getDoctrine()->getManager();
             
             $file = $form->get('picture')->get('file')->getData();
             $alt = $form->get('picture')->get('alt')->getData();
@@ -81,7 +81,7 @@ class EventController extends Controller{
         }
         
         $zinneparams = $this->getParameter('zinne');
-        $form = $this->createForm(EventType::class,$event,['seasons-available' => $zinneparams['seasons-available']]);
+        $form = $this->createForm(EventType::class,$event,['seasons-available' => $zinneparams['seasons-available'], 'entity_manager' => $em]);
         $form->handleRequest($request);
         $picture = $event->getPicture();
         

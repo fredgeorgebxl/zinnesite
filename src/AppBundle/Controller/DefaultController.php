@@ -59,8 +59,13 @@ class DefaultController extends Controller
                 'No event found for slug '.$slug
             );
         }
-        
-        return $this->render('default/event.html.twig', ['event' => $event]);
+        $gal_id = $event->getGallery();
+        if ($gal_id != 0){
+            $gallery = $entityManager->getRepository(\AppBundle\Entity\Gallery::class)->findOneBy(['id' => $gal_id]);   
+        } else {
+            $gallery = NULL;
+        }
+        return $this->render('default/event.html.twig', ['event' => $event, 'gallery' => $gallery]);
     }
 
     /**
