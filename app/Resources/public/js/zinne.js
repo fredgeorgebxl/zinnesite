@@ -17,10 +17,18 @@ var scene = new ScrollMagic.Scene({
         triggerElement: "#menu-trigger"
 })
 .setTween(".homepage .top-bar", 0.5, {marginTop:"0"})
-.on("end", function (event) {
-    console.log("Hit end point of scene.");
-})
 .addIndicators({name: "1 (duration: 0)"})
+.addTo(controller)
+.on("start", function (event) {
+    TweenLite.from(".top-bar-title", 1, {scale: 0.4, ease: Elastic.easeOut, delay: 0.2 });
+});
+
+var scene = new ScrollMagic.Scene({
+        triggerElement: "#menu-trigger",
+        duration: 1000
+})
+.setTween(".presentation-content", {marginTop:"-50vh"})
+.addIndicators({name: "2 (duration: 1000)"})
 .addTo(controller);
 
 function scrollToAnchor(anchor){

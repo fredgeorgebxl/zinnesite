@@ -5,6 +5,8 @@ security:
         password: 'Mot de passe'
         remember_me: 'Se souvenir de moi'
         submit: 'Se connecter'
+    change-password: 'Changer le mot de passe'
+    password-forgotten: 'Mot de passe oublié ?'
 general:
     administration: 'Administration'
     toggle_navigation: 'Ouvrir le menu'
@@ -22,8 +24,10 @@ general:
     addrepertoire: 'Ajouter un chant au répertoire'
     addmember: 'Ajouter un membre'
     addgallery: 'Créer une galerie de photos'
+    logout: 'Déconnexion'
 users:
     users: 'Membres'
+    profile: 'Profil'
     user: 'membre'
     firstname: 'Prénom'
     lastname: 'Nom'

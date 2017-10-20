@@ -11,6 +11,14 @@ main{
     main{
         padding-top: 0;
     }
+    
+    .presentation-content{
+        position: relative;
+        z-index: 100;
+        background-color: $body-background;
+        padding:5vh 50px 20vh 50px;
+    }
+    
     .repertoire{
         padding: 10vh 0 10vh 0;
         background-color: $secondary-color;

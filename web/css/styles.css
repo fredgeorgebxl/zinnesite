@@ -4322,6 +4322,12 @@ main {
 .homepage main {
   padding-top: 0; }
 
+.homepage .presentation-content {
+  position: relative;
+  z-index: 100;
+  background-color: #f0f0f0;
+  padding: 5vh 50px 20vh 50px; }
+
 .homepage .repertoire {
   padding: 10vh 0 10vh 0;
   background-color: #ff79ab; }

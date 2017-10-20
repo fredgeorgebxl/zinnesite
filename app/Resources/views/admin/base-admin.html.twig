@@ -27,9 +27,25 @@
                     </button>
                     <a class="navbar-brand" href="{{ path('admin_home') }}">{{ 'general.administration'|trans}}</a>
                 </div>
-                <div id="navbar" class="collapse navbar-collapse">
+                <div id="navbar" class="collapse navbar-collapse navbar-left">
+                    {% if is_granted('ROLE_USER') %}
                     {{ knp_menu_render('AppBundle:Builder:adminMenu',{'currentClass' : 'active'}) }}
+                    {% endif %}
                 </div>
+                {% if is_granted('ROLE_USER') %}
+                <div class="user-info navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle"><span class="glyphicon glyphicon-user"></span> {{ app.user.firstname }} {{ app.user.lastname }}&nbsp;<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path('fos_user_change_password') }}">{{ 'security.change-password'|trans }}</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="{{ logout_path('main') }}">{{ 'general.logout'|trans }}</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                {% endif %}
             </div>
             </nav>
         {% endblock %}
