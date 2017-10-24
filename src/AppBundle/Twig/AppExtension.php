@@ -3,8 +3,9 @@
 namespace AppBundle\Twig;
 
 use IrishDan\ResponsiveImageBundle\ResponsiveImageInterface;
-//use IrishDan\ResponsiveImageBundle\ResponsiveImageManager;
 use IrishDan\ResponsiveImageBundle\StyleManager;
+use AppBundle\Helpers;
+
 
 /**
  * Class AppExtension
@@ -14,10 +15,12 @@ use IrishDan\ResponsiveImageBundle\StyleManager;
 class AppExtension extends \Twig_Extension
 {
     private $styleManager;
+    private $helpers;
 
-    public function __construct(StyleManager $styleManager)
+    public function __construct(StyleManager $styleManager, Helpers $helpers)
     {
         $this->styleManager = $styleManager;
+        $this->helpers = $helpers;
     }
 
     /**
@@ -27,6 +30,11 @@ class AppExtension extends \Twig_Extension
     {
         return [
             new \Twig_SimpleFunction('class_styled_image', [$this, 'generateClassStyledImage'], [
+                    'is_safe' => ['html'],
+                    'needs_environment' => true,
+                ]
+            ),
+            new \Twig_SimpleFunction('embed_video', [$this, 'embedYoutubeVideo'], [
                     'is_safe' => ['html'],
                     'needs_environment' => true,
                 ]
@@ -42,6 +50,13 @@ class AppExtension extends \Twig_Extension
         return $environment->render('ResponsiveImageBundle::img.html.twig', [
             'image' => $image,
             'classes' => $classes,
+        ]);
+    }
+    
+    public function embedYoutubeVideo(\Twig_Environment $environment, \AppBundle\Entity\Video $video){
+        $video_id = $this->helpers->getYoutubeId($video->getLink());
+        return $environment->render('default/video.html.twig', [
+           'video_id' => $video_id, 
         ]);
     }
 

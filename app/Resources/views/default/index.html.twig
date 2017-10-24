@@ -61,6 +61,24 @@
         <a id="medias"></a>
         <div class="column row">
             <h2 class="text-center">Zinnechœur en images</h2>
+            <div class="medium-6 columns hp-videos">
+                {{ embed_video(video) }}
+            </div>
+            <div class="medium-6 columns hp-photos">
+                {% if pictures|length %}
+                <div class="orbit" role="region" data-orbit data-options="animInFromLeft:slide-in-left; animInFromRight:slide-in-left; animOutToLeft:scale-out-down; animOutToRight:scale-out-down;" data-timer-delay="3000" data-pause-on-hover="false">
+                    <ul class="orbit-container">
+                        {% for picture in pictures %}
+                        <li class="is-active orbit-slide">
+                            <figure class="orbit-figure">
+                                {{ class_styled_image(picture, 'project_thumb', 'orbit-image') }}
+                            </figure>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+            </div>
         </div>
     </section>
     <section class="contact">

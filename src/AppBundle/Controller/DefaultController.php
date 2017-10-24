@@ -16,8 +16,28 @@ class DefaultController extends Controller
         // get slideshow images
         $entityManager = $this->getDoctrine()->getManager();
         $slideshow = $entityManager->getRepository(\AppBundle\Entity\Gallery::class)->findOneBy(['homeslide' => 1]);
+        $videos = $entityManager->getRepository(\AppBundle\Entity\Video::class)->findBy([],[],10);
+        $photos_rep = $entityManager->getRepository(\AppBundle\Entity\ResponsiveImage::class);
+        $pictures_id = $photos_rep->createQueryBuilder('p')
+                ->select('p.id')
+                ->where('p.gallery IS NOT NULL')
+                ->getQuery()
+                ->getArrayResult();
+        // Todo : exclude pictures from slideshow
+        $selected = array_rand($pictures_id, 5);
+        foreach ($selected as $cid){
+            $query_array[] = $pictures_id[$cid]["id"];
+        }
+        $pictures = $photos_rep->createQueryBuilder('p')
+                ->where('p.id IN (:ids)')
+                ->setParameter('ids', $query_array)
+                ->getQuery()
+                ->getResult();
         
-        return $this->render('default/index.html.twig', ['ishome' => true, 'slideshow' => $slideshow]);
+        $index = rand(0, (count($videos)-1));
+        $video = $videos[$index];
+        
+        return $this->render('default/index.html.twig', ['ishome' => true, 'slideshow' => $slideshow, 'video' => $video, 'pictures' => $pictures]);
     }
     
     /**

@@ -11,8 +11,12 @@
                 <a  class="btn btn-default" href="{{ path('gallery_editimages', {'gal_id' : slideshow.id}) }}">{{ 'gallery.editimages'|trans}} <span class="glyphicon glyphicon-th" aria-hidden="true"></span></a>
             {% endif %}
         {% else %}
-            <a  class="btn btn-primary" href="{{ path('gallery_new', {'param' : 'homeslide'}) }}">{{ 'general.create_slideshow'|trans}} <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+            <a  class="btn btn-primary" href="{{ path('gallery_new', {'param' : 'homeslide'}) }}">{{ 'general.create-slideshow'|trans}} <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
         {% endif %}
+    </div>
+    <div class="section">
+        <h3>{{ 'general.homepage-video'|trans }}</h3>
+        <a  class="btn btn-default" href="{{ path('video') }}">{{ 'general.edit-videos'|trans}} <span class="glyphicon glyphicon-film" aria-hidden="true"></span></a>
     </div>
     <div class="section">
         <h3>{{ 'general.homepage-shortcuts'|trans }}</h3>

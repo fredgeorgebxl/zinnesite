@@ -25,6 +25,10 @@ general:
     addmember: 'Ajouter un membre'
     addgallery: 'Créer une galerie de photos'
     logout: 'Déconnexion'
+    homepage-video: "Vidéo page d'accueil"
+    create-slideshow: 'Céer le carrousel'
+    edit-videos: 'Editer les vidéos'
+    back: 'Retour'
 users:
     users: 'Membres'
     profile: 'Profil'
@@ -93,6 +97,10 @@ gallery:
     save: 'Enregistrer'
     deleteimage: "Supprimer l'image"
     deleteimageconfirm: 'Voulez-vous réellement supprimer cette image de manière définitive ?'
+videos:
+    videos: 'Vidéos'
+    title: 'Titre'
+    link: 'Lien'
 website:
     title: 'Zinnechœur - Chorale à Bruxelles'
     slogan: 'Zinnechœur, la chorale bruxelloise qui a du chien !'
