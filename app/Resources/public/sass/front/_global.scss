@@ -23,9 +23,10 @@ $global-lineheight: 1.6 !default;
 /// Colors used for buttons, callouts, links, etc. There must always be a color called `primary`.
 /// @type Map
 $foundation-palette: (
-  primary: #2cb28c,
-  secondary: #ff79ab,
-  third: #40b5ff,
+  primary: #00989a,
+  secondary: #cb0066,
+  third: #00afff,
+  fourth: #ff9933,
   success: #3adb76,
   warning: #ffae00,
   alert: #cc4b37,

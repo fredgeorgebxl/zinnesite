@@ -20,10 +20,10 @@ class DefaultController extends Controller
         $photos_rep = $entityManager->getRepository(\AppBundle\Entity\ResponsiveImage::class);
         $pictures_id = $photos_rep->createQueryBuilder('p')
                 ->select('p.id')
-                ->where('p.gallery IS NOT NULL')
+                ->innerJoin('p.gallery', 'g', 'WITH', 'p.gallery = g.id')
+                ->where('g.homeslide != 1')
                 ->getQuery()
                 ->getArrayResult();
-        // Todo : exclude pictures from slideshow
         $selected = array_rand($pictures_id, 5);
         foreach ($selected as $cid){
             $query_array[] = $pictures_id[$cid]["id"];
