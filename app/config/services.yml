@@ -4,6 +4,9 @@ parameters:
 #    parameter_name: value
 
 services:
+    app.helpers:
+        class: AppBundle\Helpers
+        
     app.form.user_edit:
         class: AppBundle\Form\UserEditType
         arguments: ['@security.token_storage']
@@ -15,3 +18,11 @@ services:
         arguments: ['@service_container']
         tags:
             - { name: form.type }
+            
+# Twig extensions
+    app.twig_extension:
+        class: AppBundle\Twig\AppExtension
+        public: false
+        arguments: [ '@responsive_image.style_manager', '@app.helpers' ]
+        tags:
+            - { name: twig.extension }

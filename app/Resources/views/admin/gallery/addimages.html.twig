@@ -13,7 +13,8 @@
             {{ form_row(form.file) }}
         </div>
         <div class="form-buttons">
-            {{ form_widget(form.edit_gallery) }}
+            {% if form.edit_gallery is defined %}{{ form_widget(form.edit_gallery) }}{% endif %}
+            {% if form.back_home is defined %}{{ form_widget(form.back_home) }}{% endif %}
             {{ form_widget(form.edit_images) }}
         </div>
     {{ form_end(form) }}
@@ -24,10 +25,12 @@
             dictDefaultMessage: "{{ "gallery.dropfileshere"|trans }}",
             processing: function(file){
                 $('#form_edit_gallery').prop('disabled', true);
+                $('#form_back_home').prop('disabled', true);
             },
             queuecomplete: function(){
                 $('#form_edit_images').css('visibility', 'visible');
                 $('#form_edit_gallery').prop('disabled', false);
+                $('#form_back_home').prop('disabled', false);
             }
         };
     </script>

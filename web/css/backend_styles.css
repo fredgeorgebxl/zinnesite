@@ -6744,7 +6744,8 @@ body {
   top: 7px;
   left: 15px;
 }
-.image-element .openform {
+.image-element .openform,
+.image-element .imgbutton {
   width: 100%;
   margin-top: 5px;
 }
@@ -6784,6 +6785,16 @@ body {
 .image-element .alt-title .closeform:visited,
 .image-element .alt-title .closeform:focus {
   text-decoration: none;
+}
+.home-shortcut {
+  padding: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.home-shortcut span {
+  display: block;
+  font-size: 3rem;
+  margin-bottom: 10px;
 }
 
 /*!

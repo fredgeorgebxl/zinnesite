@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Gallery
@@ -29,6 +30,18 @@ class Gallery extends ContentBase
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text")
+     */
+    private $description;
+    
+    /**
+     * @ORM\Column(type="boolean", nullable=TRUE)
+     */
+    private $homeslide;
 
     /**
      * 
@@ -37,8 +50,13 @@ class Gallery extends ContentBase
      * 
      */
     private $pictures;
-
     
+    /**
+     * @Gedmo\Slug(fields={"title"})
+     * @ORM\Column(length=200, unique=true, nullable=true)
+     */
+    private $slug;
+
     public function __construct() {
         $this->pictures = new ArrayCollection();
     }
@@ -66,6 +84,20 @@ class Gallery extends ContentBase
 
         return $this;
     }
+    
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Gallery
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
 
     /**
      * Get title
@@ -75,6 +107,40 @@ class Gallery extends ContentBase
     public function getTitle()
     {
         return $this->title;
+    }
+    
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+    
+    /**
+     * Set homeslide
+     *
+     * @param bool $homeslide
+     *
+     * @return bool
+     */
+    public function setHomeslide($homeslide)
+    {
+        $this->homeslide = $homeslide;
+
+        return $this;
+    }
+    
+    /**
+     * Get homeslide
+     *
+     * @return bool
+     */
+    public function getHomeslide()
+    {
+        return $this->homeslide;
     }
 
     /**
@@ -123,5 +189,15 @@ class Gallery extends ContentBase
     public function removePicture(\AppBundle\Entity\ResponsiveImage $picture)
     {
         $this->pictures->removeElement($picture);
+    }
+    
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

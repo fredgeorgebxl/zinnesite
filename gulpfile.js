@@ -25,6 +25,7 @@ gulp.task('js', function () {
         'bower_components/greensock-js/src/uncompressed/plugins/CSSPlugin.js',
         'bower_components/greensock-js/src/uncompressed/easing/EasePack.js',
         'bower_components/greensock-js/src/uncompressed/TweenLite.js',
+        'bower_components/greensock-js/src/uncompressed/plugins/ScrollToPlugin.js',
         'bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js',
         'bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js'])
         .pipe(concat('script.js'))
@@ -54,7 +55,8 @@ gulp.task('back_style', function () {
 
 gulp.task('style', function () {
     return gulp.src([
-        'app/Resources/public/sass/front/styles.scss'])
+        'app/Resources/public/sass/front/styles.scss',
+        'app/Resources/public/sass/front/motion-ui.scss'])
         .pipe(gulpif(/[.]scss/, sass().on('error', sass.logError)))
         .pipe(concat('styles.css'))
         .pipe(gulpif(env === 'prod', uglifycss()))

@@ -5,7 +5,8 @@ security:
         password: 'Mot de passe'
         remember_me: 'Se souvenir de moi'
         submit: 'Se connecter'
-        taratata: 'Papa papa'
+    change-password: 'Changer le mot de passe'
+    password-forgotten: 'Mot de passe oublié ?'
 general:
     administration: 'Administration'
     toggle_navigation: 'Ouvrir le menu'
@@ -16,8 +17,21 @@ general:
     deleteentityconfirm: 'Voulez-vous réellement supprimer cette entité de manière définitive ?'
     confirm: 'Confirmer'
     cancel: 'Annuler'
+    admin-welcome-message: "Bienvenue dans l'interface d'administration"
+    homepage-slideshow: "Carrousel page d'accueil"
+    homepage-shortcuts: 'Raccourcis'
+    addevent: 'Créer un événement'
+    addrepertoire: 'Ajouter un chant au répertoire'
+    addmember: 'Ajouter un membre'
+    addgallery: 'Créer une galerie de photos'
+    logout: 'Déconnexion'
+    homepage-video: "Vidéo page d'accueil"
+    create-slideshow: 'Céer le carrousel'
+    edit-videos: 'Editer les vidéos'
+    back: 'Retour'
 users:
     users: 'Membres'
+    profile: 'Profil'
     user: 'membre'
     firstname: 'Prénom'
     lastname: 'Nom'
@@ -51,6 +65,9 @@ image:
     file: 'Fichier'
     crop_focus: 'Cadrage et focus'
     change_file: 'Nouvelle photo'
+    add: "Ajouter l'image"
+    remove: "Supprimer l'image"
+    save: 'Enregistrer'
 events:
     events: 'Événements'
     event: 'Événement'
@@ -60,20 +77,60 @@ events:
     name: 'Nom'
     date: 'Date'
     save: 'Enregistrer'
+    gallery: "Galerie d'images associée"
 gallery:
     gallery: 'Galerie'
     galleries: 'Galeries'
     create: 'Créer'
     title: 'Titre'
+    description: 'Description'
     editimagesof: 'Editer les images de'
     addimages: 'Ajouter des images'
     addimagesto: 'Ajouter des images à'
     editgallery: 'Editer la galerie'
     editimages: 'Editer les images'
+    cropimages: 'Ajuster le cadrage'
+    cropedit: 'Ajuster cadrage'
+    cropslideshowimages: 'Définir les zones de cadrage'
     alttitleedit: 'Modifier description'
     dropfileshere : 'Glissez les fichiers dans cette zone ou cliquez pour sélectionner des fichers de votre ordinateur'
     save: 'Enregistrer'
     deleteimage: "Supprimer l'image"
     deleteimageconfirm: 'Voulez-vous réellement supprimer cette image de manière définitive ?'
+videos:
+    videos: 'Vidéos'
+    title: 'Titre'
+    link: 'Lien'
 website:
-    title: 'Website'
+    title: 'Zinnechœur - Chorale à Bruxelles'
+    slogan: 'Zinnechœur, la chorale bruxelloise qui a du chien !'
+    discoverthechoir: 'Découvrez la chorale'
+    homebtn:
+        choristes: 'Découvrez les choristes'
+        repertoire: 'Découvrez notre répertoire'
+        contact: 'Contactez-nous !'
+    agenda: 'Agenda'
+    repertoire: 'Répertoire'
+    oldrepertoire: 'Ancien répertoire'
+    membres: 'Membres'
+    photos: 'Photos'
+    videos: 'Vidéos'
+    contact: 'Contact'
+    eventpictures: "Photos de l'événement"
+    contactform:
+        name: 'Nom'
+        email: 'Adresse e-mail'
+        subject: 'Sujet'
+        message: 'Message'
+        send: 'Envoyer'
+        sendconfirm: 'Le message a bien été envoyé ! Merci !'
+        senderror: "Une erreur est survenue lors de l'envoi du message... Désolé"
+    nextevents: 'Prochains concerts'
+    pastevents: 'Concerts passés'
+    season: 'Saison'
+    chef: ', cheffe de chœur'
+    choristes: 'Choristes'
+    sopr: 'Soprane'
+    teno: 'Ténor'
+    bass: 'Basse'
+    alto: 'Alto'

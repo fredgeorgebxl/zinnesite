@@ -15,6 +15,9 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('admin/default/index.html.twig');
+        $entityManager = $this->getDoctrine()->getManager();
+        $homepage_slideshow = $entityManager->getRepository(\AppBundle\Entity\Gallery::class)->findOneBy(['homeslide' => 1]);
+        
+        return $this->render('admin/default/index.html.twig', ['slideshow' => $homepage_slideshow]);
     }
 }

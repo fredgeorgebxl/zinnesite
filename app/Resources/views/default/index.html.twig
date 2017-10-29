@@ -1,60 +1,93 @@
+{% trans_default_domain 'App' %}
 {% extends 'base.html.twig' %}
-
 {% block body %}
     <section class="main-hp text-center">
-        <div class="main-hp-content">
-            <nav class="main-hp-menu menu-centered">
-                <ul class="menu">
-                    <li><a href="#">Agenda</a></li>
-                    <li><a href="#">Répertoires</a></li>
-                    <li><a href="#">Membres</a></li>
-                    <li><a href="#">Photos</a></li>
-                    <li><a href="#">Vidéos</a></li>
-                    <li><a href="#">Nous (re)joindre</a></li>
+        <div class="main-hp-content centercontent">
+            <nav class="main-hp-menu menu-centered hide-for-small-only">
+                {{ knp_menu_render('AppBundle:Builder:mainMenu',{'currentClass' : 'active'}) }}
+                <ul class="menu social-networks">
+                    <li><a href="https://www.facebook.com/Zinnechoeur" target="_blank" class="facebook fi-social-facebook" title="Facebook"></a></li>
+                    <li><a href="https://www.youtube.com/channel/UC_tp-m7g0eqs0IwxhA1k9mA" target="_blank" class="youtube fi-social-youtube" title="Youtube"></a></li>
                 </ul>
-                <div class="social-networks menu-centered">
-                    <ul class="menu">
-                        <li><a href="#" class="facebook">Facebook</a></li>
-                        <li><a href="#" class="youtube">Youtube</a></li>
-                    </ul>
-                </div>
             </nav>
-            <div>
+            <div class="main-logo">
                     <img src="{{ asset('images/main-hp-logo.png') }}" alt="Logo Zinnechœur" />
             </div>
             <div>
-                <h1 class="main-hp-slogan">Zinnechœur, la chorale bruxelloise qui a du chien&nbsp;!</h1>
+                <h1 class="main-hp-slogan">{{ 'website.slogan'|trans }}</h1>
             </div>
-            <div class="main-hp-scroll-link">
-                <a href="#presentation">Découvrez la chorale</a>
-            </div>
+        </div>
+        <div class="main-hp-scroll-link">
+            <a href="#presentation" class="scrollLink">{{ 'website.discoverthechoir'|trans }}<span class="fi-arrow-down"></span></a>
         </div>
     </section>
     <section class="presentation">
+        <a id="presentation"></a>
         <div id="menu-trigger"></div>
-        <div class="orbit" role="region" data-orbit>
+        {% if slideshow.pictures|length %}
+        <div class="orbit" role="region" data-orbit data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;" data-timer-delay="3000" data-pause-on-hover="false">
             <ul class="orbit-container">
+                {% for image in slideshow.pictures %}
                 <li class="is-active orbit-slide">
-                    <img class="orbit-image" src="{{ asset('images/carrousel1.jpg') }}" alt="Carrousel 1">
+                    <figure class="orbit-figure">
+                        {{ class_styled_image(image, 'slideshow', 'orbit-image') }}
+                    </figure>
                 </li>
+                {% endfor %}
             </ul>
         </div>
-        <div class="column row">
+        {% endif %}
+        <div class="column row presentation-content">
             <h2 class="text-center">Zinnechœur, une chorale bruxelloise pas comme les autres&nbsp;!</h2>
             <p>Nous sommes une trentaine de choristes d'horizons divers, à l'image du zinneke, ce chien des bords de Senne venu de partout mais aussi de nulle part. Chacun met la main à la *patte* pour le choix du répertoire, l'organisation des concerts et la vie de notre groupe cosmopolite.
             <p>Depuis octobre 2016, nous sommes dirigés par Emily Allison</p>
             <p class="text-center">
-                <a class="button large">Découvrez les choristes</a>
+                <a class="button large">{{ 'website.homebtn.choristes'|trans }}</a>
             </p>
         </div>
     </section>
-    <section class="presentation">
+    <section class="repertoire">
+        <a id="repertoire"></a>
         <div class="column row">
             <h2 class="text-center">Un répertoire éclectique</h2>
             <p>Dans nos portées nous apportons du rock, du jazz mais aussi pas mal de chants du monde et du classique un peu dingo. Un répertoire éclectique que nous répétons à Ixelles.</p>
             <p>En bref, Zinnechœur, une chorale qui chante à tue-tête et à toute heure, des chants entêtants de tous temps, tantôt à tâtons ou tout en titubant, mais surtout sans jamais se prendre la tête.</p>
             <p class="text-center">
-                <a class="button large">Découvrez notre répertoire</a>
+                <a class="button large">{{ 'website.homebtn.repertoire'|trans }}</a>
+            </p>
+        </div>
+    </section>
+    <section class="medias">
+        <a id="medias"></a>
+        <div class="column row">
+            <h2 class="text-center">Zinnechœur en images</h2>
+            <div class="medium-6 columns hp-videos">
+                {{ embed_video(video) }}
+            </div>
+            <div class="medium-6 columns hp-photos">
+                {% if pictures|length %}
+                <div class="orbit" role="region" data-orbit data-options="animInFromLeft:slide-in-left; animInFromRight:slide-in-left; animOutToLeft:scale-out-down; animOutToRight:scale-out-down;" data-timer-delay="3000" data-pause-on-hover="false">
+                    <ul class="orbit-container">
+                        {% for picture in pictures %}
+                        <li class="is-active orbit-slide">
+                            <figure class="orbit-figure">
+                                {{ class_styled_image(picture, 'project_thumb', 'orbit-image') }}
+                            </figure>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    <section class="contact">
+        <a id="contact"></a>
+        <div class="column row">
+            <h2 class="text-center">N'attendez plus !</h2>
+            <p>Si vous voulez que nous chantions lors de l'un de vos événements, si vous désirez nous rejoindre, ou que vous avez une question particulière, n'hésitez pas !</p>
+            <p class="text-center">
+                <a class="button large">{{ 'website.homebtn.contact'|trans }}</a>
             </p>
         </div>
     </section>

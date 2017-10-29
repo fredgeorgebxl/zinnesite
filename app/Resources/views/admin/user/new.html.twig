@@ -12,7 +12,26 @@
         {{ form_row(form.phone) }}
         {{ form_row(form.plainPassword) }}
         {{ form_row(form.voice) }}
-        {{ form_row(form.picture) }}
+        <fieldset>
+            <legend>{{ form_label(form.picture) }}</legend>
+            <div class="form-group">
+                {{ form_row(form.picture.alt) }}
+                {{ form_row(form.picture.title) }}
+                
+                <div class="form-inline">
+                    <div class="form-group">
+                        {{ form_label(form.picture.file) }}
+                        {{ form_errors(form.picture.file) }}
+                        {{ form_widget(form.picture.file) }}
+                    </div>
+                    {% if form.picture.add_image is defined %}
+                    <div class="form-group">
+                     {{ form_widget(form.picture.add_image, {'attr': {'class': 'btn btn-sm'}}) }}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </fieldset>
         {{ form_row(form.save) }}
     {{ form_end(form, {'render_rest': false}) }}
 {% endblock %}

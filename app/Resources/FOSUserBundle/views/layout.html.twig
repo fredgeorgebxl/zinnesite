@@ -1,4 +1,4 @@
-{% extends "base.html.twig" %}
+{% extends "admin/base-admin.html.twig" %}
 {% block body %}
    {% for type, messages in app.session.flashBag.all %}
         {% for message in messages %}

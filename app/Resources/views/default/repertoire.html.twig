@@ -1,0 +1,25 @@
+{% trans_default_domain 'App' %}
+{% extends 'base.html.twig' %}
+{% block title %}{{ 'website.title'|trans }} | {{ 'website.repertoire'|trans }}{% endblock %}
+{% block body %}
+    <div class="column row">
+        <div class="column row">
+        <h1>{{ 'website.repertoire'|trans }}</h1>
+    {% for song in repertoire %}
+        <div class="small-12 medium-4 large-3 columns end">
+            <h3>{{ song.title }}</h3>
+            <p>{{ song.description }}</p>
+        </div>
+    {% endfor %}
+        </div>
+        <div class="column row">
+        <h2>{{ 'website.oldrepertoire'|trans }}</h2>
+    {% for oldsong in oldrepertoire %}
+        <div class="small-6 medium-3 large-2 columns end">
+            <h4>{{ oldsong.title }}</h4>
+            <p>{{ oldsong.description }}</p>
+        </div>
+    {% endfor %}
+        </div>
+    </div>
+{% endblock %}

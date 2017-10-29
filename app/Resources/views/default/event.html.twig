@@ -1,0 +1,48 @@
+{% trans_default_domain 'App' %}
+{% extends 'base.html.twig' %}
+{% block title %}{{ 'website.title'|trans }} | {{ event.name }}{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}"/>
+    {% if gallery is defined and gallery is not null %}
+    <link rel="stylesheet" href="{{ asset('css/fresco/fresco.css') }}"/>
+    {% endif %}
+{% endblock %}
+{% block body %}
+    <div class="column row">
+        <h1>{{ event.name }}</h1>
+        <div class="medium-6 large-3 columns">
+            <div class="date">{{ event.date|date('d-m-Y') }}</div>
+            {% if event.picture is defined and event.picture is not null %}
+                {{ styled_image(event.picture, 'project_full') }}
+            {% endif %}
+        </div>
+        <div class="medium-6 large-9 columns">{{ event.description|raw }}</div>
+    </div>
+    {% if gallery is defined and gallery is not null %}
+    <div class="column row">
+        <h2>{{ 'website.eventpictures'|trans }}</h2>
+        <div class="row">
+        {% for i in 0..4 %}
+            {% if gallery.pictures[i] is defined %}
+            {% set image = gallery.pictures[i] %}
+            <div class="small-6 medium-3 large-2 columns end">
+                <a href="{{ asset('uploads/images/'~image.path) }}" class="fresco"{% if image.title is not empty %} data-fresco-caption="{{ image.title }}"{% endif %} data-fresco-group="current-gallery">{{ styled_image(image, 'project_thumb') }}</a>
+            </div>
+            {% endif %}
+        {% endfor %}
+        {% if gallery.pictures[5] is defined %}
+            <div class="small-6 medium-3 large-2 columns end">
+                <a href="{{ path('gallery', {'slug': gallery.slug}) }}">{{ 'website.viewmore'|trans }}</a>
+            </div>
+        {% endif %}
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('js/script.js') }}"></script>
+    <script src="{{ asset('js/zinne.js') }}"></script>
+    {% if gallery is defined and gallery is not null %}
+    <script src="{{ asset('js/fresco/fresco.js') }}"></script>
+    {% endif %}
+{% endblock %}

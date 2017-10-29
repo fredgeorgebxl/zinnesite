@@ -1,12 +1,146 @@
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+}
+
+main{
+    padding-top: 100px;
+}
+.homepage{
+    section{
+        position: relative;
+        .centercontent{
+            @include absolute-center;
+        }
+    }
+    main{
+        padding-top: 0;
+    }
+    
+    .presentation-content{
+        position: relative;
+        z-index: 100;
+        background-color: $body-background;
+        padding:5vh 50px 20vh 50px;
+    }
+    
+    .repertoire{
+        padding: 10vh 0 10vh 0;
+        background-color: $secondary-color;
+    }
+    .contact{
+        padding: 10vh 0 10vh 0;
+        background-color: $third-color;
+    }
+}
+
 .main-hp{
     background-color: $primary-color;
     .main-hp-menu{
         a{color: $white;}
+        font-size: 1.4rem;
+        font-family: $title-font;
+        margin-bottom: 5vh;
+        .social-networks{
+            font-size: 2.5rem;
+            position: relative;
+            top: -6px;
+        }
     }
     h1{color: $white;}
     height: 100vh;
     position: relative;
+    .main-logo{
+        margin-bottom: 5vh;
+    }
     .main-hp-content{
-        @include absolute-center;
+        .main-hp-slogan{
+            font-size: 2rem;
+        }
+    }
+    .main-hp-scroll-link{
+        position: absolute;
+        bottom: 15px;
+        text-align: center;
+        width: 100%;
+        a{
+            color: #fff;
+            text-align: center;
+            font-size: 1.5rem;
+            font-family: $body-font-bold;
+            span{
+                display: block;
+                font-size: 2rem;
+            }
+        }
+    }
+}
+
+@include breakpoint(medium up) {
+    .main-hp{
+        .main-logo{
+            img{
+                height: 40vh;
+            }
+        }
+    }
+}
+
+@include breakpoint(large up) {
+    .main-hp{
+        .main-hp-menu{
+            font-size: 2rem;
+        }
+    }
+    p{
+        font-size: 1.2rem;
+    }
+    .homepage{
+        p{
+            font-size: 1.5rem;
+        }
+    }
+}
+
+@include breakpoint(xlarge up) {
+    .main-hp{
+        .main-hp-content{
+            .main-hp-slogan{
+                font-size: 3rem;
+            }
+        }
+    }
+}
+
+.galleryfront{
+    position:relative;
+    .galleryfront-1{
+        position: relative;
+        -ms-transform: rotate(-5deg); /* IE 9 */
+        -webkit-transform: rotate(-5deg); /* Chrome, Safari, Opera */
+        transform: rotate(-5deg);
+        left: -10px;
+    }
+    .galleryfront-2{
+        position: absolute;
+        top: 0;
+        left:0;
+    }
+    .galleryfront-3{
+        position: absolute;
+        top: 0;
+        left:10px;
+        -ms-transform: rotate(5deg); /* IE 9 */
+        -webkit-transform: rotate(5deg); /* Chrome, Safari, Opera */
+        transform: rotate(5deg);
     }
 }

@@ -5,6 +5,7 @@ namespace AppBundle\Entity;
 use AppBundle\Entity\ContentBase;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity
@@ -43,6 +44,24 @@ class Event extends ContentBase{
      */
     private $season;
     
+    /**
+     * @ORM\OneToOne(targetEntity="ResponsiveImage", inversedBy="event", cascade={"persist", "remove"}, orphanRemoval=true)
+     * @ORM\JoinColumn(name="picture_id", referencedColumnName="id", nullable=true)
+     * @Assert\Type(type="AppBundle\Entity\ResponsiveImage")
+     * @Assert\Valid()
+     */
+    protected $picture;
+    
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $gallery;
+    
+    /**
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(length=200, unique=true, nullable=true)
+     */
+    private $slug;
 
     /**
      * Get id
@@ -76,6 +95,30 @@ class Event extends ContentBase{
     public function getName()
     {
         return $this->name;
+    }
+    
+    /**
+     * Get gallery
+     *
+     * @return integer
+     */
+    public function getGallery()
+    {
+        return $this->gallery;
+    }
+    
+    /**
+     * Set gallery
+     *
+     * @param integer $gallery
+     *
+     * @return Event
+     */
+    public function setGallery($gallery)
+    {
+        $this->gallery = $gallery;
+
+        return $this;
     }
 
     /**
@@ -148,5 +191,39 @@ class Event extends ContentBase{
     public function getSeason()
     {
         return $this->season;
+    }
+    
+     /**
+     * Set picture
+     *
+     * @param \AppBundle\Entity\ResponsiveImage $picture
+     *
+     * @return User
+     */
+    public function setPicture(\AppBundle\Entity\ResponsiveImage $picture = null)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return \AppBundle\Entity\ResponsiveImage
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+    
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 }

@@ -27,15 +27,22 @@ class GalleryController extends Controller
     public function indexAction()
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $galleries = $entityManager->getRepository(Gallery::class)->findBy([], ['datecreated' => 'desc']);
+        $repository = $entityManager->getRepository(Gallery::class);
+        $qb = $repository->createQueryBuilder('gal');
+        $queryEvents = $qb
+                ->where('gal.homeslide != 1')
+                ->orWhere($qb->expr()->isNull('gal.homeslide'))
+                ->orderBy('gal.datecreated', 'DESC')
+                ->getQuery();
+        $galleries = $queryEvents->getResult();
 
         return $this->render('admin/gallery/index.html.twig', ['galleries' => $galleries]);
     }
     
     /**
-     * @Route("/new", name="gallery_new")
+     * @Route("/new/{param}", name="gallery_new")
      */
-    public function newAction(Request $request)
+    public function newAction(Request $request, $param = 'nothing')
     {
 
        $gallery = new Gallery();
@@ -43,6 +50,11 @@ class GalleryController extends Controller
 
        $gallery->setDateCreated(new \DateTime());
        $gallery->setDateModified(new \DateTime());
+       if ($param == 'homeslide'){
+           $gallery->setHomeslide(TRUE);
+       } else {
+           $gallery->setHomeslide(FALSE);
+       }
 
        $form = $this->createForm(GalleryType::class,$gallery);
        $form->handleRequest($request);
@@ -56,7 +68,12 @@ class GalleryController extends Controller
             if($form->get('addimages')->isClicked()){
                 return $this->redirectToRoute('gallery_addimages', ['gal_id' => $gallery->getId()]);
             } else {
-                return $this->redirectToRoute('gallery_list');
+                if($gallery->getHomeslide()){
+                    return $this->redirectToRoute('admin_home');
+                } else {
+                    return $this->redirectToRoute('gallery_list');
+                }
+                
             }
         }
 
@@ -93,6 +110,8 @@ class GalleryController extends Controller
                 return $this->redirectToRoute('gallery_addimages', ['gal_id' => $gal_id]);
             } elseif ($form->get('edit_images')->isClicked()) {
                 return $this->redirectToRoute('gallery_editimages', ['gal_id' => $gal_id]);
+            } elseif ($gallery->getHomeslide()) {
+                return $this->redirectToRoute('admin_home');
             } else {
                 return $this->redirectToRoute('gallery_list');
             }
@@ -119,12 +138,16 @@ class GalleryController extends Controller
             );
         }
         
-        $form = $this->createFormBuilder()
-            ->setAction($this->generateUrl('gallery_addimages', ['gal_id' => $gal_id]))
-            ->add('file', FileType::class)
-            ->add('edit_gallery', SubmitType::class, array('label' => 'gallery.editgallery', 'translation_domain' => 'App'))
-            ->add('edit_images', SubmitType::class, array('label' => 'gallery.editimages', 'translation_domain' => 'App'))
-            ->getForm();
+        $builder = $this->createFormBuilder();
+            $builder->setAction($this->generateUrl('gallery_addimages', ['gal_id' => $gal_id]))
+            ->add('file', FileType::class);
+            if ($gallery->getHomeslide()){
+                $builder->add('back_home', SubmitType::class, array('label' => 'gallery.save', 'translation_domain' => 'App'));
+            } else {
+                $builder->add('edit_gallery', SubmitType::class, array('label' => 'gallery.editgallery', 'translation_domain' => 'App'));
+            }
+            $builder->add('edit_images', SubmitType::class, array('label' => 'gallery.editimages', 'translation_domain' => 'App'));
+            $form = $builder->getForm();
         
         $form->handleRequest($request);
         
@@ -151,11 +174,14 @@ class GalleryController extends Controller
                 return new JsonResponse(['success' => true]);
             }
             
-            if($form->get('edit_gallery')->isClicked()){
+            if($form->has('edit_gallery') && $form->get('edit_gallery')->isClicked()){
                 return $this->redirectToRoute('gallery_edit', ['gal_id' => $gal_id]);
             }
             if($form->get('edit_images')->isClicked()){
                 return $this->redirectToRoute('gallery_editimages', ['gal_id' => $gal_id]);
+            }
+            if($form->has('back_home') && $form->get('back_home')->isClicked()){
+                return $this->redirectToRoute('admin_home');
             }
         }
         
@@ -180,7 +206,7 @@ class GalleryController extends Controller
         }
         $form = $this->createFormBuilder($gallery)
                 ->add('title', HiddenType::class)
-                ->add('pictures', CollectionType::class, array('allow_delete' => true, 'entry_type' => GalleryImageType::class, 'entry_options' => array('attr' => array('class' => 'image-box'))))
+                ->add('pictures', CollectionType::class, array('error_bubbling' => FALSE, 'allow_delete' => true, 'entry_type' => GalleryImageType::class, 'entry_options' => array('attr' => array('class' => 'image-box'))))
                 ->add('save', SubmitType::class, array('label' => 'gallery.save', 'translation_domain' => 'App'))
                 ->getForm();
         
@@ -205,13 +231,52 @@ class GalleryController extends Controller
             $em->persist($gallery);
             $em->flush();
             
-            return $this->redirectToRoute('gallery_edit', ['gal_id' => $gal_id]);
+            if ($gallery->getHomeslide()){
+                return $this->redirectToRoute('admin_home');
+            } else {
+                return $this->redirectToRoute('gallery_edit', ['gal_id' => $gal_id]);
+            }
         }
         
         return $this->render('admin/gallery/editimages.html.twig', array(
             'form' => $form->createView(),
-            //'images' => $images,
+            'homeslide' => $gallery->getHomeslide(),
+            'gal_id' => $gal_id,
         ));
+    }
+    
+    /**
+     * @Route("/cropimage/{gal_id}/{img_id}", requirements={"gal_id" = "\d+", "img_id" = "\d+"}, name="gallery_cropimage")
+     */
+    public function cropimageAction($gal_id, $img_id, Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $image = $em->getRepository(ResponsiveImage::class)->find($img_id);
+        
+        if (!$image) {
+            throw $this->createNotFoundException(
+                'No image found for id '.$img_id
+            );
+        }
+        $form = $this->createFormBuilder($image)
+                ->add('crop_coordinates', \IrishDan\ResponsiveImageBundle\Form\CropFocusType::class, array('data' => $image, 'label' => 'image.crop_focus', 'translation_domain' => 'App'))
+                ->add('save', SubmitType::class, array('label' => 'image.save', 'translation_domain' => 'App'))
+                ->getForm();
+        
+        $form->handleRequest($request);
+        
+        if($form->isSubmitted() && $form->isValid()){
+            
+            $em->persist($image);
+            $em->flush();
+
+            return $this->redirectToRoute('gallery_editimages', ['gal_id' => $gal_id]);
+            
+        }
+        
+        return $this->render('admin/gallery/cropimage.html.twig', array(
+            'form' => $form->createView(),
+        ));
+        
     }
 
      /**

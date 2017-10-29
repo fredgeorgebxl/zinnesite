@@ -1,5 +1,9 @@
 @for $index from 1 through 6 {
   h#{$index}{
-    font-family: 'source_sans_problack', 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+    font-family: $title-font;
   }
+}
+
+a{
+    outline: 0;
 }

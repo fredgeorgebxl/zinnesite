@@ -1,0 +1,16 @@
+{% trans_default_domain 'App' %}
+{% extends "admin/base-admin.html.twig" %}
+
+{% block body %}
+<h1>{{ 'users.profile'|trans }}</h1>
+{% if app.request.hasPreviousSession %}
+    {% for type, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+            <p class="bg-{{ type }}">
+                {{ message }}
+            </p>
+        {% endfor %}
+    {% endfor %}
+{% endif %}
+{% include "@FOSUser/Profile/show_content.html.twig" %}
+{% endblock body %}

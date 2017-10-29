@@ -9,6 +9,8 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\FormEvent;
+use Symfony\Component\Form\FormEvents;
 
 class RegistrationType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -25,7 +27,7 @@ class RegistrationType extends AbstractType {
                     'users.voice.basse' => 'bass',
                     'users.voice.chef' => 'chef'
                 )))
-            ->add('picture', ImageType::class, array('label' => 'users.picture', 'translation_domain' => 'App'))
+            ->add('picture', ImageType::class, array('required' => 'false', 'label' => 'users.picture', 'translation_domain' => 'App'))
             ->add('save', SubmitType::class, array('label' => 'users.save', 'translation_domain' => 'App'));
     }
     
@@ -35,13 +37,14 @@ class RegistrationType extends AbstractType {
     }
     
     public function configureOptions(OptionsResolver $resolver)
-{
-    $resolver->setDefaults(array(
-        'validation_groups' => array('User', 'registration'),
-    ));
-}
-    
-    public function getBlockPrefix()
+    {
+        $resolver->setDefaults(array(
+            'validation_groups' => array('User', 'registration'),
+            'cascade_validation' => true,
+        ));
+    }
+
+        public function getBlockPrefix()
     {
         return 'app_user_registration';
     }

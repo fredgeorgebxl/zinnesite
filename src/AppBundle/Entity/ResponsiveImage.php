@@ -102,8 +102,13 @@ class ResponsiveImage implements ResponsiveImageInterface
     protected $user = null;
     
     /**
+     * @ORM\OneToOne(targetEntity="Event", mappedBy="picture")
+     */
+    protected $event = null;
+    
+    /**
      * @ORM\ManyToOne(targetEntity="Gallery", inversedBy="pictures")
-     * @ORM\JoinColumn(name="gallery_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="gallery_id", referencedColumnName="id", nullable=true)
      */
     protected $gallery = null;
 
@@ -419,6 +424,30 @@ class ResponsiveImage implements ResponsiveImageInterface
     public function getUser()
     {
         return $this->user;
+    }
+    
+    /**
+     * Set event
+     *
+     * @param \AppBundle\Entity\Event $event
+     *
+     * @return ResponsiveImage
+     */
+    public function setEvent(\AppBundle\Entity\Event $event = null)
+    {
+        $this->event = $event;
+
+        return $this;
+    }
+
+    /**
+     * Get event
+     *
+     * @return \AppBundle\Entity\Event
+     */
+    public function getEvent()
+    {
+        return $this->event;
     }
 
     /**

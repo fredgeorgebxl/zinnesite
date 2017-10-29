@@ -6,36 +6,40 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}{{ 'website.title'|trans }}{% endblock %}</title>
-        {% block stylesheets %}<link rel="stylesheet" href="{{ asset('css/styles.css') }}"/>{% endblock %}
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/styles.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('foundation-icons/foundation-icons.css') }}"/>
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <!--[if lt IE 9]>
             <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
             <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
     </head>
+    {% if ishome is defined %}
+    <body class="homepage">
+    {% else %}
     <body>
+    {% endif %}
         {% block header %}
         <header>
             <div data-sticky-container>
-                <div class="top-bar">
+                <div class="title-bar" data-responsive-toggle="main-menu">
+                    <button class="menu-icon" type="button" data-toggle="main-menu"></button>
+                    <div class="title-bar-title">Menu</div>
+                </div>
+                <div class="top-bar" id="main-menu">
                     <div class="column row">
                         <div class="top-bar-title">
-                            Zinnechœur
+                            <a href="{{ path('homepage') }}"><img src="{{ asset('images/top-bar-logo-neg.png') }}" alt="Zinnechœur" /></a>
                         </div>
                         <nav class="main-nav top-bar-left">
-                            <ul class="menu">
-                                <li><a href="#">Agenda</a></li>
-                                <li><a href="#">Répertoires</a></li>
-                                <li><a href="#">Membres</a></li>
-                                <li><a href="#">Photos</a></li>
-                                <li><a href="#">Vidéos</a></li>
-                                <li><a href="#">Nous (re)joindre</a></li>
-                            </ul>
+                            {{ knp_menu_render('AppBundle:Builder:mainMenu',{'currentClass' : 'active'}) }}
                         </nav>
                         <div class="social-networks top-bar-right">
                             <ul class="menu">
-                                <li><a href="#" class="facebook">Facebook</a></li>
-                                <li><a href="#" class="youtube">Youtube</a></li>
+                                <li><a href="#" class="facebook fi-social-facebook" title="Facebook"></a></li>
+                                <li><a href="#" class="youtube fi-social-youtube" title="Youtube"></a></li>
                             </ul>
                         </div>
                     </div>

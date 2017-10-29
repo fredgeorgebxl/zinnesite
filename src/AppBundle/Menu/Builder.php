@@ -32,4 +32,25 @@ class Builder implements ContainerAwareInterface
         
         return $menu;
     }
+    
+    public function mainMenu(FactoryInterface $factory, array $options)
+    {
+        $menu = $factory->createItem('root', array('childrenAttributes' => array('class' => 'vertical medium-horizontal menu')));
+        
+        $menu->addChild('website.agenda', array('route' => 'agenda'))
+                ->setExtra('translation_domain', 'App');
+        $menu->addChild('website.repertoire', array('route' => 'repertoire'))
+                ->setExtra('translation_domain', 'App');
+        $menu->addChild('website.membres', array('route' => 'membres'))
+                ->setExtra('translation_domain', 'App');
+        $menu->addChild('website.photos', array('route' => 'photos'))
+                ->setExtra('translation_domain', 'App');
+        $menu->addChild('website.videos', array('uri' => 'https://www.youtube.com/channel/UC_tp-m7g0eqs0IwxhA1k9mA'))
+                ->setLinkAttribute('target', '_blank')
+                ->setExtra('translation_domain', 'App');
+        $menu->addChild('website.contact', array('route' => 'contact'))
+                ->setExtra('translation_domain', 'App');
+        
+        return $menu;
+    }
 }

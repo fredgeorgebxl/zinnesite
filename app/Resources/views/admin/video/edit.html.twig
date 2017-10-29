@@ -1,0 +1,12 @@
+{% trans_default_domain 'App' %}
+{% extends "admin/base-admin.html.twig" %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+{% block body %}
+    <h1> {{ 'general.edit'|trans }} '{{ form.title.vars.value }}'</h1>
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{ form_row(form._token) }}
+        {{ form_row(form.title) }}
+        {{ form_row(form.link) }}
+        {{ form_row(form.save) }}
+    {{ form_end(form, {'render_rest': false}) }}
+{% endblock %}
