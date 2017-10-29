@@ -24,7 +24,7 @@
     <section class="presentation">
         <a id="presentation"></a>
         <div id="menu-trigger"></div>
-        {% if slideshow.pictures|length %}
+        {% if slideshow.pictures is defined and slideshow.pictures|length %}
         <div class="orbit" role="region" data-orbit data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;" data-timer-delay="3000" data-pause-on-hover="false">
             <ul class="orbit-container">
                 {% for image in slideshow.pictures %}
@@ -62,7 +62,9 @@
         <div class="column row">
             <h2 class="text-center">Zinnechœur en images</h2>
             <div class="medium-6 columns hp-videos">
+                {% if video is not null %}
                 {{ embed_video(video) }}
+                {% endif %}
             </div>
             <div class="medium-6 columns hp-photos">
                 {% if pictures|length %}

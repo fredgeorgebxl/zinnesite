@@ -24,7 +24,11 @@ class DefaultController extends Controller
                 ->where('g.homeslide != 1')
                 ->getQuery()
                 ->getArrayResult();
-        $selected = array_rand($pictures_id, 5);
+        $selected = [];
+        $query_array = [];
+        if (count($selected)){
+            array_rand($pictures_id, 5);
+        }
         foreach ($selected as $cid){
             $query_array[] = $pictures_id[$cid]["id"];
         }
@@ -34,8 +38,12 @@ class DefaultController extends Controller
                 ->getQuery()
                 ->getResult();
         
-        $index = rand(0, (count($videos)-1));
-        $video = $videos[$index];
+        if (count($videos)){
+            $index = rand(0, (count($videos)-1));
+            $video = $videos[$index];
+        }else{
+            $video = null;
+        }
         
         return $this->render('default/index.html.twig', ['ishome' => true, 'slideshow' => $slideshow, 'video' => $video, 'pictures' => $pictures]);
     }
