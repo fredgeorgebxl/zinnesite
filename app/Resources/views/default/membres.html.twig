@@ -3,10 +3,12 @@
 {% block title %}{{ 'website.title'|trans }} | {{ 'website.membres'|trans }}{% endblock %}
 {% block body %}
 <div class="column row">
+    {% if chef is defined and chef is not null %}
     <h2>{{ chef.firstname }} {{ chef.lastname }}{{ 'website.chef'|trans }}</h2>
     <div class="chef">
     {{ styled_image(chef.picture, 'project_square') }}
     </div>
+    {% endif %}
     <h2>{{ 'website.choristes'|trans }}</h2>
     <div class="row">
     {% for member in members %}
