@@ -16,18 +16,26 @@ class DefaultController extends Controller
         // get slideshow images
         $entityManager = $this->getDoctrine()->getManager();
         $slideshow = $entityManager->getRepository(\AppBundle\Entity\Gallery::class)->findOneBy(['homeslide' => 1]);
+        // get videos for homepage
         $videos = $entityManager->getRepository(\AppBundle\Entity\Video::class)->findBy([],[],10);
+        if (count($videos)){
+            $index = rand(0, (count($videos)-1));
+            $video = $videos[$index];
+        }else{
+            $video = null;
+        }
+        
+        // get random pictures from galleries
         $photos_rep = $entityManager->getRepository(\AppBundle\Entity\ResponsiveImage::class);
         $pictures_id = $photos_rep->createQueryBuilder('p')
                 ->select('p.id')
-                ->innerJoin('p.gallery', 'g', 'WITH', 'p.gallery = g.id')
-                ->where('g.homeslide != 1')
+                ->innerJoin('p.gallery', 'g', 'WITH', 'g.homeslide != 1')
                 ->getQuery()
                 ->getArrayResult();
         $selected = [];
         $query_array = [];
-        if (count($selected)){
-            array_rand($pictures_id, 5);
+        if (count($pictures_id)){
+            $selected = array_rand($pictures_id, 5);
         }
         foreach ($selected as $cid){
             $query_array[] = $pictures_id[$cid]["id"];
@@ -37,13 +45,6 @@ class DefaultController extends Controller
                 ->setParameter('ids', $query_array)
                 ->getQuery()
                 ->getResult();
-        
-        if (count($videos)){
-            $index = rand(0, (count($videos)-1));
-            $video = $videos[$index];
-        }else{
-            $video = null;
-        }
         
         return $this->render('default/index.html.twig', ['ishome' => true, 'slideshow' => $slideshow, 'video' => $video, 'pictures' => $pictures]);
     }
@@ -150,7 +151,15 @@ class DefaultController extends Controller
     public function galleryAction($slug)
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $gallery = $entityManager->getRepository(\AppBundle\Entity\Gallery::class)->findOneBy([ 'slug' => $slug, 'published' => 1]);
+        $gallery_rep = $entityManager->getRepository(\AppBundle\Entity\Gallery::class);
+        $gallery = $gallery_rep->createQueryBuilder('g')
+                ->leftJoin('g.pictures', 'pic')
+                ->where('g.slug = :slug')
+                ->andWhere('g.published = 1')
+                ->setParameter('slug', $slug)
+                ->addSelect('pic')
+                ->getQuery()
+                ->getSingleResult();
         
         return $this->render('default/gallery.html.twig', ['gallery' => $gallery]);
     }

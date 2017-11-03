@@ -538,7 +538,7 @@ pre {
   display: none !important; }
 
 .row {
-  max-width: 87.5rem;
+  max-width: 75rem;
   margin-right: auto;
   margin-left: auto; }
   .row::before, .row::after {
@@ -1648,7 +1648,7 @@ a {
 
 hr {
   clear: both;
-  max-width: 87.5rem;
+  max-width: 75rem;
   height: 0;
   margin: 1.25rem auto;
   border-top: 0;
@@ -3722,7 +3722,7 @@ html.is-reveal-open body {
   @media print, screen and (min-width: 40em) {
     .reveal {
       width: 600px;
-      max-width: 87.5rem; } }
+      max-width: 75rem; } }
   @media print, screen and (min-width: 40em) {
     .reveal .reveal {
       right: auto;
@@ -3733,15 +3733,15 @@ html.is-reveal-open body {
   @media print, screen and (min-width: 40em) {
     .reveal.tiny {
       width: 30%;
-      max-width: 87.5rem; } }
+      max-width: 75rem; } }
   @media print, screen and (min-width: 40em) {
     .reveal.small {
       width: 50%;
-      max-width: 87.5rem; } }
+      max-width: 75rem; } }
   @media print, screen and (min-width: 40em) {
     .reveal.large {
       width: 90%;
-      max-width: 87.5rem; } }
+      max-width: 75rem; } }
   .reveal.full {
     top: 0;
     left: 0;

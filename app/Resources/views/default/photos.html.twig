@@ -11,11 +11,9 @@
                 <a href="{{ path('gallery', {'slug': gallery.slug}) }}">
                     <h3>{{ gallery.title }}</h3>
                     <div class="galleryfront">
-                        {% for i in 2..0 %}
-                            {% if gallery.pictures[i] is defined %}
-                                {{ class_styled_image(gallery.pictures[i], 'project_thumb', 'galleryfront-'~(i+1)) }}
-                            {% endif %}
-                        {% endfor %}
+                        {% if gallery.pictures[0] is defined %}
+                            {{ class_styled_image(gallery.pictures[0], 'project_thumb', 'galleryfront') }}
+                        {% endif %}
                     </div>
                 </a>
             </div>
