@@ -11,6 +11,7 @@
             <file>file:/www/symfony_test/src/AppBundle/Twig/AppExtension.php</file>
             <file>file:/www/symfony_test/src/AppBundle/Helpers.php</file>
             <file>file:/www/symfony_test/src/AppBundle/Controller/Admin/GalleryController.php</file>
+            <file>file:/www/symfony_test/app/config/security.yml</file>
             <file>file:/www/symfony_test/app/config/services.yml</file>
         </group>
     </open-files>
