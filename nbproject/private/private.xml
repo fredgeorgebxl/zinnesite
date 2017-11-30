@@ -3,16 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/www/symfony_test/app/Resources/views/default/index.html.twig</file>
-            <file>file:/www/symfony_test/app/Resources/views/default/video.html.twig</file>
-            <file>file:/www/symfony_test/app/Resources/public/sass/front/_page.scss</file>
-            <file>file:/www/symfony_test/app/Resources/public/js/zinne.js</file>
-            <file>file:/www/symfony_test/app/Resources/translations/App.fr.yml</file>
-            <file>file:/www/symfony_test/src/AppBundle/Twig/AppExtension.php</file>
-            <file>file:/www/symfony_test/src/AppBundle/Helpers.php</file>
-            <file>file:/www/symfony_test/src/AppBundle/Controller/Admin/GalleryController.php</file>
-            <file>file:/www/symfony_test/app/config/security.yml</file>
-            <file>file:/www/symfony_test/app/config/services.yml</file>
+            <file>file:/www/zinnesite/src/AppBundle/Entity/Gallery.php</file>
+            <file>file:/www/zinnesite/src/AppBundle/Controller/DefaultController.php</file>
+            <file>file:/www/zinnesite/app/Resources/views/default/agenda.html.twig</file>
+            <file>file:/www/zinnesite/app/Resources/views/default/index.html.twig</file>
         </group>
     </open-files>
 </project-private>

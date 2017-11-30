@@ -4302,6 +4302,19 @@ h6 {
 a {
   outline: 0; }
 
+.videoWrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  /* 16:9 */
+  padding-top: 25px;
+  height: 0; }
+  .videoWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+
 .title-bar {
   width: 100%;
   position: fixed;
@@ -4344,19 +4357,6 @@ a {
   .top-bar .social-networks {
     margin-top: 8px;
     font-size: 2.2rem; } }
-
-.videoWrapper {
-  position: relative;
-  padding-bottom: 56.25%;
-  /* 16:9 */
-  padding-top: 25px;
-  height: 0; }
-  .videoWrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; }
 
 main {
   padding-top: 100px; }
@@ -4419,6 +4419,18 @@ main {
       .main-hp .main-hp-scroll-link a span {
         display: block;
         font-size: 2rem; }
+
+.agenda .date {
+  background-color: #00989a;
+  display: inline-block;
+  padding: 0px 5px;
+  color: #fff;
+  margin-right: 30px; }
+
+.agenda .pastevent {
+  margin-bottom: 5px; }
+  .agenda .pastevent a {
+    display: inline-block; }
 
 @media screen and (min-width: 40em) {
   .main-hp .main-logo img {

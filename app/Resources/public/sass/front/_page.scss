@@ -1,20 +1,8 @@
-.videoWrapper {
-	position: relative;
-	padding-bottom: 56.25%; /* 16:9 */
-	padding-top: 25px;
-	height: 0;
-        iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-}
-
 main{
     padding-top: 100px;
 }
+
+// Homepage //
 .homepage{
     section{
         position: relative;
@@ -85,6 +73,22 @@ main{
     }
 }
 
+// Agenda //
+
+.agenda{
+    .date{
+        @include primary-bg;
+        margin-right: 30px;
+    }
+    .pastevent{
+        margin-bottom: 5px;
+        a{
+            display: inline-block;
+        }
+    }
+}
+
+// Media queries //
 @include breakpoint(medium up) {
     .main-hp{
         .main-logo{

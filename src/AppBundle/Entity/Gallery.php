@@ -34,7 +34,7 @@ class Gallery extends ContentBase
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="text", nullable=TRUE)
      */
     private $description;
     

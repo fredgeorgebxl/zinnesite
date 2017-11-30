@@ -27,11 +27,13 @@ class DefaultController extends Controller
         
         // get random pictures from galleries
         $photos_rep = $entityManager->getRepository(\AppBundle\Entity\ResponsiveImage::class);
-        $pictures_id = $photos_rep->createQueryBuilder('p')
-                ->select('p.id')
-                ->innerJoin('p.gallery', 'g', 'WITH', 'g.homeslide != 1')
-                ->getQuery()
-                ->getArrayResult();
+        $qb = $photos_rep->createQueryBuilder('p');
+        $qb->select('p.id')
+                ->innerJoin('p.gallery', 'g', 'WITH', $qb->expr()->orx(
+                        $qb->expr()->neq('g.homeslide',1),
+                        $qb->expr()->isNull('g.homeslide')
+                ));
+        $pictures_id = $qb->getQuery()->getArrayResult();
         $selected = [];
         $query_array = [];
         if (count($pictures_id)){
