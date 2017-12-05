@@ -73,13 +73,19 @@ main{
     }
 }
 
-// Agenda //
+// Agenda + Détail //
+.date{
+    @include primary-bg;
+    margin-right: 30px;
+    font-family: $title-font;
+    fong-size: 1.125rem;
+}
+
+.concert-detail{
+    margin-bottom: 1.5rem;
+}
 
 .agenda{
-    .date{
-        @include primary-bg;
-        margin-right: 30px;
-    }
     .pastevent{
         margin-bottom: 5px;
         a{
@@ -87,9 +93,20 @@ main{
         }
     }
 }
+.event{
+    .event-images{
+        margin-bottom: 1rem;
+    }
+    .all-images-link{
+        @include primary-bg;
+    }
+}
 
 // Media queries //
 @include breakpoint(medium up) {
+    .date{
+        font-size: 1.5625rem;
+    }
     .main-hp{
         .main-logo{
             img{
