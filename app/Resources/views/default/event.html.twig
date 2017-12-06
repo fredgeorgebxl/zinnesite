@@ -26,7 +26,7 @@
         {% endfor %}
         {% if gallery.pictures[5] is defined %}
             <div class="event-images all-images-link small-4 medium-2 columns end">
-                <a href="{{ path('gallery', {'slug': gallery.slug}) }}">{{ 'website.viewmore'|trans }}</a>
+                <a href="{{ path('gallery', {'slug': gallery.slug}) }}"><img src="{{ asset('images/empty-square.png') }}" alt="" /><span class="caption">{{ 'website.viewmore'|trans }}</span></a>
             </div>
         {% endif %}
         </div>

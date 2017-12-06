@@ -22,7 +22,13 @@ a{
         }
 }
 
+.spacedown{
+    margin-bottom: 1.5rem;
+}
 
+.bolder{
+    font-family: $body-font-bold;
+}
 // Mixins //
 
 @mixin primary-bg{

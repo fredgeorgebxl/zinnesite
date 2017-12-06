@@ -4315,6 +4315,12 @@ a {
     width: 100%;
     height: 100%; }
 
+.spacedown {
+  margin-bottom: 1.5rem; }
+
+.bolder {
+  font-family: source_sans_prosemibold, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; }
+
 .title-bar {
   width: 100%;
   position: fixed;
@@ -4429,9 +4435,6 @@ main {
   font-family: source_sans_problack, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
   fong-size: 1.125rem; }
 
-.concert-detail {
-  margin-bottom: 1.5rem; }
-
 .agenda .pastevent {
   margin-bottom: 5px; }
   .agenda .pastevent a {
@@ -4440,11 +4443,18 @@ main {
 .event .event-images {
   margin-bottom: 1rem; }
 
-.event .all-images-link {
-  background-color: #00989a;
+.event .all-images-link a {
   display: inline-block;
-  padding: 0px 5px;
-  color: #fff; }
+  background-color: #00989a;
+  color: #fff;
+  position: relative; }
+  .event .all-images-link a .caption {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    font-family: source_sans_problack, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+    text-align: center; }
 
 @media screen and (min-width: 40em) {
   .date {
@@ -4458,7 +4468,10 @@ main {
   p {
     font-size: 1.2rem; }
   .homepage p {
-    font-size: 1.5rem; } }
+    font-size: 1.5rem; }
+  .event .all-images-link a .caption {
+    font-size: 1.7rem;
+    line-height: 2rem; } }
 
 @media screen and (min-width: 75em) {
   .main-hp .main-hp-content .main-hp-slogan {
