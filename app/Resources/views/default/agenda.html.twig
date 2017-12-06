@@ -5,16 +5,12 @@
     <div class="column row agenda">
         <h1>{{ 'website.agenda'|trans }}</h1>
         <div class="column row">
-            {% if event is defined and event|length %}
+            {% if events is defined and events|length %}
             <h2>{{ 'website.nextevents'|trans }}</h2>
             {% endif %}
+            {% set titlesize = '3' %}
             {% for event in events %}
-                <div class="date">{{ event.date|date('d/m/Y') }}</div>
-                <h3>{{ event.name }}</h3>
-                {% if event.picture is defined and event.picture is not null %}
-                    {{ styled_image(event.picture, 'project_full') }}
-                {% endif %}
-                <div class="event-content">{{ event.description|raw }}</div>
+                {{ include('default/eventDetail.html.twig') }}
             {% endfor %}
         </div>
         <div class="column row">

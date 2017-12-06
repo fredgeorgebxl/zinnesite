@@ -1,0 +1,17 @@
+
+<div class="concert-detail">
+    {% if titlesize is defined %}
+    <h{{ titlesize }}>{{ event.name }}</h{{ titlesize }}>
+    {% else %}
+    <h1>{{ event.name }}</h1>
+    {% endif %}
+    <p class="date h4">{{ event.date|date('d/m/Y') }}</p>
+    <div class="row">
+        {% if event.picture is defined and event.picture is not null %}
+        <div class="medium-4 columns">
+            {{ styled_image(event.picture, 'project_full') }}
+        </div>
+        {% endif %}
+        <div class="event-content medium-8 columns">{{ event.description|raw }}</div>
+    </div>
+</div>
