@@ -81,10 +81,6 @@ main{
     fong-size: 1.125rem;
 }
 
-.concert-detail{
-    margin-bottom: 1.5rem;
-}
-
 .agenda{
     .pastevent{
         margin-bottom: 5px;
@@ -98,7 +94,18 @@ main{
         margin-bottom: 1rem;
     }
     .all-images-link{
-        @include primary-bg;
+        a{
+            display: inline-block;
+            background-color: $primary-color;
+            color: $white;
+            position: relative;
+            .caption{
+                @include vertical-center;
+                left: 0;
+                font-family: $title-font;
+                text-align: center;
+            }
+        }
     }
 }
 
@@ -114,6 +121,7 @@ main{
             }
         }
     }
+    
 }
 
 @include breakpoint(large up) {
@@ -128,6 +136,16 @@ main{
     .homepage{
         p{
             font-size: 1.5rem;
+        }
+    }
+    .event{
+        .all-images-link{
+            a{
+                .caption{
+                    font-size: 1.7rem;
+                    line-height: 2rem;
+                }
+            }
         }
     }
 }
