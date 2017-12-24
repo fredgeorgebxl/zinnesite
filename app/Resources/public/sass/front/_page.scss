@@ -109,6 +109,63 @@ main{
     }
 }
 
+// Membres //
+.chef{
+    margin-bottom: 1rem;
+}
+.membre{
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    h3{
+        position: absolute;
+        top: 0;
+        left: 15px;
+        color: $white;
+        padding: 0 10px 0 10px;
+        z-index: 50;
+    }
+    .picture{
+        position: relative;
+        .shader{
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(black, transparent);
+            opacity: 0.6;
+        }
+    }
+    .triangle{
+        position: absolute;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border-left: 0 solid transparent;
+        border-right: 9rem solid transparent;
+    }
+    .triangle-sopr{
+        border-bottom: 60px solid $primary-color;
+    }
+    .triangle-alto{
+        border-bottom: 60px solid $secondary-color;
+    }
+    .triangle-teno{
+        border-bottom: 60px solid $third-color;
+    }
+    .triangle-bass{
+        border-bottom: 60px solid $fourth-color;
+    }
+    .voice{
+        position: absolute;
+        font-size: 1.1em;
+        bottom: 5px;
+        color: $white;
+        padding: 0 0 0 10px;
+        z-index: 50;
+    }
+}
+
 // Media queries //
 @include breakpoint(medium up) {
     .date{

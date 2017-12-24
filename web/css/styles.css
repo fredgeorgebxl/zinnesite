@@ -4456,6 +4456,52 @@ main {
     font-family: source_sans_problack, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
     text-align: center; }
 
+.chef {
+  margin-bottom: 1rem; }
+
+.membre {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1rem; }
+  .membre h3 {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    color: #fff;
+    padding: 0 10px 0 10px;
+    z-index: 50; }
+  .membre .picture {
+    position: relative; }
+    .membre .picture .shader {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 50%;
+      background: linear-gradient(black, transparent);
+      opacity: 0.6; }
+  .membre .triangle {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 0 solid transparent;
+    border-right: 9rem solid transparent; }
+  .membre .triangle-sopr {
+    border-bottom: 60px solid #00989a; }
+  .membre .triangle-alto {
+    border-bottom: 60px solid #cb0066; }
+  .membre .triangle-teno {
+    border-bottom: 60px solid #00afff; }
+  .membre .triangle-bass {
+    border-bottom: 60px solid #ff9933; }
+  .membre .voice {
+    position: absolute;
+    font-size: 1.1em;
+    bottom: 5px;
+    color: #fff;
+    padding: 0 0 0 10px;
+    z-index: 50; }
+
 @media screen and (min-width: 40em) {
   .date {
     font-size: 1.5625rem; }

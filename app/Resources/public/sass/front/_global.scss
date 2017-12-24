@@ -123,6 +123,7 @@ $global-right: if($global-text-direction == rtl, left, right);
 $primary-color: get-color(primary);
 $secondary-color: get-color(secondary);
 $third-color: get-color(third);
+$fourth-color: get-color(fourth);
 $success-color: get-color(success);
 $warning-color: get-color(warning);
 $alert-color: get-color(alert);
