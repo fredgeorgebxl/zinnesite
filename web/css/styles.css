@@ -4461,8 +4461,7 @@ main {
 
 .membre {
   position: relative;
-  overflow: hidden;
-  margin-bottom: 1rem; }
+  overflow: hidden; }
   .membre h3 {
     position: absolute;
     top: 0;
@@ -4501,6 +4500,15 @@ main {
     color: #fff;
     padding: 0 0 0 10px;
     z-index: 50; }
+
+.galleryfront {
+  position: relative; }
+  .galleryfront .imageframe {
+    position: absolute;
+    z-index: 50; }
+  .galleryfront .galleryfront {
+    margin: 6% 0 0 6%;
+    width: 85%; }
 
 @media screen and (min-width: 40em) {
   .date {

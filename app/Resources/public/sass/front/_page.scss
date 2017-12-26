@@ -116,7 +116,6 @@ main{
 .membre{
     position: relative;
     overflow: hidden;
-    margin-bottom: 1rem;
     h3{
         position: absolute;
         top: 0;
@@ -163,6 +162,19 @@ main{
         color: $white;
         padding: 0 0 0 10px;
         z-index: 50;
+    }
+}
+
+// Galleries //
+.galleryfront{
+    position: relative;
+    .imageframe{
+        position: absolute;
+        z-index: 50;
+    }
+    .galleryfront{
+        margin: 6% 0 0 6%;
+        width: 85%;
     }
 }
 

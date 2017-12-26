@@ -17,7 +17,7 @@
     <h2>{{ 'website.choristes'|trans }}</h2>
     <div class="row">
     {% for member in members %}
-        <div class="membre small-6 medium-4 large-3 columns end">
+        <div class="membre small-6 medium-4 large-3 columns spacedown end">
             <h3>{{ member.firstname }}</h3>
             <div class="picture"><div class="shader"></div>{{ styled_image(member.picture, 'project_square') }}</div>
             <div class="triangle triangle-{{ member.voice }}"></div>
