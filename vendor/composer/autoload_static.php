@@ -89,6 +89,7 @@ class ComposerStaticInit2bacd54528de0599260d3905a1eaec01
         ),
         'C' => 
         array (
+            'CoreSphere\\ConsoleBundle\\' => 25,
             'Composer\\CaBundle\\' => 18,
         ),
     );
@@ -200,7 +201,7 @@ class ComposerStaticInit2bacd54528de0599260d3905a1eaec01
         ),
         'Knp\\Bundle\\MenuBundle\\' => 
         array (
-            0 => __DIR__ . '/..' . '/knplabs/knp-menu-bundle',
+            0 => __DIR__ . '/..' . '/knplabs/knp-menu-bundle/src',
         ),
         'Ivory\\JsonBuilder\\' => 
         array (
@@ -257,6 +258,10 @@ class ComposerStaticInit2bacd54528de0599260d3905a1eaec01
         'Doctrine\\Bundle\\DoctrineBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/doctrine-bundle',
+        ),
+        'CoreSphere\\ConsoleBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/coresphere/console-bundle',
         ),
         'Composer\\CaBundle\\' => 
         array (

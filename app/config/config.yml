@@ -82,6 +82,9 @@ fos_user:
     from_email:
         address: "%contact_mail%"
         sender_name: "Zinnechoeur"
+    registration:
+        confirmation:
+            enabled: true
 
 knp_menu:
     twig:

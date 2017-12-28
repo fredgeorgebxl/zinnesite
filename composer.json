@@ -28,13 +28,14 @@
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
-        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "friendsofsymfony/user-bundle": "~2.0",
         "intervention/image": "^2.3",
         "knplabs/knp-menu-bundle": "^2.0",
         "irishdan/responsive-image-bundle": "^1.0",
         "egeloen/ckeditor-bundle": "^6.0",
         "stof/doctrine-extensions-bundle": "^1.2",
-        "isometriks/spam-bundle": "~1.0"
+        "isometriks/spam-bundle": "~1.0",
+        "coresphere/console-bundle": "~0.5"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
