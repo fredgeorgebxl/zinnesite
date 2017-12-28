@@ -37,10 +37,9 @@
             </ul>
         </div>
         {% endif %}
-        <div class="column row presentation-content">
-            <h2 class="text-center">Zinnechœur, une chorale bruxelloise pas comme les autres&nbsp;!</h2>
-            <p>Nous sommes une trentaine de choristes d'horizons divers, à l'image du zinneke, ce chien des bords de Senne venu de partout mais aussi de nulle part. Chacun met la main à la *patte* pour le choix du répertoire, l'organisation des concerts et la vie de notre groupe cosmopolite.
-            <p>Depuis octobre 2016, nous sommes dirigés par Emily Allison</p>
+        <div class="column row presentation-content hpcontent">
+            <h2 class="text-center">{{ 'website.hp-presentation-title'|trans }}</h2>
+            {{ 'website.hp-presentation-content'|trans|raw }}
             <p class="text-center">
                 <a class="button large">{{ 'website.homebtn.choristes'|trans }}</a>
             </p>
@@ -48,10 +47,9 @@
     </section>
     <section class="repertoire">
         <a id="repertoire"></a>
-        <div class="column row">
-            <h2 class="text-center">Un répertoire éclectique</h2>
-            <p>Dans nos portées nous apportons du rock, du jazz mais aussi pas mal de chants du monde et du classique un peu dingo. Un répertoire éclectique que nous répétons à Ixelles.</p>
-            <p>En bref, Zinnechœur, une chorale qui chante à tue-tête et à toute heure, des chants entêtants de tous temps, tantôt à tâtons ou tout en titubant, mais surtout sans jamais se prendre la tête.</p>
+        <div class="column row hpcontent">
+            <h2 class="text-center">{{ 'website.hp-repertoire-title'|trans }}</h2>
+            {{ 'website.hp-repertoire-content'|trans|raw }}
             <p class="text-center">
                 <a class="button large">{{ 'website.homebtn.repertoire'|trans }}</a>
             </p>
@@ -60,7 +58,7 @@
     <section class="medias">
         <a id="medias"></a>
         <div class="column row">
-            <h2 class="text-center">Zinnechœur en images</h2>
+            <h2 class="text-center">{{ 'website.hp-images-title'|trans }}</h2>
             <div class="medium-6 columns hp-videos">
                 {% if video is not null %}
                 {{ embed_video(video) }}
@@ -85,9 +83,9 @@
     </section>
     <section class="contact">
         <a id="contact"></a>
-        <div class="column row">
-            <h2 class="text-center">N'attendez plus !</h2>
-            <p>Si vous voulez que nous chantions lors de l'un de vos événements, si vous désirez nous rejoindre, ou que vous avez une question particulière, n'hésitez pas !</p>
+        <div class="column row hpcontent">
+            <h2 class="text-center">{{ 'website.hp-contact-title'|trans }}</h2>
+            {{ 'website.hp-contact-content'|trans|raw }}
             <p class="text-center">
                 <a class="button large">{{ 'website.homebtn.contact'|trans }}</a>
             </p>

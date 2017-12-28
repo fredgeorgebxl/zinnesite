@@ -4378,19 +4378,34 @@ main {
 .homepage main {
   padding-top: 0; }
 
+.homepage .hpcontent h2, .homepage .hpcontent p {
+  margin-bottom: 2rem; }
+
 .homepage .presentation-content {
   position: relative;
   z-index: 100;
   background-color: #f0f0f0;
-  padding: 5vh 50px 20vh 50px; }
+  padding: 7vh 50px 20vh 50px; }
+
+.homepage a.button {
+  font-family: source_sans_problack, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-size: 1.2em; }
 
 .homepage .repertoire {
   padding: 10vh 0 10vh 0;
-  background-color: #cb0066; }
+  background-color: #cb0066;
+  color: #fff; }
+  .homepage .repertoire a.button {
+    color: #cb0066;
+    background-color: #fff; }
 
 .homepage .contact {
   padding: 10vh 0 10vh 0;
-  background-color: #00afff; }
+  background-color: #00afff;
+  color: #fff; }
+  .homepage .contact a.button {
+    color: #00afff;
+    background-color: #fff; }
 
 .main-hp {
   background-color: #00989a;
@@ -4399,7 +4414,7 @@ main {
   .main-hp .main-hp-menu {
     font-size: 1.4rem;
     font-family: source_sans_problack, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-    margin-bottom: 5vh; }
+    margin-bottom: 4vh; }
     .main-hp .main-hp-menu a {
       color: #fff; }
     .main-hp .main-hp-menu .social-networks {
@@ -4409,12 +4424,12 @@ main {
   .main-hp h1 {
     color: #fff; }
   .main-hp .main-logo {
-    margin-bottom: 5vh; }
+    margin-bottom: 6vh; }
   .main-hp .main-hp-content .main-hp-slogan {
-    font-size: 2rem; }
+    font-size: 1.4rem; }
   .main-hp .main-hp-scroll-link {
     position: absolute;
-    bottom: 15px;
+    bottom: 10px;
     text-align: center;
     width: 100%; }
     .main-hp .main-hp-scroll-link a {
@@ -4529,7 +4544,7 @@ main {
 
 @media screen and (min-width: 75em) {
   .main-hp .main-hp-content .main-hp-slogan {
-    font-size: 3rem; } }
+    font-size: 2.3rem; } }
 
 .galleryfront {
   position: relative; }

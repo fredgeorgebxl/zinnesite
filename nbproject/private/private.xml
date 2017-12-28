@@ -7,14 +7,9 @@
             <file>file:/www/zinnesite/app/Resources/public/sass/front/_global.scss</file>
             <file>file:/www/zinnesite/app/Resources/translations/App.fr.yml</file>
             <file>file:/www/zinnesite/app/Resources/views/default/photos.html.twig</file>
-            <file>file:/www/zinnesite/app/Resources/views/default/gallery.html.twig</file>
-            <file>file:/www/zinnesite/composer.json</file>
-            <file>file:/www/zinnesite/app/config/routing.yml</file>
             <file>file:/www/zinnesite/app/Resources/views/default/membres.html.twig</file>
-            <file>file:/www/zinnesite/app/config/config.yml</file>
-            <file>file:/www/zinnesite/app/config/routing_dev.yml</file>
+            <file>file:/www/zinnesite/app/Resources/views/default/index.html.twig</file>
             <file>file:/www/zinnesite/app/Resources/public/sass/front/_website.scss</file>
-            <file>file:/www/zinnesite/app/AppKernel.php</file>
         </group>
     </open-files>
 </project-private>
