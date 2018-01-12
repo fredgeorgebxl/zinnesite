@@ -57,27 +57,34 @@
     </section>
     <section class="medias">
         <a id="medias"></a>
-        <div class="column row">
+        <div class="column row hpcontent">
             <h2 class="text-center">{{ 'website.hp-images-title'|trans }}</h2>
             <div class="medium-6 columns hp-videos">
                 {% if video is not null %}
                 {{ embed_video(video) }}
                 {% endif %}
+                {{ 'website.hp-video-description'|trans|raw }}
             </div>
             <div class="medium-6 columns hp-photos">
                 {% if pictures|length %}
-                <div class="orbit" role="region" data-orbit data-options="animInFromLeft:slide-in-left; animInFromRight:slide-in-left; animOutToLeft:scale-out-down; animOutToRight:scale-out-down;" data-timer-delay="3000" data-pause-on-hover="false">
+                <div class="imagezone">
+                <div class="galleryfront">
+                <img class="imageframe" src="{{ asset('images/gallery-frame.png') }}" alt="" />
+                <div class="orbit" role="region" data-orbit data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;" data-timer-delay="3000" data-pause-on-hover="false">
                     <ul class="orbit-container">
                         {% for picture in pictures %}
                         <li class="is-active orbit-slide">
                             <figure class="orbit-figure">
-                                {{ class_styled_image(picture, 'project_thumb', 'orbit-image') }}
+                                {{ class_styled_image(picture, 'project_thumb', 'orbit-image galleryfront') }}
                             </figure>
                         </li>
                         {% endfor %}
                     </ul>
                 </div>
+                </div>
+                </div>
                 {% endif %}
+                {{ 'website.hp-images-description'|trans|raw }}
             </div>
         </div>
     </section>

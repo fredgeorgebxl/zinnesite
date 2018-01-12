@@ -46,6 +46,9 @@ main{
             background-color: $white;
         }
     }
+    .medias{
+        padding: 7vh 0 7vh 0;
+    }
 }
 
 .main-hp{
@@ -206,6 +209,11 @@ main{
             img{
                 height: 40vh;
             }
+        }
+    }
+    .hp-photos{
+        .imagezone{
+            padding: 0 18% 1rem 18%;
         }
     }
     

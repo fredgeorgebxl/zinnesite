@@ -4407,6 +4407,9 @@ main {
     color: #00afff;
     background-color: #fff; }
 
+.homepage .medias {
+  padding: 7vh 0 7vh 0; }
+
 .main-hp {
   background-color: #00989a;
   height: 100vh;
@@ -4529,7 +4532,9 @@ main {
   .date {
     font-size: 1.5625rem; }
   .main-hp .main-logo img {
-    height: 40vh; } }
+    height: 40vh; }
+  .hp-photos .imagezone {
+    padding: 0 18% 1rem 18%; } }
 
 @media screen and (min-width: 64em) {
   .main-hp .main-hp-menu {
