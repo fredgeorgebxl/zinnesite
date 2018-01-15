@@ -238,7 +238,7 @@ class ResponsiveImage implements ResponsiveImageInterface
     }
 
     /**
-     * @ORM\prePersist
+     * @ORM\PrePersist
      */
     public function prePersist() {
         $this->created = new \DateTime();

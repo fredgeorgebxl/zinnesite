@@ -7,6 +7,7 @@
             <file>file:/www/zinnesite/app/Resources/public/sass/front/_global.scss</file>
             <file>file:/www/zinnesite/app/Resources/translations/App.fr.yml</file>
             <file>file:/www/zinnesite/app/Resources/views/default/photos.html.twig</file>
+            <file>file:/www/zinnesite/src/AppBundle/Controller/DefaultController.php</file>
             <file>file:/www/zinnesite/app/Resources/views/default/membres.html.twig</file>
             <file>file:/www/zinnesite/app/Resources/views/default/index.html.twig</file>
             <file>file:/www/zinnesite/app/Resources/public/sass/front/_website.scss</file>
