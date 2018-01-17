@@ -30,7 +30,7 @@ general:
     edit-videos: 'Editer les vidéos'
     back: 'Retour'
     cache-management: 'Gestion du cache'
-    clear-cache: 'Effacer le chache'
+    clear-cache: 'Effacer le cache'
 users:
     users: 'Membres'
     profile: 'Profil'
