@@ -49,7 +49,7 @@ users:
         voice: 'Voix'
         soprane: 'Soprane'
         alto: 'Alto'
-        tenor: 'Ténor'
+        tenor: 'Ténor(esse)'
         basse: 'Basse'
         chef: 'Cheffe de chɶur' 
 repertoire:
@@ -99,8 +99,10 @@ gallery:
     deleteimageconfirm: 'Voulez-vous réellement supprimer cette image de manière définitive ?'
 videos:
     videos: 'Vidéos'
+    video: 'vidéo'
     title: 'Titre'
     link: 'Lien'
+    save: 'Enregister'
 website:
     title: 'Zinnechœur - Chorale à Bruxelles'
     slogan: 'Zinnechœur, la chorale bruxelloise qui a du chien !'
@@ -131,7 +133,7 @@ website:
     chef: ', cheffe de chœur'
     choristes: 'Choristes'
     sopr: 'Soprane'
-    teno: 'Ténor'
+    teno: 'Ténor(esse)'
     bass: 'Basse'
     alto: 'Alto'
     viewmore: 'Voir toutes les images'
