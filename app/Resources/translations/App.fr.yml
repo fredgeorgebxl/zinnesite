@@ -29,6 +29,8 @@ general:
     create-slideshow: 'Céer le carrousel'
     edit-videos: 'Editer les vidéos'
     back: 'Retour'
+    cache-management: 'Gestion du cache'
+    clear-cache: 'Effacer le chache'
 users:
     users: 'Membres'
     profile: 'Profil'

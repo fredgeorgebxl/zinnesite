@@ -18,6 +18,12 @@
         <h3>{{ 'general.homepage-video'|trans }}</h3>
         <a  class="btn btn-default" href="{{ path('video') }}">{{ 'general.edit-videos'|trans}} <span class="glyphicon glyphicon-film" aria-hidden="true"></span></a>
     </div>
+    {% if is_granted('ROLE_SUPER_ADMIN') %}
+    <div class="section">
+        <h3>{{ 'general.cache-management'|trans }}</h3>
+        <a  class="btn btn-default" href="{{ path('clear_cache') }}">{{ 'general.clear-cache'|trans}} <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></a>
+    </div>
+    {% endif %}
     <div class="section">
         <h3>{{ 'general.homepage-shortcuts'|trans }}</h3>
         <div class="row">
