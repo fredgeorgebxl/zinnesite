@@ -31,8 +31,11 @@ general:
     back: 'Retour'
     cache-management: 'Gestion du cache'
     clear-cache: 'Effacer le cache'
+    enable: 'Activer'
+    disable: 'Désactiver'
 users:
     users: 'Membres'
+    disabled: 'désactivés'
     profile: 'Profil'
     user: 'membre'
     firstname: 'Prénom'
@@ -47,6 +50,8 @@ users:
     admin: 'Administrateur'
     superadmin: 'Super administrateur'
     picture: 'Photo'
+    active: 'Membres actifs'
+    inactive: 'Membres désactivés'
     voice:
         voice: 'Voix'
         soprane: 'Soprane'

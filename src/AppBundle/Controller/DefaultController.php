@@ -120,7 +120,7 @@ class DefaultController extends Controller
         $repository = $entityManager->getRepository(\AppBundle\Entity\User::class);
         $queryMembers = $repository->createQueryBuilder('m')
                 ->where('m.enabled = 1')
-                ->where('m.voice != \'chef\'')
+                ->andWhere('m.voice != \'chef\'')
                 ->orderBy('m.firstname', 'ASC')
                 ->getQuery();
         $members = $queryMembers->getResult();

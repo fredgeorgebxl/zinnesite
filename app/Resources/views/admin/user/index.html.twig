@@ -2,10 +2,17 @@
 {% extends "admin/base-admin.html.twig" %}
 {% block title %}{{ 'general.administration'|trans}} | {{ 'users.users'|trans}}{% endblock %}
 {% block body %}
-    <h1>{{ 'users.users'|trans}}</h1>
+    <h1>{{ 'users.users'|trans}} {% if disabled %}{{ 'users.disabled'|trans }}{% endif %}</h1>
+    {% if not disabled %}
     <div class="section">
         <a class="btn btn-primary" href="{{ path('user_new') }}">{{ 'users.create'|trans}} <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+        <br/><br/>
     </div>
+    {% endif %}
+    <ul class="nav nav-tabs">
+        <li{% if not disabled %} class="active"{% endif %}><a href="{{ path('user_list') }}">{{ 'users.active'|trans }}</a></li>
+        <li{% if disabled %} class="active"{% endif %}><a href="{{ path('disabled_user_list') }}">{{ 'users.inactive'|trans }}</a></li>
+    </ul>
     <table class="table listtable">
         <tr>
             <th>{{ 'users.name'|trans}}</th>
@@ -17,8 +24,13 @@
         <tr>
             <td>{{ user.firstname }} {{ user.lastname }}</td>
             <td>{{ user.email }}</td>
-            <td><a class="btn btn-primary btn-xs" href="{{ path('user_edit', {'user_id':user.id}) }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> {{ 'general.edit'|trans}}</a></td>
-            <td>{% if 'ROLE_SUPER_ADMIN' not in user.roles %}<a class="btn btn-danger btn-xs deletelink" href="{{ path('user_delete', {'user_id':user.id}) }}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> {{ 'general.delete'|trans}}</a>{% else %}<a href="#" class="btn btn-danger btn-xs disabled" role="button"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> {{ 'general.delete'|trans}}</a>{% endif %}</td>
+            {% if not disabled %}
+                <td><a class="btn btn-primary btn-xs" href="{{ path('user_edit', {'user_id':user.id}) }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> {{ 'general.edit'|trans}}</a></td>
+                <td>{% if 'ROLE_SUPER_ADMIN' not in user.roles %}<a class="btn btn-warning btn-xs" href="{{ path('user_disable', {'user_id':user.id}) }}"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> {{ 'general.disable'|trans}}</a>{% else %}<a href="#" class="btn btn-warning btn-xs disabled" role="button"><span class="glyphicon glyphicon-ban-circle" aria-hidden="true"></span> {{ 'general.disable'|trans}}</a>{% endif %}</td>
+            {% else %}
+                <td><a class="btn btn-success btn-xs" href="{{ path('user_enable', {'user_id':user.id}) }}"><span class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span> {{ 'general.enable'|trans}}</a></td>
+                <td>{% if 'ROLE_SUPER_ADMIN' not in user.roles %}<a class="btn btn-danger btn-xs deletelink" href="{{ path('user_delete', {'user_id':user.id}) }}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> {{ 'general.delete'|trans}}</a>{% else %}<a href="#" class="btn btn-danger btn-xs disabled" role="button"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> {{ 'general.delete'|trans}}</a>{% endif %}</td>
+            {% endif %}
         </tr>
     {% endfor %}
     </table>

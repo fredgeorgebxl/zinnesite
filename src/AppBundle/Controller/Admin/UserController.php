@@ -20,9 +20,20 @@ class UserController extends Controller{
     public function indexAction()
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $users = $entityManager->getRepository(User::class)->findBy([], ['firstname' => 'asc']);
+        $users = $entityManager->getRepository(User::class)->findBy(['enabled' => 1], ['firstname' => 'asc']);
 
-        return $this->render('admin/user/index.html.twig', ['users' => $users]);
+        return $this->render('admin/user/index.html.twig', ['users' => $users, 'disabled' => false]);
+    }
+    
+    /**
+     * @Route("/disabled", name="disabled_user_list")
+     */
+    public function indexDisabledAction()
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $users = $entityManager->getRepository(User::class)->findBy(['enabled' => 0], ['firstname' => 'asc']);
+
+        return $this->render('admin/user/index.html.twig', ['users' => $users, 'disabled' => true]);
     }
     
     /**
@@ -138,6 +149,42 @@ class UserController extends Controller{
     }
     
     /**
+     * @Route("/disable/{user_id}", requirements={"user_id" = "\d+"}, name="user_disable")
+     */
+    public function disableAction($user_id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(User::class)->find($user_id);
+        
+        if (!in_array('ROLE_SUPER_ADMIN', $user->getRoles())){
+            
+            $user->setEnabled(false);
+            
+            $em->flush();
+        }
+        
+        return $this->redirectToRoute('user_list');
+    }
+    
+    /**
+     * @Route("/enable/{user_id}", requirements={"user_id" = "\d+"}, name="user_enable")
+     */
+    public function enableAction($user_id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository(User::class)->find($user_id);
+        
+        if (!in_array('ROLE_SUPER_ADMIN', $user->getRoles())){
+            
+            $user->setEnabled(true);
+            
+            $em->flush();
+        }
+        
+        return $this->redirectToRoute('disabled_user_list');
+    }
+    
+    /**
      * @Route("/delete/{user_id}", requirements={"user_id" = "\d+"}, name="user_delete")
      */
     public function deleteAction($user_id, Request $request)
@@ -157,7 +204,7 @@ class UserController extends Controller{
             $em->flush();
         }
         
-        return $this->redirectToRoute('user_list');
+        return $this->redirectToRoute('disabled_user_list');
     }
     
     public function initPicture($file, $alt, $title){
