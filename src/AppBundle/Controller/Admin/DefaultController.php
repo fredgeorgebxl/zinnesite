@@ -40,6 +40,8 @@ class DefaultController extends Controller
         $output = new BufferedOutput();
         $application->run($input, $output);
         
+        $this->addFlash("success", $output->fetch());
+        
         return $this->redirectToRoute('admin_home');
     }
 }

@@ -3,6 +3,13 @@
 {% block title %}{{ 'general.administration'|trans}}{% endblock %}
 {% block body %}
     <h1>{{ 'general.admin-welcome-message'|trans }}</h1>
+    {% for label, flashes in app.session.flashbag.all %}
+        {% for flash in flashes %}
+            <div class="alert alert-{{ label }}">
+                {{ flash }}
+            </div>
+        {% endfor %}
+    {% endfor %}
     <div class="section">
         <h3>{{ 'general.homepage-slideshow'|trans }}</h3>
         {% if slideshow is defined and slideshow is not null %}
