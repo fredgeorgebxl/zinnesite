@@ -8,6 +8,9 @@
 {% block body %}
     <div class="column row">
         <h1>{{ gallery.title }}</h1>
+        {% if gallery.description is not empty %}
+        <p>{{ gallery.description }}</p>
+        {% endif %}
         <div class="row">
         {% for image in gallery.pictures %}
             <div class="small-12 medium-4 large-3 columns end spacedown">
