@@ -3,23 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/www/symfony_test/src/AppBundle/Controller/Admin/DefaultController.php</file>
             <file>file:/www/symfony_test/app/Resources/views/default/index.html.twig</file>
-            <file>file:/www/symfony_test/src/AppBundle/Controller/Admin/EventController.php</file>
-            <file>file:/www/symfony_test/app/Resources/views/admin/default/index.html.twig</file>
             <file>file:/www/symfony_test/app/Resources/translations/App.fr.yml</file>
-            <file>file:/www/symfony_test/app/config/parameters.yml.dist</file>
-            <file>file:/www/symfony_test/src/AppBundle/Form/VideoType.php</file>
-            <file>file:/www/symfony_test/app/Resources/views/default/membres.html.twig</file>
-            <file>file:/www/symfony_test/app/config/config.yml</file>
-            <file>file:/www/symfony_test/app/Resources/views/admin/event/index.html.twig</file>
-            <file>file:/www/symfony_test/app/AppKernel.php</file>
-            <file>file:/www/symfony_test/app/Resources/views/admin/base-admin.html.twig</file>
-            <file>file:/www/symfony_test/app/Resources/views/admin/video/new.html.twig</file>
-            <file>file:/www/symfony_test/composer.json</file>
-            <file>file:/www/symfony_test/app/Resources/public/sass/front/_page.scss</file>
-            <file>file:/www/symfony_test/src/AppBundle/Controller/Admin/UserController.php</file>
-            <file>file:/www/symfony_test/app/config/security.yml</file>
         </group>
     </open-files>
 </project-private>
