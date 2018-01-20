@@ -94,6 +94,26 @@ main{
     }
 }
 
+// Répertoire //
+.rep{
+    h3{
+        line-height: 1.1em;
+    }
+    p{
+        line-height: 1.3em;
+    }
+}
+.oldrep{
+    min-height: 12em;
+    h4{
+        line-height: 1.1em;
+    }
+    p{
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+}
+
 // Agenda + Détail //
 .date{
     @include primary-bg;
@@ -211,6 +231,9 @@ main{
 
 // Media queries //
 @include breakpoint(medium up) {
+    .rep{
+        min-height: 13em;
+    }
     .date{
         font-size: 1.5625rem;
     }

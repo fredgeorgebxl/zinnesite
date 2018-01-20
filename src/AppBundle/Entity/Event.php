@@ -53,7 +53,7 @@ class Event extends ContentBase{
     protected $picture;
     
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     protected $gallery;
     

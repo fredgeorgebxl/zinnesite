@@ -4444,6 +4444,20 @@ main {
         display: block;
         font-size: 2rem; }
 
+.rep h3 {
+  line-height: 1.1em; }
+
+.rep p {
+  line-height: 1.3em; }
+
+.oldrep {
+  min-height: 12em; }
+  .oldrep h4 {
+    line-height: 1.1em; }
+  .oldrep p {
+    font-size: 1rem;
+    line-height: 1.3rem; }
+
 .date {
   background-color: #00989a;
   display: inline-block;
@@ -4536,6 +4550,8 @@ main {
   height: 3rem; }
 
 @media screen and (min-width: 40em) {
+  .rep {
+    min-height: 13em; }
   .date {
     font-size: 1.5625rem; }
   .main-hp .main-logo img {

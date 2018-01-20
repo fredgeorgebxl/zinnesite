@@ -19,7 +19,7 @@ class RepertoireController extends Controller
     public function indexAction()
     {
         $entityManager = $this->getDoctrine()->getManager();
-        $repertoires = $entityManager->getRepository(Repertoire::class)->findBy([], ['datecreated' => 'desc']);
+        $repertoires = $entityManager->getRepository(Repertoire::class)->findBy([], ['title' => 'asc']);
 
         return $this->render('admin/repertoire/index.html.twig', ['repertoires' => $repertoires]);
     }
