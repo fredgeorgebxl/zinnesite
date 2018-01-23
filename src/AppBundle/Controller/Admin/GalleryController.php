@@ -266,6 +266,8 @@ class GalleryController extends Controller
         
         if($form->isSubmitted() && $form->isValid()){
             
+            $this->get('responsive_image')->deleteImageFiles($image, FALSE, TRUE);
+            
             $em->persist($image);
             $em->flush();
 

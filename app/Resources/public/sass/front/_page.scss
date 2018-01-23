@@ -50,6 +50,11 @@ main{
         padding: 7vh 0 7vh 0;
     }
 }
+.hp-photos{
+    .imagezone{
+        padding: 0 0 1.3rem 0;
+    }
+}
 
 .main-hp{
     background-color: $primary-color;
@@ -180,32 +185,28 @@ main{
         }
     }
     .triangle{
-        position: absolute;
-        bottom: 0;
-        width: 0;
-        height: 0;
-        border-left: 0 solid transparent;
-        border-right: 11rem solid transparent;
+        display: none;
     }
-    .triangle-sopr{
-        border-bottom: 60px solid $primary-color;
-    }
-    .triangle-alto{
-        border-bottom: 60px solid $secondary-color;
-    }
-    .triangle-teno{
-        border-bottom: 60px solid $third-color;
-    }
-    .triangle-bass{
-        border-bottom: 60px solid $fourth-color;
-    }
+    
     .voice{
         position: absolute;
         font-size: 1.1em;
-        bottom: 5px;
+        bottom: 0;
         color: $white;
-        padding: 0 0 0 10px;
+        padding: 0 10px 0 10px;
         z-index: 50;
+    }
+    .sopr{
+        background-color: $primary-color;
+    }
+    .alto{
+        background-color: $secondary-color;
+    }
+    .teno{
+        background-color: $third-color;
+    }
+    .bass{
+        background-color: $fourth-color;
     }
 }
 
@@ -249,7 +250,35 @@ main{
             padding: 0 18% 1rem 18%;
         }
     }
-    
+    .membre{
+        .voice{
+            bottom: 5px;
+        }
+        .triangle{
+            display: block;
+            position: absolute;
+            bottom: 0;
+            width: 0;
+            height: 0;
+            border-left: 0 solid transparent;
+            border-right: 11rem solid transparent;
+        }
+        .triangle-sopr{
+            border-bottom: 60px solid $primary-color;
+        }
+        .triangle-alto{
+            border-bottom: 60px solid $secondary-color;
+        }
+        .triangle-teno{
+            border-bottom: 60px solid $third-color;
+        }
+        .triangle-bass{
+            border-bottom: 60px solid $fourth-color;
+        }
+        .sopr, .alto, .teno, .bass{
+            background-color: transparent;
+        }
+    }
 }
 
 @include breakpoint(large up) {

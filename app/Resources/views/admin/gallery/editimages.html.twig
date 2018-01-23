@@ -24,9 +24,7 @@
                 {{ form_widget(imageField.weight, { 'attr': {'class': 'weight'} }) }}
                 {{ form_widget(imageField.path) }}
                 <button type="button" class="btn btn-default btn-xs openform" aria-label="Left Align"><span class="glyphicon glyphicon-list"></span> {{ 'gallery.alttitleedit'|trans }}</button>
-                {% if homeslide %}
                 <a href="{{ path('gallery_cropimage', {'gal_id' : gal_id, 'img_id' : imageField.vars.value.id}) }}" class="btn btn-default btn-xs imgbutton"><span class="glyphicon glyphicon-picture"></span> {{ 'gallery.cropedit'|trans }}</a>
-                {% endif %}
                 </div>
             </div>
             {% endfor %}

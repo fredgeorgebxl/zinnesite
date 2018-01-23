@@ -21,7 +21,7 @@
             <h3>{{ member.firstname }}</h3>
             <div class="picture"><div class="shader"></div>{{ styled_image(member.picture, 'project_square') }}</div>
             <div class="triangle triangle-{{ member.voice }}"></div>
-            <div class="voice">{{ ('website.'~member.voice)|trans }}</div>
+            <div class="voice {{ member.voice }}">{{ ('website.'~member.voice)|trans }}</div>
         </div>
     {% endfor %}
     </div>
