@@ -4336,7 +4336,8 @@ a {
     background-color: inherit; }
   .top-bar .top-bar-title a {
     background-color: #00989a;
-    display: inline-block; }
+    display: inline-block;
+    white-space: nowrap; }
     .top-bar .top-bar-title a img {
       height: 50px; }
   .top-bar .main-nav {
@@ -4348,11 +4349,11 @@ a {
     .top-bar .social-networks a {
       padding: 8px; }
 
-@media screen and (max-width: 39.9375em) {
+@media screen and (max-width: 63.9375em) {
   .top-bar {
     margin-top: 45px !important; } }
 
-@media screen and (min-width: 40em) {
+@media screen and (min-width: 64em) {
   .homepage .top-bar {
     margin-top: -200px; } }
 
@@ -4418,7 +4419,7 @@ main {
   height: 100vh;
   position: relative; }
   .main-hp .main-hp-menu {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-family: source_sans_problack, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
     margin-bottom: 4vh; }
     .main-hp .main-hp-menu a {
@@ -4427,6 +4428,8 @@ main {
       font-size: 2.5rem;
       position: relative;
       top: -6px; }
+  .main-hp .nowrap a {
+    white-space: nowrap; }
   .main-hp h1 {
     color: #fff; }
   .main-hp .main-logo {
@@ -4468,7 +4471,7 @@ main {
   color: #fff;
   margin-right: 30px;
   font-family: source_sans_problack, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-  fong-size: 1.125rem; }
+  font-size: 1.125rem; }
 
 .agenda .pastevent {
   margin-bottom: 5px; }
@@ -4548,12 +4551,14 @@ main {
   height: 3rem; }
 
 @media screen and (min-width: 40em) {
+  .main-hp .main-hp-menu {
+    font-size: 1.5rem; }
   .rep {
     min-height: 13em; }
   .date {
     font-size: 1.5625rem; }
   .main-hp .main-logo img {
-    height: 40vh; }
+    max-height: 40vh; }
   .hp-photos .imagezone {
     padding: 0 18% 1rem 18%; }
   .membre .voice {
@@ -4579,7 +4584,7 @@ main {
 
 @media screen and (min-width: 64em) {
   .main-hp .main-hp-menu {
-    font-size: 2rem; }
+    font-size: 1.8rem; }
   p {
     font-size: 1.2rem; }
   .homepage p {

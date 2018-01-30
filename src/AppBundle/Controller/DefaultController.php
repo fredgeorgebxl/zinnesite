@@ -195,4 +195,12 @@ class DefaultController extends Controller
         
         return $this->render('default/contact.html.twig', ['form' => $form->createView(), 'messagesent' => $messagesent]);
     }
+    
+    /**
+     * @Route("/nous-rejoindre", name="joinus")
+     */
+    public function joinusAction(Request $request)
+    {
+        return $this->render('default/joinus.html.twig');
+    }
 }

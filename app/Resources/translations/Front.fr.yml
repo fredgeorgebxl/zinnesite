@@ -1,0 +1,60 @@
+website:
+    title: 'Zinnechœur - Chorale à Bruxelles'
+    slogan: 'Zinnechœur, la chorale bruxelloise qui a du chien !'
+    discoverthechoir: 'Découvrez la chorale'
+    homebtn:
+        choristes: 'Découvrez les choristes'
+        repertoire: 'Découvrez notre répertoire'
+        contact: 'Contactez-nous !'
+        joinus: 'Nous rejoindre !'
+    agenda: 'Agenda'
+    repertoire: 'Répertoire'
+    oldrepertoire: 'Ancien répertoire'
+    membres: 'Membres'
+    photos: 'Photos'
+    videos: 'Vidéos'
+    contact: 'Contact'
+    joinus: 'Nous rejoindre'
+    eventpictures: "Photos de l'événement"
+    contactform:
+        name: 'Nom'
+        email: 'Adresse e-mail'
+        subject: 'Sujet'
+        message: 'Message'
+        send: 'Envoyer'
+        sendconfirm: 'Le message a bien été envoyé ! Merci !'
+        senderror: "Une erreur est survenue lors de l'envoi du message... Désolé"
+    nextevents: 'Prochains concerts'
+    pastevents: 'Concerts passés'
+    season: 'Saison'
+    chef: ', cheffe de chœur'
+    choristes: 'Choristes'
+    sopr: 'Soprane'
+    teno: 'Ténor(esse)'
+    bass: 'Basse'
+    alto: 'Alto'
+    viewmore: 'Voir toutes les images'
+    repertoire-intro: 'Dans nos portées nous apportons du rock, du jazz mais aussi pas mal de chants du monde et du classique un peu dingo. Un répertoire des plus éclectiques. Voici les chants que vous pourriez entendre lors de nos prochains concerts.'
+    repertoire-old-intro: 'Tous les chants que nous avons chanté un jour, mais ne chantons plus pour le moment. Mais ils pourraient revenir lors des saisons prochaines.'
+    chef-description: >
+        <p>La biographie succinte de notre cheff(e) de choeur.</p><p>Avec un second paragraphe...</p>
+    hp-presentation-title: 'Zinnechœur, une chorale bruxelloise pas comme les autres !'
+    hp-presentation-content: >
+        <p>Nous sommes une trentaine de choristes d'horizons divers, à l'image du zinneke, ce chien des bords de Senne venu de partout mais aussi de nulle part. Chacun met la main à la *patte* pour le choix du répertoire, l'organisation des concerts et la vie de notre groupe cosmopolite.
+        <p>Après avoir été dirigés par Stéphane Larçon (2012 - 2016), puis par Emily Allison (2016 - 2017), nous sommes dirigés par Yvonne Duong depuis janvier 2018</p>
+    hp-repertoire-title: 'Un répertoire éclectique'
+    hp-repertoire-content: >
+        <p>Dans nos portées nous apportons du rock, du jazz mais aussi pas mal de chants du monde et du classique un peu dingo. Un répertoire éclectique que nous répétons à Ixelles.</p>
+        <p>En bref, Zinnechœur, une chorale qui chante à tue-tête et à toute heure, des chants entêtants de tous temps, tantôt à tâtons ou tout en titubant, mais surtout sans jamais se prendre la tête.</p>
+    hp-images-title: 'Zinnechœur en images'
+    hp-video-description: >
+        <p>Allez voir toutes nos vidéos sur notre chaîne <a href="https://www.youtube.com/channel/UC_tp-m7g0eqs0IwxhA1k9mA" target="_blank">YouTube</a></p>
+    hp-images-description: >
+        <p>Retrouvez l'ensemble de nos galeries photos <a href="./photos">ici</a></p>
+    hp-contact-title: "N'attendez plus !"
+    hp-contact-content: >
+        <p>Si vous voulez que nous chantions lors de l'un de vos événements, si vous désirez nous rejoindre, ou que vous avez une question particulière, n'hésitez pas !</p>
+    joinus-title: 'Rejoindre Zinnechœur'
+    joinus-content: >
+        <p>Le contenu de la page de recrutement</p>
+    

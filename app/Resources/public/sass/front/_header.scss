@@ -14,6 +14,7 @@
         a{
             background-color: $primary-color;
             display:inline-block;
+            white-space:nowrap;
             img{
                 height: 50px;
             }
@@ -32,13 +33,13 @@
     }
 }
 
-@include breakpoint(small only) {
+@include breakpoint(medium down) {
     .top-bar{
         margin-top: 45px !important;
     }
 }
 
-@include breakpoint(medium up) {
+@include breakpoint(large up) {
     .homepage{
         .top-bar{
             margin-top: -200px;

@@ -60,13 +60,18 @@ main{
     background-color: $primary-color;
     .main-hp-menu{
         a{color: $white;}
-        font-size: 1.4rem;
+        font-size: 1.3rem;
         font-family: $title-font;
         margin-bottom: 4vh;
         .social-networks{
             font-size: 2.5rem;
             position: relative;
             top: -6px;
+        }
+    }
+    .nowrap{
+        a{
+            white-space: nowrap;
         }
     }
     h1{color: $white;}
@@ -124,7 +129,7 @@ main{
     @include primary-bg;
     margin-right: 30px;
     font-family: $title-font;
-    fong-size: 1.125rem;
+    font-size: 1.125rem;
 }
 
 .agenda{
@@ -232,6 +237,12 @@ main{
 
 // Media queries //
 @include breakpoint(medium up) {
+    .main-hp{
+        .main-hp-menu{
+            font-size: 1.5rem;
+        }
+    }
+    
     .rep{
         min-height: 13em;
     }
@@ -241,7 +252,7 @@ main{
     .main-hp{
         .main-logo{
             img{
-                height: 40vh;
+                max-height: 40vh;
             }
         }
     }
@@ -284,7 +295,7 @@ main{
 @include breakpoint(large up) {
     .main-hp{
         .main-hp-menu{
-            font-size: 2rem;
+            font-size: 1.8rem;
         }
     }
     p{

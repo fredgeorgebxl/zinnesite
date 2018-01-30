@@ -1,0 +1,9 @@
+{% trans_default_domain 'Front' %}
+{% extends 'base.html.twig' %}
+{% block title %}{{ 'website.title'|trans }} | {{ 'website.joinus-title'|trans }}{% endblock %}
+{% block body %}
+<div class="column row">
+     <h1>{{ 'website.joinus-title'|trans }}</h1>
+     <p>{{ 'website.joinus-content'|trans|raw }}</p>
+</div>
+{% endblock %}

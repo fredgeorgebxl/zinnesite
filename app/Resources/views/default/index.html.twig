@@ -1,9 +1,9 @@
-{% trans_default_domain 'App' %}
+{% trans_default_domain 'Front' %}
 {% extends 'base.html.twig' %}
 {% block body %}
     <section class="main-hp text-center">
         <div class="main-hp-content centercontent">
-            <nav class="main-hp-menu menu-centered hide-for-small-only">
+            <nav class="main-hp-menu menu-centered hide-for-small-only hide-for-medium-only nowrap">
                 {{ knp_menu_render('AppBundle:Builder:mainMenu',{'currentClass' : 'active'}) }}
                 <ul class="menu social-networks">
                     <li><a href="https://www.facebook.com/Zinnechoeur" target="_blank" class="facebook fi-social-facebook" title="Facebook"></a></li>
@@ -93,8 +93,11 @@
         <div class="column row hpcontent">
             <h2 class="text-center">{{ 'website.hp-contact-title'|trans }}</h2>
             {{ 'website.hp-contact-content'|trans|raw }}
-            <p class="text-center">
+            <p class="text-center medium-6 column">
                 <a href="{{ path('contact') }}" class="button large">{{ 'website.homebtn.contact'|trans }}</a>
+            </p>
+            <p class="text-center medium-6 column">
+                <a href="{{ path('joinus') }}" class="button large">{{ 'website.homebtn.joinus'|trans }}</a>
             </p>
         </div>
     </section>
