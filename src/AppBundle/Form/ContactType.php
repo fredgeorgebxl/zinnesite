@@ -18,24 +18,24 @@ class ContactType extends AbstractType{
     public function buildForm(FormBuilderInterface $builder, array $options) {
         
         $builder
-            ->add('name', TextType::class, array('label' => 'website.contactform.name', 'translation_domain' => 'App',
+            ->add('name', TextType::class, array('label' => 'website.contactform.name', 'translation_domain' => 'Front',
                 'constraints' => array(
                     new NotBlank(array("message" => "website.contactform.nameerror")),
                 )))
-            ->add('email', EmailType::class, array('label' => 'website.contactform.email', 'translation_domain' => 'App',
+            ->add('email', EmailType::class, array('label' => 'website.contactform.email', 'translation_domain' => 'Front',
                 'constraints' => array(
                     new NotBlank(array("message" => "website.contactform.emailblankerror")),
                     new Email(array("message" => "website.contactform.emailvaliderror")),
                 )))
-            ->add('subject', TextType::class, array('label' => 'website.contactform.subject', 'translation_domain' => 'App',
+            ->add('subject', TextType::class, array('label' => 'website.contactform.subject', 'translation_domain' => 'Front',
                 'constraints' => array(
                     new NotBlank(array("message" => "website.contactform.subjecterror")),
                 )))
-            ->add('message', TextareaType::class, array('label' => 'website.contactform.message', 'attr' => array('rows' => 10), 'translation_domain' => 'App',
+            ->add('message', TextareaType::class, array('label' => 'website.contactform.message', 'attr' => array('rows' => 10), 'translation_domain' => 'Front',
                 'constraints' => array(
                     new NotBlank(array("message" => "website.contactform.messageerror")),
                 )))
-            ->add('save', SubmitType::class, array('label' => 'website.contactform.send', 'translation_domain' => 'App'));
+            ->add('save', SubmitType::class, array('label' => 'website.contactform.send', 'translation_domain' => 'Front'));
     }
     
     public function configureOptions(OptionsResolver $resolver)
