@@ -2,6 +2,12 @@ main{
     padding-top: 100px;
 }
 
+main{
+    li{
+        margin-bottom: 1rem;
+    }
+}
+
 // Homepage //
 .homepage{
     section{
@@ -60,13 +66,20 @@ main{
     background-color: $primary-color;
     .main-hp-menu{
         a{color: $white;}
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         font-family: $title-font;
         margin-bottom: 4vh;
+        li{
+            font-size: inherit;
+        }
         .social-networks{
-            font-size: 2.5rem;
+            font-size: 2.4rem;
             position: relative;
-            top: -6px;
+            top: -5px;
+            li{
+                font-size: inherit;
+                margin-bottom: 0;
+            }
         }
     }
     .nowrap{
@@ -82,7 +95,7 @@ main{
     }
     .main-hp-content{
         .main-hp-slogan{
-            font-size: 1.4rem;
+            font-size: 1.3rem;
         }
     }
     
@@ -295,11 +308,16 @@ main{
 @include breakpoint(large up) {
     .main-hp{
         .main-hp-menu{
-            font-size: 1.8rem;
+            font-size: 1.7rem;
         }
     }
     p{
         font-size: 1.2rem;
+    }
+    main{
+        li{
+            font-size: 1.2rem;
+        }
     }
     .homepage{
         p{
@@ -322,7 +340,7 @@ main{
     .main-hp{
         .main-hp-content{
             .main-hp-slogan{
-                font-size: 2.3rem;
+                font-size: 2.1rem;
             }
         }
     }

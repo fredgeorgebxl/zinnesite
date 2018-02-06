@@ -45,9 +45,9 @@ class Builder implements ContainerAwareInterface
                 ->setExtra('translation_domain', 'Front');
         $menu->addChild('website.photos', array('route' => 'photos'))
                 ->setExtra('translation_domain', 'Front');
-        $menu->addChild('website.videos', array('uri' => 'https://www.youtube.com/channel/UC_tp-m7g0eqs0IwxhA1k9mA'))
-                ->setLinkAttribute('target', '_blank')
-                ->setExtra('translation_domain', 'Front');
+        //$menu->addChild('website.videos', array('uri' => 'https://www.youtube.com/channel/UC_tp-m7g0eqs0IwxhA1k9mA'))
+        //        ->setLinkAttribute('target', '_blank')
+        //        ->setExtra('translation_domain', 'Front');
         $menu->addChild('website.contact', array('route' => 'contact'))
                 ->setExtra('translation_domain', 'Front');
         $menu->addChild('website.joinus', array('route' => 'joinus'))

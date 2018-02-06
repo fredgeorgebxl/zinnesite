@@ -4368,6 +4368,9 @@ a {
 main {
   padding-top: 100px; }
 
+main li {
+  margin-bottom: 1rem; }
+
 .homepage section {
   position: relative; }
   .homepage section .centercontent {
@@ -4419,15 +4422,20 @@ main {
   height: 100vh;
   position: relative; }
   .main-hp .main-hp-menu {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-family: source_sans_problack, "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
     margin-bottom: 4vh; }
     .main-hp .main-hp-menu a {
       color: #fff; }
+    .main-hp .main-hp-menu li {
+      font-size: inherit; }
     .main-hp .main-hp-menu .social-networks {
-      font-size: 2.5rem;
+      font-size: 2.4rem;
       position: relative;
-      top: -6px; }
+      top: -5px; }
+      .main-hp .main-hp-menu .social-networks li {
+        font-size: inherit;
+        margin-bottom: 0; }
   .main-hp .nowrap a {
     white-space: nowrap; }
   .main-hp h1 {
@@ -4435,7 +4443,7 @@ main {
   .main-hp .main-logo {
     margin-bottom: 6vh; }
   .main-hp .main-hp-content .main-hp-slogan {
-    font-size: 1.4rem; }
+    font-size: 1.3rem; }
   .main-hp .main-hp-scroll-link {
     position: absolute;
     bottom: 10px;
@@ -4584,8 +4592,10 @@ main {
 
 @media screen and (min-width: 64em) {
   .main-hp .main-hp-menu {
-    font-size: 1.8rem; }
+    font-size: 1.7rem; }
   p {
+    font-size: 1.2rem; }
+  main li {
     font-size: 1.2rem; }
   .homepage p {
     font-size: 1.5rem; }
@@ -4595,7 +4605,7 @@ main {
 
 @media screen and (min-width: 75em) {
   .main-hp .main-hp-content .main-hp-slogan {
-    font-size: 2.3rem; } }
+    font-size: 2.1rem; } }
 
 .galleryfront {
   position: relative; }

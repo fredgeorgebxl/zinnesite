@@ -5,6 +5,7 @@
 {% block body %}
     <div class="column row">
         <h1>{{ 'website.contact'|trans }}</h1>
+        <p>{{ 'website.contact-intro'|trans|raw }}</p>
         {% if messagesent is defined and messagesent is not null %}
             {% if messagesent == 1 %}
                 <div class="callout success large">{{ 'website.contactform.sendconfirm'|trans }}</div>

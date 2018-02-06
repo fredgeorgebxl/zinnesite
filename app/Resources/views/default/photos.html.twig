@@ -4,6 +4,7 @@
 {% block body %}
     <div class="column row photos-page">
         <h1>{{ 'website.photos'|trans }}</h1>
+        <p>{{ 'website.photos-intro'|trans|raw }}</p>
         <div class="row">
         {% for gallery in galleries %}
             {% if gallery.pictures|length %}
