@@ -70,4 +70,4 @@ gulp.task('fonts', function () {
 });
 
 
-gulp.task('default', ['back_js', 'js', 'back_style', 'style', 'fonts']);
+gulp.task('default', ['back_js', 'js', 'site_js', 'back_style', 'style', 'fonts']);
