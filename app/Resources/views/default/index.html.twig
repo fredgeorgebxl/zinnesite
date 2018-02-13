@@ -1,5 +1,10 @@
 {% trans_default_domain 'Front' %}
 {% extends 'base.html.twig' %}
+{% block opengraph %}
+    {% if slideshow.pictures is defined and slideshow.pictures|length %}
+    <meta property="og:image" content="{{ absolute_url(asset(styled_image_url(slideshow.pictures[0] , 'slideshow'))) }}" />
+    {% endif %}
+{% endblock %}
 {% block body %}
     <section class="main-hp text-center">
         <div class="main-hp-content centercontent">

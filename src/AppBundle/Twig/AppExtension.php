@@ -39,6 +39,11 @@ class AppExtension extends \Twig_Extension
                     'needs_environment' => true,
                 ]
             ),
+            new \Twig_SimpleFunction('styled_image_url', [$this, 'styledImageUrl'], [
+                    'is_safe' => ['html'],
+                    'needs_environment' => true,
+                ]
+            ),
         ];
     }
 
@@ -58,6 +63,11 @@ class AppExtension extends \Twig_Extension
         return $environment->render('default/video.html.twig', [
            'video_id' => $video_id, 
         ]);
+    }
+    
+    public function styledImageUrl(\Twig_Environment $environment, ResponsiveImageInterface $image, $styleName){
+        $this->styleManager->setImageStyle($image, $styleName);
+        return $image->getStyle();
     }
 
     /**
