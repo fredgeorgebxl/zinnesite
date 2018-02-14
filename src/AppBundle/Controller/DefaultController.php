@@ -203,4 +203,12 @@ class DefaultController extends Controller
     {
         return $this->render('default/joinus.html.twig');
     }
+    
+    /**
+     * @Route("/sitemap.xml", name="sitemap")
+     */
+    public function sitemapAction(Request $request)
+    {
+        return $this->render('KnpMenuBundle::sitemap_menu.xml.twig', array('options' => array('compressed' => false)));
+    }
 }

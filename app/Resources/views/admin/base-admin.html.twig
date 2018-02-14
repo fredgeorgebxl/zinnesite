@@ -29,7 +29,7 @@
                 </div>
                 <div id="navbar" class="collapse navbar-collapse navbar-left">
                     {% if is_granted('ROLE_USER') %}
-                    {{ knp_menu_render('AppBundle:Builder:adminMenu',{'currentClass' : 'active'}) }}
+                    {{ knp_menu_render('admin',{'currentClass' : 'active'}) }}
                     {% endif %}
                 </div>
                 {% if is_granted('ROLE_USER') %}
