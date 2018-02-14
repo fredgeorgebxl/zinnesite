@@ -19,6 +19,10 @@ services:
         tags:
             - { name: form.type }
             
+    app.sitemap:
+        class: AppBundle\SiteMap
+        arguments: ['@router', '@doctrine.orm.entity_manager']
+            
 # Twig extensions
     app.twig_extension:
         class: AppBundle\Twig\AppExtension
