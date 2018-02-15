@@ -205,10 +205,10 @@ class DefaultController extends Controller
     }
     
     /**
-     * @Route("/sitemap.xml", name="sitemap")
+     * @Route("/sitemap.{_format}", name="sitemap", Requirements={"_format" = "xml"})
      */
     public function sitemapAction(Request $request)
     {
-        return $this->render('KnpMenuBundle::sitemap_menu.xml.twig', array('options' => array('compressed' => false)));
+        return $this->render('sitemap.xml.twig', ['urls' => $this->get('app.sitemap')->generateUrls()]);
     }
 }
