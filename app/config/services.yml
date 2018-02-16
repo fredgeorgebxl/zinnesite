@@ -29,6 +29,11 @@ services:
     app.sitemap:
         class: AppBundle\SiteMap
         arguments: ['@router', '@doctrine.orm.entity_manager']
+        
+    twig.extension.text:
+            class: Twig_Extensions_Extension_Text
+            tags:
+                - { name: twig.extension }
             
 # Twig extensions
     app.twig_extension:

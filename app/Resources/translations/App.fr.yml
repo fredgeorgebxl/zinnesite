@@ -79,6 +79,7 @@ events:
     events: 'Événements'
     event: 'Événement'
     description: 'Description'
+    location: 'Lieu'
     season: 'Saison'
     create: 'Créer'
     name: 'Nom'
