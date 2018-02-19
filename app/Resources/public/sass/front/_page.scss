@@ -153,6 +153,22 @@ main{
         }
     }
 }
+.concert-detail{
+    
+    .view-more-link{
+        font-family: $title-font;
+    }
+    .summary{
+        margin-bottom: 0;
+    }
+    .location{
+        font-style: italic;
+        margin: 0 0 10px 0;
+    }
+}
+.concert-detail.spacedown{
+    margin-bottom: 1.8rem;
+}
 .event{
     .event-images{
         margin-bottom: 1rem;

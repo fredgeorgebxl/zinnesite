@@ -1,4 +1,4 @@
-
+{% trans_default_domain 'Front' %}
 <div class="spacedown concert-detail vevent">
     {% if summary is defined and summary == 1 %}
     <p class="date h4">{{ event.date|date('d/m/Y') }}</p>
@@ -10,7 +10,7 @@
         <div class="event-content small-9 medium-10 columns">
             <a href="{{ path('event', {'slug' : event.slug}) }}"><h3 class="summary">{{ event.name }}</h3></a>
             <p class="location">{{ event.location }}</p>
-            <p class="view-more-link"><a href="{{ path('event', {'slug' : event.slug}) }}">{{ 'website.viewmore'|trans }} <span class="fi-arrow-right"></span></a></p>
+            <p class="view-more-link"><a href="{{ path('event', {'slug' : event.slug}) }}">{{ 'website.agenda-viewmore'|trans }} <span class="fi-arrow-right"></span></a></p>
         </div>
     </div>
     {% else %}

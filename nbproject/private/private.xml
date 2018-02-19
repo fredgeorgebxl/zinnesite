@@ -3,18 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/www/symfony_test/app/Resources/views/sitemap.xml.twig</file>
             <file>file:/www/symfony_test/app/Resources/views/default/index.html.twig</file>
-            <file>file:/www/symfony_test/app/Resources/views/admin/base-admin.html.twig</file>
-            <file>file:/www/symfony_test/app/Resources/KnpMenuBundle/views/sitemap_menu.xml.twig</file>
+            <file>file:/www/symfony_test/app/Resources/views/default/agenda.html.twig</file>
             <file>file:/www/symfony_test/src/AppBundle/Controller/DefaultController.php</file>
-            <file>file:/www/symfony_test/src/AppBundle/SiteMap.php</file>
-            <file>file:/www/symfony_test/src/AppBundle/Twig/AppExtension.php</file>
+            <file>file:/www/symfony_test/app/Resources/views/default/event.html.twig</file>
             <file>file:/www/symfony_test/app/Resources/views/base.html.twig</file>
             <file>file:/www/symfony_test/app/config/config.yml</file>
-            <file>file:/www/symfony_test/app/config/services.yml</file>
-            <file>file:/www/symfony_test/src/AppBundle/Form/UserEditType.php</file>
-            <file>file:/www/symfony_test/src/AppBundle/Menu/Builder.php</file>
+            <file>file:/www/symfony_test/app/Resources/views/default/eventDetail.html.twig</file>
         </group>
     </open-files>
 </project-private>
