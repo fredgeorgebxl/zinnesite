@@ -3,25 +3,29 @@
 namespace AppBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerAwareTrait;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
-class Builder implements ContainerAwareInterface
-{
-    use ContainerAwareTrait;
-
-    public function adminMenu(FactoryInterface $factory, array $options)
+class Builder
+{    
+    private $factory;
+    
+    public function __construct(FactoryInterface $factory, AuthorizationCheckerInterface $authchecker)
     {
-        $accessCheck = $this->container->get('security.authorization_checker');
+        $this->factory = $factory;
+        $this->authchecker = $authchecker;
+    }
+
+    public function adminMenu(array $options)
+    {
         
-        $menu = $factory->createItem('adminroot', array('childrenAttributes' => array('class' => 'nav navbar-nav')));
+        $menu = $this->factory->createItem('adminroot', array('childrenAttributes' => array('class' => 'nav navbar-nav')));
 
         $menu->addChild('events.event', array('route' => 'event_list'))
                 ->setExtra('translation_domain', 'App');
         $menu->addChild('repertoire.repertoire', array('route' => 'repertoire_list'))
                 ->setExtra('translation_domain', 'App');
         
-        if($accessCheck->isGranted('ROLE_SUPER_ADMIN'))
+        if($this->authchecker->isGranted('ROLE_SUPER_ADMIN'))
             {
                 $menu->addChild('users.users', array('route' => 'user_list'))
                     ->setExtra('translation_domain', 'App');
@@ -33,9 +37,9 @@ class Builder implements ContainerAwareInterface
         return $menu;
     }
     
-    public function mainMenu(FactoryInterface $factory, array $options)
+    public function mainMenu(array $options)
     {
-        $menu = $factory->createItem('root', array('childrenAttributes' => array('class' => 'vertical large-horizontal menu')));
+        $menu = $this->factory->createItem('root', array('childrenAttributes' => array('class' => 'vertical large-horizontal menu')));
         
         $menu->addChild('website.agenda', array('route' => 'agenda'))
                 ->setExtra('translation_domain', 'Front');

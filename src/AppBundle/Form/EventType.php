@@ -48,6 +48,7 @@ class EventType extends AbstractType{
             ->add('name', TextType::class, array('label' => 'events.name', 'translation_domain' => 'App'))
             ->add('date', DateTimePickerType::class, array('label' => 'events.date', 'translation_domain' => 'App'))
             ->add('description', CKEditorType::class, array('label' => 'events.description', 'translation_domain' => 'App'))
+            ->add('location', TextType::class, array('label' => 'events.location', 'translation_domain' => 'App'))
             ->add('season', ChoiceType::class, array('choices'  => $this->seasons, 'label' => 'events.season', 'translation_domain' => 'App'))
             ->add('gallery', ChoiceType::class, array('choices'  => $this->galleries, 'label' => 'events.gallery', 'translation_domain' => 'App'))
             ->add('picture', ImageType::class, array('label' => 'users.picture', 'translation_domain' => 'App'))

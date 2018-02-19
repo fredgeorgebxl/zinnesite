@@ -203,4 +203,12 @@ class DefaultController extends Controller
     {
         return $this->render('default/joinus.html.twig');
     }
+    
+    /**
+     * @Route("/sitemap.{_format}", name="sitemap", Requirements={"_format" = "xml"})
+     */
+    public function sitemapAction(Request $request)
+    {
+        return $this->render('sitemap.xml.twig', ['urls' => $this->get('app.sitemap')->generateUrls()]);
+    }
 }

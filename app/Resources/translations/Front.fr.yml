@@ -1,5 +1,6 @@
 website:
     title: 'Zinnechœur - Chorale à Bruxelles'
+    description: 'Zinnechœur est une chorale bruxelloise au répertoire éclectique. Nous répétons à Ixelles le lundi soir.'
     slogan: 'Zinnechœur, la chorale bruxelloise qui a du chien !'
     discoverthechoir: 'Découvrez la chorale'
     homebtn:
@@ -8,6 +9,7 @@ website:
         contact: 'Contactez-nous !'
         joinus: 'Nous rejoindre !'
     agenda: 'Agenda'
+    agenda-viewmore: 'Voir en détail'
     repertoire: 'Répertoire'
     oldrepertoire: 'Ancien répertoire'
     membres: 'Membres'

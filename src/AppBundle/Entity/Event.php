@@ -45,6 +45,11 @@ class Event extends ContentBase{
     private $season;
     
     /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $location;
+    
+    /**
      * @ORM\OneToOne(targetEntity="ResponsiveImage", inversedBy="event", cascade={"persist", "remove"}, orphanRemoval=true)
      * @ORM\JoinColumn(name="picture_id", referencedColumnName="id", nullable=true)
      * @Assert\Type(type="AppBundle\Entity\ResponsiveImage")
@@ -143,6 +148,30 @@ class Event extends ContentBase{
     public function getDescription()
     {
         return $this->description;
+    }
+    
+     /**
+     * Set location
+     *
+     * @param string $location
+     *
+     * @return Event
+     */
+    public function setLocation($location)
+    {
+        $this->location = $location;
+
+        return $this;
+    }
+
+    /**
+     * Get location
+     *
+     * @return string
+     */
+    public function getLocation()
+    {
+        return $this->location;
     }
 
     /**

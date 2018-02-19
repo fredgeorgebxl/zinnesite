@@ -35,7 +35,8 @@
         "egeloen/ckeditor-bundle": "^6.0",
         "stof/doctrine-extensions-bundle": "^1.2",
         "isometriks/spam-bundle": "~1.0",
-        "coresphere/console-bundle": "~0.5"
+        "coresphere/console-bundle": "~0.5",
+        "twig/extensions": "^1.5"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

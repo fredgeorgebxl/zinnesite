@@ -19,6 +19,22 @@ services:
         tags:
             - { name: form.type }
             
+    app.menu_builder:
+        class: AppBundle\Menu\Builder
+        arguments: ['@knp_menu.factory', '@security.authorization_checker']
+        tags:
+            - { name: knp_menu.menu_builder, method: adminMenu, alias: admin }
+            - { name: knp_menu.menu_builder, method: mainMenu, alias: main }
+            
+    app.sitemap:
+        class: AppBundle\SiteMap
+        arguments: ['@router', '@doctrine.orm.entity_manager']
+        
+    twig.extension.text:
+            class: Twig_Extensions_Extension_Text
+            tags:
+                - { name: twig.extension }
+            
 # Twig extensions
     app.twig_extension:
         class: AppBundle\Twig\AppExtension

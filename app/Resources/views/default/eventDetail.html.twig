@@ -1,11 +1,25 @@
-
-<div class="spacedown concert-detail">
-    {% if titlesize is defined %}
-    <h{{ titlesize }}>{{ event.name }}</h{{ titlesize }}>
-    {% else %}
-    <h1>{{ event.name }}</h1>
-    {% endif %}
+{% trans_default_domain 'Front' %}
+<div class="spacedown concert-detail vevent">
+    {% if summary is defined and summary == 1 %}
     <p class="date h4">{{ event.date|date('d/m/Y') }}</p>
+    <span class="dtstart hide">{{ event.date|date('Y-m-d') }}</span>
+    <div class="row">
+        <div class="small-3 medium-2 columns">
+            {{ styled_image(event.picture, 'project_thumb') }}
+        </div>
+        <div class="event-content small-9 medium-10 columns">
+            <a href="{{ path('event', {'slug' : event.slug}) }}"><h3 class="summary">{{ event.name }}</h3></a>
+            <p class="location">{{ event.location }}</p>
+            <p class="view-more-link"><a href="{{ path('event', {'slug' : event.slug}) }}">{{ 'website.agenda-viewmore'|trans }} <span class="fi-arrow-right"></span></a></p>
+        </div>
+    </div>
+    {% else %}
+    <h1 class="summary">{{ event.name }}</h1>
+    <p class="date h4">{{ event.date|date('d/m/Y') }}</p>
+    <span class="dtstart hide">{{ event.date|date('Y-m-d') }}</span>
+    {% if event.location is not empty %}
+    <p class="location">{{ event.location }}</p>
+    {% endif %}
     <div class="row">
         {% if event.picture is defined and event.picture is not null %}
         <div class="medium-4 columns">
@@ -14,4 +28,5 @@
         {% endif %}
         <div class="event-content medium-8 columns">{{ event.description|raw }}</div>
     </div>
+    {% endif %}
 </div>
