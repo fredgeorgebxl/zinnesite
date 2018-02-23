@@ -9,6 +9,8 @@ imports:
 parameters:
     locale: fr
     responsive_image.image_entity_class: 'AppBundle\Entity\ResponsiveImage'
+    publishable_entities: [event, gallery, repertoire]
+        
     zinne:
         seasons-available:
             - '2017-18'

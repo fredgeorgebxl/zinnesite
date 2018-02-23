@@ -51,15 +51,15 @@ class RepertoireController extends Controller
     }
     
     /**
-     * @Route("/edit/{rep_id}", requirements={"rep_id" = "\d+"}, name="repertoire_edit")
+     * @Route("/edit/{ent_id}", requirements={"ent_id" = "\d+"}, name="repertoire_edit")
      */
-    public function editAction($rep_id, Request $request){
+    public function editAction($ent_id, Request $request){
         $em = $this->getDoctrine()->getManager();
-        $repertoire = $em->getRepository(Repertoire::class)->find($rep_id);
+        $repertoire = $em->getRepository(Repertoire::class)->find($ent_id);
         
         if (!$repertoire) {
             throw $this->createNotFoundException(
-                'No repertoire found for id '.$rep_id
+                'No repertoire found for id '.$ent_id
             );
         }
         
@@ -79,11 +79,11 @@ class RepertoireController extends Controller
     }
 
      /**
-     * @Route("/delete/{rep_id}", requirements={"rep_id" = "\d+"}, name="repertoire_delete")
+     * @Route("/delete/{ent_id}", requirements={"ent_id" = "\d+"}, name="repertoire_delete")
      */
-    public function deleteAction($rep_id){
+    public function deleteAction($ent_id){
         $em = $this->getDoctrine()->getManager();
-        $repertoire = $em->getRepository(Repertoire::class)->find($rep_id);
+        $repertoire = $em->getRepository(Repertoire::class)->find($ent_id);
         $em->remove($repertoire);
         $em->flush();
         

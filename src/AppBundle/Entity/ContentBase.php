@@ -43,4 +43,12 @@ abstract class ContentBase {
     public function setPublished($bool){
         $this->published = $bool;
     }
+    
+    public function switchPublish(){
+        if($this->published){
+            $this->setPublished(FALSE);
+        } else {
+            $this->setPublished(TRUE);
+        }
+    }
 }

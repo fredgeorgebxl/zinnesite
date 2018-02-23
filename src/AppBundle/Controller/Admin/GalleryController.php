@@ -66,7 +66,7 @@ class GalleryController extends Controller
             $em->flush();
             
             if($form->get('addimages')->isClicked()){
-                return $this->redirectToRoute('gallery_addimages', ['gal_id' => $gallery->getId()]);
+                return $this->redirectToRoute('gallery_addimages', ['ent_id' => $gallery->getId()]);
             } else {
                 if($gallery->getHomeslide()){
                     return $this->redirectToRoute('admin_home');
@@ -84,16 +84,16 @@ class GalleryController extends Controller
     }
     
     /**
-     * @Route("/edit/{gal_id}", requirements={"gal_id" = "\d+"}, name="gallery_edit")
+     * @Route("/edit/{ent_id}", requirements={"ent_id" = "\d+"}, name="gallery_edit")
      */
-    public function editAction($gal_id, Request $request){
+    public function editAction($ent_id, Request $request){
 
         $em = $this->getDoctrine()->getManager();
-        $gallery = $em->getRepository(Gallery::class)->find($gal_id);
+        $gallery = $em->getRepository(Gallery::class)->find($ent_id);
         
         if (!$gallery) {
             throw $this->createNotFoundException(
-                'No gallery found for id '.$gal_id
+                'No gallery found for id '.$ent_id
             );
         }
         
@@ -107,9 +107,9 @@ class GalleryController extends Controller
             $em->flush();
             
             if($form->get('addimages')->isClicked()){
-                return $this->redirectToRoute('gallery_addimages', ['gal_id' => $gal_id]);
+                return $this->redirectToRoute('gallery_addimages', ['ent_id' => $ent_id]);
             } elseif ($form->get('edit_images')->isClicked()) {
-                return $this->redirectToRoute('gallery_editimages', ['gal_id' => $gal_id]);
+                return $this->redirectToRoute('gallery_editimages', ['ent_id' => $ent_id]);
             } elseif ($gallery->getHomeslide()) {
                 return $this->redirectToRoute('admin_home');
             } else {
@@ -125,21 +125,21 @@ class GalleryController extends Controller
     }
     
     /**
-     * @Route("/addimages/{gal_id}", requirements={"gal_id" = "\d+"}, name="gallery_addimages")
+     * @Route("/addimages/{ent_id}", requirements={"ent_id" = "\d+"}, name="gallery_addimages")
      */
-    public function addfileAction($gal_id, Request $request){
+    public function addfileAction($ent_id, Request $request){
 
         $em = $this->getDoctrine()->getManager();
-        $gallery = $em->getRepository(Gallery::class)->find($gal_id);
+        $gallery = $em->getRepository(Gallery::class)->find($ent_id);
         
         if (!$gallery) {
             throw $this->createNotFoundException(
-                'No gallery found for id '.$gal_id
+                'No gallery found for id '.$ent_id
             );
         }
         
         $builder = $this->createFormBuilder();
-            $builder->setAction($this->generateUrl('gallery_addimages', ['gal_id' => $gal_id]))
+            $builder->setAction($this->generateUrl('gallery_addimages', ['ent_id' => $ent_id]))
             ->add('file', FileType::class);
             if ($gallery->getHomeslide()){
                 $builder->add('back_home', SubmitType::class, array('label' => 'gallery.save', 'translation_domain' => 'App'));
@@ -175,10 +175,10 @@ class GalleryController extends Controller
             }
             
             if($form->has('edit_gallery') && $form->get('edit_gallery')->isClicked()){
-                return $this->redirectToRoute('gallery_edit', ['gal_id' => $gal_id]);
+                return $this->redirectToRoute('gallery_edit', ['ent_id' => $ent_id]);
             }
             if($form->get('edit_images')->isClicked()){
-                return $this->redirectToRoute('gallery_editimages', ['gal_id' => $gal_id]);
+                return $this->redirectToRoute('gallery_editimages', ['ent_id' => $ent_id]);
             }
             if($form->has('back_home') && $form->get('back_home')->isClicked()){
                 return $this->redirectToRoute('admin_home');
@@ -192,16 +192,16 @@ class GalleryController extends Controller
     }
     
     /**
-     * @Route("/editimages/{gal_id}", requirements={"gal_id" = "\d+"}, name="gallery_editimages")
+     * @Route("/editimages/{ent_id}", requirements={"ent_id" = "\d+"}, name="gallery_editimages")
      */
-    public function editimagesAction($gal_id, Request $request){
+    public function editimagesAction($ent_id, Request $request){
 
         $em = $this->getDoctrine()->getManager();
-        $gallery = $em->getRepository(Gallery::class)->find($gal_id);
+        $gallery = $em->getRepository(Gallery::class)->find($ent_id);
         
         if (!$gallery) {
             throw $this->createNotFoundException(
-                'No gallery found for id '.$gal_id
+                'No gallery found for id '.$ent_id
             );
         }
         $form = $this->createFormBuilder($gallery)
@@ -234,21 +234,21 @@ class GalleryController extends Controller
             if ($gallery->getHomeslide()){
                 return $this->redirectToRoute('admin_home');
             } else {
-                return $this->redirectToRoute('gallery_edit', ['gal_id' => $gal_id]);
+                return $this->redirectToRoute('gallery_edit', ['ent_id' => $ent_id]);
             }
         }
         
         return $this->render('admin/gallery/editimages.html.twig', array(
             'form' => $form->createView(),
             'homeslide' => $gallery->getHomeslide(),
-            'gal_id' => $gal_id,
+            'ent_id' => $ent_id,
         ));
     }
     
     /**
-     * @Route("/cropimage/{gal_id}/{img_id}", requirements={"gal_id" = "\d+", "img_id" = "\d+"}, name="gallery_cropimage")
+     * @Route("/cropimage/{ent_id}/{img_id}", requirements={"ent_id" = "\d+", "img_id" = "\d+"}, name="gallery_cropimage")
      */
-    public function cropimageAction($gal_id, $img_id, Request $request){
+    public function cropimageAction($ent_id, $img_id, Request $request){
         $em = $this->getDoctrine()->getManager();
         $image = $em->getRepository(ResponsiveImage::class)->find($img_id);
         
@@ -271,7 +271,7 @@ class GalleryController extends Controller
             $em->persist($image);
             $em->flush();
 
-            return $this->redirectToRoute('gallery_editimages', ['gal_id' => $gal_id]);
+            return $this->redirectToRoute('gallery_editimages', ['ent_id' => $ent_id]);
             
         }
         
@@ -282,12 +282,12 @@ class GalleryController extends Controller
     }
 
      /**
-     * @Route("/delete/{gal_id}", requirements={"gal_id" = "\d+"}, name="gallery_delete")
+     * @Route("/delete/{ent_id}", requirements={"ent_id" = "\d+"}, name="gallery_delete")
      */
-    public function deleteAction($gal_id){
+    public function deleteAction($ent_id){
         
         $em = $this->getDoctrine()->getManager();
-        $gallery = $em->getRepository(Gallery::class)->find($gal_id);
+        $gallery = $em->getRepository(Gallery::class)->find($ent_id);
         $images = $gallery->getPictures();
         foreach ($images as $image){
             $this->get('responsive_image')->deleteImageFiles($image, TRUE, TRUE);

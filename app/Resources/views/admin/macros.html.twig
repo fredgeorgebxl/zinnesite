@@ -1,0 +1,37 @@
+{% trans_default_domain 'App' %}
+{% macro publishButton(class, id, published) %}
+    <a class="btn-sm{% if published == 1 %}  btn-default{% else %} btn-warning{% endif %}" href="{{ path('switchpublish', {'entity':class, 'ent_id':id}) }}"><span class="glyphicon{% if published == 1 %} glyphicon-ok{% else %} glyphicon-remove{% endif %}" aria-hidden="true"></span></a>
+{% endmacro %}
+{% macro editButton(class, id) %}
+    <a class="btn-sm btn-primary" href="{{ path( class~'_edit', {'ent_id':id}) }}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> {{ 'general.edit'|trans}}</a>
+{% endmacro %}
+{% macro deleteButton(class, id) %}
+    <a class="btn-sm btn-danger deletelink" href="{{ path( class~'_delete', {'ent_id':id}) }}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> {{ 'general.delete'|trans}}</a>
+{% endmacro %}
+{% macro deleteScript() %}
+    <script>
+        jQuery(document).ready(function(){
+            $('.deletelink').each(function(){
+                $(this).on('click', function(e) {
+                    e.preventDefault();
+                    var url = $(this).attr('href');
+                    $.confirm({
+                        title: '{{ 'general.deleteentity'|trans }}',
+                        content: '{{ 'general.deleteentityconfirm'|trans }}',
+                        buttons: {
+                            confirm: {
+                                text : '{{ 'general.confirm'|trans }}',
+                                action: function(){
+                                    window.location = url;
+                                }
+                            },
+                            cancel: {
+                                text : '{{ 'general.cancel'|trans }}'                         
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+{% endmacro %}

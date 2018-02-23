@@ -5,9 +5,11 @@
         <group>
             <file>file:/www/symfony_test/app/Resources/views/default/index.html.twig</file>
             <file>file:/www/symfony_test/app/Resources/views/default/agenda.html.twig</file>
+            <file>file:/www/symfony_test/app/Resources/public/sass/front/_page.scss</file>
             <file>file:/www/symfony_test/src/AppBundle/Controller/DefaultController.php</file>
             <file>file:/www/symfony_test/app/Resources/views/default/event.html.twig</file>
             <file>file:/www/symfony_test/app/Resources/views/base.html.twig</file>
+            <file>file:/www/symfony_test/app/Resources/translations/Front.fr.yml</file>
             <file>file:/www/symfony_test/app/config/config.yml</file>
             <file>file:/www/symfony_test/app/Resources/views/default/eventDetail.html.twig</file>
         </group>

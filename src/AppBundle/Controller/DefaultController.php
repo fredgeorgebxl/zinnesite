@@ -60,13 +60,13 @@ class DefaultController extends Controller
         $repository = $entityManager->getRepository(\AppBundle\Entity\Event::class);
         $queryEvents = $repository->createQueryBuilder('ev')
                 ->where('ev.published = 1')
-                ->where('ev.date >= :datenow')
+                ->andWhere('ev.date >= :datenow')
                 ->setParameter('datenow', date('Y-m-d H:i:s'))
                 ->orderBy('ev.date', 'DESC')
                 ->getQuery();
         $pastEventsQuery = $repository->createQueryBuilder('ev')
                 ->where('ev.published = 1')
-                ->where('ev.date < :datenow')
+                ->andWhere('ev.date < :datenow')
                 ->setParameter('datenow', date('Y-m-d H:i:s'))
                 ->orderBy('ev.season', 'DESC')
                 ->orderBy('ev.date', 'DESC')
@@ -139,6 +139,7 @@ class DefaultController extends Controller
         $qb = $repository->createQueryBuilder('gal');
         $queryEvents = $qb
                 ->where('gal.homeslide != 1')
+                ->andWhere('gal.published = 1')
                 ->orWhere($qb->expr()->isNull('gal.homeslide'))
                 ->orderBy('gal.datecreated', 'DESC')
                 ->getQuery();

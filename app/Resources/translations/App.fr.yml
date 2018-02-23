@@ -33,6 +33,7 @@ general:
     clear-cache: 'Effacer le cache'
     enable: 'Activer'
     disable: 'Désactiver'
+    published: 'Publ.'
 users:
     users: 'Membres'
     disabled: 'désactivés'

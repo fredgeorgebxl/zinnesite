@@ -44,4 +44,40 @@ class DefaultController extends Controller
         
         return $this->redirectToRoute('admin_home');
     }
+    
+    /**
+     * @Route("/switchpublish/{entity}/{ent_id}", requirements={"ent_id" = "\d+"}, name="switchpublish")
+     */
+    public function switchPublish($entity, $ent_id)
+    {
+        $class = "\AppBundle\Entity\\". \ucfirst($entity);
+        
+        $authorized_classes = $this->getParameter('publishable_entities');
+        
+        if(! in_array($entity, $authorized_classes)){
+            throw $this->createNotFoundException(
+                    "The class " . $entity . " is not allowed to be publishable (view in config.yml)"
+            );
+        }
+        $em = $this->getDoctrine()->getManager();
+        try {
+            $rep = $em->getRepository($class);
+        } catch (Doctrine\Common\Persistence\Mapping\MappingException $e) {
+                
+        }
+        
+        $myentity = $rep->find($ent_id);
+        
+        if (!$myentity) {
+            throw $this->createNotFoundException(
+                'No entity found for id '.$ent_id
+            );
+        }
+        
+        $myentity->switchPublish();
+        
+        $em->flush();
+        
+        return $this->redirectToRoute($entity . '_list');
+    }
 }

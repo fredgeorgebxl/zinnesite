@@ -56,7 +56,7 @@ class EventController extends Controller{
             $em->flush();
             
             if($form->get('picture')->has('add_image') && $form->get('picture')->get('add_image')->isClicked()){
-                return $this->redirectToRoute('event_edit', ['ev_id' => $event->getId()]);
+                return $this->redirectToRoute('event_edit', ['ent_id' => $event->getId()]);
             } else {
                 return $this->redirectToRoute('event_list');
             }
@@ -68,15 +68,15 @@ class EventController extends Controller{
     }
     
     /**
-     * @Route("/edit/{ev_id}", requirements={"ev_id" = "\d+"}, name="event_edit")
+     * @Route("/edit/{ent_id}", requirements={"ent_id" = "\d+"}, name="event_edit")
      */
-    public function editAction($ev_id, Request $request){
+    public function editAction($ent_id, Request $request){
         $em = $this->getDoctrine()->getManager();
-        $event = $em->getRepository(Event::class)->find($ev_id);
+        $event = $em->getRepository(Event::class)->find($ent_id);
         
         if (!$event) {
             throw $this->createNotFoundException(
-                'No event found for id '.$ev_id
+                'No event found for id '.$ent_id
             );
         }
         
@@ -122,7 +122,7 @@ class EventController extends Controller{
             $em->flush();
             
             if(($form->get('picture')->has('remove_image') && $form->get('picture')->get('remove_image')->isClicked()) || ($form->get('picture')->has('add_image') && $form->get('picture')->get('add_image')->isClicked())){
-                return $this->redirectToRoute('event_edit', ['ev_id' => $ev_id]);
+                return $this->redirectToRoute('event_edit', ['ent_id' => $ent_id]);
             } else {
                 return $this->redirectToRoute('event_list');
             }
@@ -135,11 +135,11 @@ class EventController extends Controller{
     }
     
     /**
-     * @Route("/delete/{ev_id}", requirements={"ev_id" = "\d+"}, name="event_delete")
+     * @Route("/delete/{ent_id}", requirements={"ent_id" = "\d+"}, name="event_delete")
      */
-    public function deleteAction($ev_id){
+    public function deleteAction($ent_id){
         $em = $this->getDoctrine()->getManager();
-        $event = $em->getRepository(Event::class)->find($ev_id);
+        $event = $em->getRepository(Event::class)->find($ent_id);
         
          // Delete picture
         $picture = $event->getPicture();
