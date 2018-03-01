@@ -1,0 +1,21 @@
+{% trans_default_domain 'Front' %}
+{% extends 'base.html.twig' %}
+{% block title %}{{ 'website.title'|trans }} | {{ 'website.page-not-found'|trans }}{% endblock %}
+{% block body %}
+    <div class="column row">
+        <h1>{{ 'website.page-not-found'|trans }}</h1>
+        <h2>{{ 'website.error'|trans }} 404</h2>
+        {% set jour = "now"|date("N") %}
+        {% set heure = "now"|date("H") + 1 %}
+        {% if jour in ['6', '7'] %}
+            {% set souhaite = 'website.week-end' %}
+        {% elseif heure <= 4 or heure >= 22 %}
+            {% set souhaite = 'website.nuit' %}
+        {% else %}
+            {% set souhaite = 'website.journee' %}
+        {% endif %}
+        <div>
+            {{ 'website.page-not-found-description'|trans({'%souhaite%': souhaite|trans})|raw }}
+        </div>
+    </div>
+{% endblock %}

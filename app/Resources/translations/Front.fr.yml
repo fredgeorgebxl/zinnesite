@@ -80,4 +80,12 @@ website:
         </ul>
         <p>Toujours motivé(e) ? Réponds à <a href="https://docs.google.com/forms/d/e/1FAIpQLSdou-FTcW9dVSXYiPAYxvd1fzjAIbEn1LD2l3HyzaIwNpBsEA/viewform" target="_blank"><strong>ce questionnaire</strong></a> pour être inscrit(e) sur la liste d’attente.</p>
         <p>A bientôt! :)<br/>Les Zinnechoristes</p>
+    page-not-found: 'Contenu inexistant'
+    error: 'Erreur'
+    page-not-found-description: >
+        Cette page n'existe pas (ou n'existe plus). N'hésitez pas à aller voir le reste du site.<br />
+        Zinnechœur vous souhaite %souhaite%
+    journee: 'une bonne journée'
+    nuit: 'une bonne nuit'
+    week-end: 'un bon week-end'
     
