@@ -1,4 +1,5 @@
 {% trans_default_domain 'Front' %}
+{% import "macros.html.twig" as macros %}
 {% extends 'base.html.twig' %}
 {% block title %}{{ 'website.title'|trans }} | {{ gallery.title }}{% endblock %}
 {% block description %}{{ gallery.description|striptags|truncate(150, true) }}{% endblock %}
@@ -18,8 +19,9 @@
     <link rel="stylesheet" href="{{ asset('css/fresco/fresco.css') }}"/>
 {% endblock %}
 {% block body %}
-    <div class="column row">
+    <div class="column row gallery-detail">
         <h1>{{ gallery.title }}</h1>
+        <div class="dates">{{ macros.dateRange(gallery.date, gallery.dateto) }}</div>
         {% if gallery.description is not empty %}
         <p>{{ gallery.description }}</p>
         {% endif %}

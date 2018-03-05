@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
@@ -27,9 +28,22 @@ class Gallery extends ContentBase
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
+    
+    /**
+     * @Assert\NotBlank()
+     * @ORM\Column(type="datetime")
+     */
+    private $date;
+    
+    /**
+     *
+     * @ORM\Column(type="datetime", nullable=TRUE)
+     */
+    private $dateto;
     
     /**
      * @var string
@@ -86,6 +100,34 @@ class Gallery extends ContentBase
     }
     
     /**
+     * Set date
+     *
+     * @param datetime $date
+     *
+     * @return Gallery
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+    
+    /**
+     * Set dateto
+     *
+     * @param datetime $dateto
+     *
+     * @return Gallery
+     */
+    public function setDateTo($dateto)
+    {
+        $this->dateto = $dateto;
+
+        return $this;
+    }
+    
+    /**
      * Set description
      *
      * @param string $description
@@ -107,6 +149,26 @@ class Gallery extends ContentBase
     public function getTitle()
     {
         return $this->title;
+    }
+    
+    /**
+     * Get date
+     *
+     * @return datetime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+    
+    /**
+     * Get dateto
+     *
+     * @return datetime
+     */
+    public function getDateto()
+    {
+        return $this->dateto;
     }
     
     /**

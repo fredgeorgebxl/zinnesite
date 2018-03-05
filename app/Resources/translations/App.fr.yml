@@ -34,6 +34,7 @@ general:
     enable: 'Activer'
     disable: 'Désactiver'
     published: 'Publ.'
+    date: 'Date(s)'
 users:
     users: 'Membres'
     disabled: 'désactivés'
@@ -106,6 +107,8 @@ gallery:
     save: 'Enregistrer'
     deleteimage: "Supprimer l'image"
     deleteimageconfirm: 'Voulez-vous réellement supprimer cette image de manière définitive ?'
+    date: 'Date des photos'
+    dateto: 'Date de fin (optionnel)'
 videos:
     videos: 'Vidéos'
     video: 'vidéo'

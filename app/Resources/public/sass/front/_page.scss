@@ -257,10 +257,27 @@ main{
     }
 }
 .photos-page{
+    .gallery-intro{
+        height: 4.5rem;
+    }
     h2{
         font-size: 1.5rem;
         line-height: 1em;
-        height: 3rem;
+        margin-bottom: 0;
+    }
+    .dates{
+        font-size: 1.2rem;
+        color: $dark-gray;
+        margin:0 0 15px 0;
+        font-weight: bold;
+    }
+}
+.gallery-detail{
+    .dates{
+        font-size: 1.2rem;
+        color: $dark-gray;
+        margin:0 0 15px 0;
+        font-weight: bold;
     }
 }
 

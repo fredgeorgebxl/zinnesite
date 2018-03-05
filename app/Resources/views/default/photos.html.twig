@@ -1,4 +1,5 @@
 {% trans_default_domain 'Front' %}
+{% import "macros.html.twig" as macros %}
 {% extends 'base.html.twig' %}
 {% block title %}{{ 'website.title'|trans }} | {{ 'website.photos'|trans }}{% endblock %}
 {% block description %}{{ 'website.photos-intro'|trans|striptags|truncate(150, true) }}{% endblock %}
@@ -18,7 +19,10 @@
             {% if gallery.pictures|length %}
             <div class="small-12 medium-4 large-3 columns end spacedown">
                 <a href="{{ path('gallery', {'slug': gallery.slug}) }}">
+                    <div class="gallery-intro">
                     <h2>{{ gallery.title }}</h2>
+                    <div class="dates">{{ macros.dateRange(gallery.date, gallery.dateto) }}</div>
+                    </div>
                     <div class="galleryfront">
                         <img class="imageframe" src="{{ asset('images/gallery-frame.png') }}" alt="" />
                         {% if gallery.pictures[0] is defined %}

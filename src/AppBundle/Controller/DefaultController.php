@@ -141,7 +141,7 @@ class DefaultController extends Controller
                 ->where('gal.homeslide != 1')
                 ->andWhere('gal.published = 1')
                 ->orWhere($qb->expr()->isNull('gal.homeslide'))
-                ->orderBy('gal.datecreated', 'DESC')
+                ->orderBy('gal.date', 'DESC')
                 ->getQuery();
         $galleries = $queryEvents->getResult();
         

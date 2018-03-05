@@ -11,6 +11,7 @@
         <tr>
             <th>{{ 'gallery.title'|trans}}</th>
             <th>{{ 'general.published'|trans}}</th>
+            <th>{{ 'general.date'|trans}}</th>
             <th></th>
             <th></th>
         </tr>
@@ -18,6 +19,7 @@
         <tr>
             <td>{{ gl.title }}</td>
             <td>{{ macros.publishButton('gallery', gl.id, gl.published) }}</td>
+            <td>{{ macros.dateRange(gl.date, gl.dateto) }}</td>
             <td>{{ macros.editButton('gallery', gl.id) }}</td>
             <td>{{ macros.deleteButton('gallery', gl.id) }}</td>
         </tr>
