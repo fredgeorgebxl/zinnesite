@@ -40,7 +40,7 @@
             <div class="col-md-3">
             <a href="{{ path('repertoire_new') }}" class="home-shortcut btn btn-default"><span class="glyphicon glyphicon-music"></span>{{ 'general.addrepertoire'|trans }}</a>
             </div>
-            {% if is_granted('ROLE_ADMIN') %}
+            {% if is_granted('ROLE_SUPER_ADMIN') %}
             <div class="col-md-3">
             <a href="{{ path('user_new') }}" class="home-shortcut btn btn-default"><span class="glyphicon glyphicon-user"></span>{{ 'general.addmember'|trans }}</a>
             </div>
