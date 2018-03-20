@@ -62,7 +62,7 @@ class DefaultController extends Controller
                 ->where('ev.published = 1')
                 ->andWhere('ev.date >= :datenow')
                 ->setParameter('datenow', date('Y-m-d H:i:s'))
-                ->orderBy('ev.date', 'DESC')
+                ->orderBy('ev.date', 'ASC')
                 ->getQuery();
         $pastEventsQuery = $repository->createQueryBuilder('ev')
                 ->where('ev.published = 1')
