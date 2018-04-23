@@ -30,6 +30,12 @@ services:
         class: AppBundle\SiteMap
         arguments: ['@router', '@doctrine.orm.entity_manager']
         
+    parameter.provider.service:
+        class: AppBundle\Entity\ParameterRepository
+        factory: ["@doctrine.orm.entity_manager", getRepository]
+        arguments:
+            - AppBundle\Entity\Parameter
+    
     twig.extension.text:
             class: Twig_Extensions_Extension_Text
             tags:

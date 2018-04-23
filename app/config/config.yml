@@ -46,6 +46,8 @@ framework:
 
 # Twig Configuration
 twig:
+    globals:
+        parameters: "@opensky.runtime_config"
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
     form_themes:
@@ -199,3 +201,10 @@ isometriks_spam:
         hide_class: hidden
         global: false
         message: "Form fields are invalid"
+        
+opensky_runtime_config:
+    provider: parameter.provider.service
+    cascade:  true
+    logging:
+        enabled: true
+        level:   debug

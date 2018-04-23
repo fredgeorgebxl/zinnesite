@@ -1,0 +1,9 @@
+{% trans_default_domain 'App' %}
+{% extends "admin/base-admin.html.twig" %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+{% block title %}{{ 'general.administration'|trans}} | {{ 'parameter.parameters'|trans}}{% endblock %}
+{% block body %}
+    <h1>{{ 'parameter.parameters'|trans}}</h1>
+    
+    {{ form(form) }}
+{% endblock %}

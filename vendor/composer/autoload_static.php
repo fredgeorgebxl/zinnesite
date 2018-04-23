@@ -53,6 +53,10 @@ class ComposerStaticInit2bacd54528de0599260d3905a1eaec01
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Cache\\' => 10,
         ),
+        'O' => 
+        array (
+            'OpenSky\\Bundle\\RuntimeConfigBundle\\' => 35,
+        ),
         'M' => 
         array (
             'Monolog\\' => 8,
@@ -195,6 +199,10 @@ class ComposerStaticInit2bacd54528de0599260d3905a1eaec01
         'Psr\\Cache\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
+        ),
+        'OpenSky\\Bundle\\RuntimeConfigBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/opensky/runtime-config-bundle',
         ),
         'Monolog\\' => 
         array (

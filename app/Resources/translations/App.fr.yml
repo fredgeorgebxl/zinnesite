@@ -35,6 +35,7 @@ general:
     disable: 'Désactiver'
     published: 'Publ.'
     date: 'Date(s)'
+    edit-parameters: 'Modifier la configuration'
 users:
     users: 'Membres'
     disabled: 'désactivés'
@@ -109,6 +110,8 @@ gallery:
     deleteimageconfirm: 'Voulez-vous réellement supprimer cette image de manière définitive ?'
     date: 'Date des photos'
     dateto: 'Date de fin (optionnel)'
+parameter:
+    parameters: 'Paramètres'
 videos:
     videos: 'Vidéos'
     video: 'vidéo'
