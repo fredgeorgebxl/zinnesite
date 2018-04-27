@@ -1,0 +1,27 @@
+{% trans_default_domain 'App' %}
+{% extends "admin/base-admin.html.twig" %}
+{% import "admin/macros.html.twig" as macros %}
+{% block title %}{{ 'general.administration'|trans}} | {{ 'textblock.textblock'|trans}}{% endblock %}
+{% block body %}
+    <h1>{{ 'textblock.textblock'|trans}}</h1>
+    <div class="section">
+        <a class="btn btn-primary" href="{{ path('textblock_new') }}">{{ 'textblock.create'|trans}} <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+    </div>
+    <table class="table listtable">
+        <tr>
+            <th>{{ 'textblock.name'|trans}}</th>
+            <th>{{ 'general.published'|trans}}</th>
+            <th></th>
+            <th></th>
+        </tr>
+    {% for block in textblocks %}
+        <tr>
+            <td>{{ block.name }}</td>
+            <td>{{ macros.publishButton('textblock', block.id, block.published) }}</td>
+            <td>{{ macros.editButton('textblock', block.id) }}</td>
+            <td>{{ macros.deleteButton('textblock', block.id) }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    {{ macros.deleteScript() }}
+{% endblock %}

@@ -12,8 +12,8 @@ use AppBundle\Entity\Parameter;
 class ParameterType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('value', TextType::class, array('label' => 'users.firstname', 'translation_domain' => 'App'));
+        $builder->add('name', TextType::class, array('label' => false));
+        $builder->add('value', TextType::class, array('label' => false));
     }
     
     public function configureOptions(OptionsResolver $resolver)

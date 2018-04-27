@@ -1,0 +1,21 @@
+{% trans_default_domain 'App' %}
+{% extends "admin/base-admin.html.twig" %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+{% block body %}
+    <h1> {{ 'general.edit'|trans }} '{{ form.name.vars.value }}'</h1>
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+    <div class="form-group">
+        {{ form_label(form.name) }}
+        {{ form_errors(form.name) }}
+        {{ form_widget(form.name) }}
+    </div>
+    <div class="form-group">
+        {{ form_label(form.content) }}
+        {{ form_errors(form.content) }}
+        {{ form_widget(form.content) }}
+    </div>
+    <div class="form-group">
+        {{ form_widget(form.save) }}
+    </div>
+    {{ form_end(form) }}
+{% endblock %}

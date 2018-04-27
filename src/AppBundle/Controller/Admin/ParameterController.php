@@ -22,7 +22,12 @@ class ParameterController extends Controller{
         
         $default_values = array('parameters' => $parameters);
         $form = $this->createForm(ParameterListType::class,$default_values);
-        
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $entityManager->flush();
+            return $this->redirectToRoute('admin_home');
+        }
+
         return $this->render('admin/parameters/index.html.twig', ['form' => $form->createView()]);
     }
 }

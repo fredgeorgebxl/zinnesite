@@ -34,6 +34,9 @@ class Builder
         $menu->addChild('gallery.galleries', array('route' => 'gallery_list'))
                 ->setExtra('translation_domain', 'App');
         
+        $menu->addChild('textblock.textblocks', array('route' => 'textblock_list'))
+                ->setExtra('translation_domain', 'App');
+        
         return $menu;
     }
     

@@ -4,6 +4,17 @@
 {% block title %}{{ 'general.administration'|trans}} | {{ 'parameter.parameters'|trans}}{% endblock %}
 {% block body %}
     <h1>{{ 'parameter.parameters'|trans}}</h1>
-    
-    {{ form(form) }}
+    {{ form_start(form) }}
+    {{ form_errors(form.parameters) }}
+
+    <ul>
+    {% for paramField in form.parameters %}
+        <li>
+            {{ form_errors(paramField) }}
+            {{ form_widget(paramField) }}
+        </li>
+    {% endfor %}
+    </ul>
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
 {% endblock %}

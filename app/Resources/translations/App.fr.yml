@@ -112,6 +112,7 @@ gallery:
     dateto: 'Date de fin (optionnel)'
 parameter:
     parameters: 'Paramètres'
+    save: 'Enregistrer'
 videos:
     videos: 'Vidéos'
     video: 'vidéo'

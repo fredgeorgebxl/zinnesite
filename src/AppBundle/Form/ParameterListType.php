@@ -15,6 +15,6 @@ class ParameterListType extends AbstractType {
         $builder->add('parameters', CollectionType::class, array(
             'entry_type' => ParameterType::class
         ))
-        ->add('save', SubmitType::class, array('label' => 'parameters.save', 'translation_domain' => 'App'));
+        ->add('save', SubmitType::class, array('label' => 'parameter.save', 'translation_domain' => 'App'));
     }
 }
