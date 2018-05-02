@@ -1,0 +1,13 @@
+{% trans_default_domain 'Front' %}
+<div class="textblock {{ textblock.name }}">
+    <div class="row">
+        {% if textblock.picture is not null %}
+        <div class="small-3 medium-2 columns">
+            {{ styled_image(textblock.picture, 'project_full') }}
+        </div>
+        {% endif %}
+        <div class="event-content small-9 medium-10 columns">
+            {{ textblock.content|raw }}
+        </div>
+    </div>
+</div>

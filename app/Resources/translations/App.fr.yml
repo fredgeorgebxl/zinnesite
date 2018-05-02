@@ -119,5 +119,13 @@ videos:
     title: 'Titre'
     link: 'Lien'
     save: 'Enregister'
+textblock:
+    textblock: 'Bloc de texte'
+    textblocks: 'Blocs de texte'
+    name: 'Identifiant'
+    create: 'Créer un bloc'
+    content: 'Contenu'
+    picture: 'Image'
+    save: 'Enregistrer'
 website:
     title: 'Zinnechœur - Chorale à Bruxelles'

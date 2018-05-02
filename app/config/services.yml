@@ -45,6 +45,6 @@ services:
     app.twig_extension:
         class: AppBundle\Twig\AppExtension
         public: false
-        arguments: [ '@responsive_image.style_manager', '@app.helpers' ]
+        arguments: [ '@responsive_image.style_manager', '@app.helpers', '@doctrine.orm.entity_manager']
         tags:
             - { name: twig.extension }

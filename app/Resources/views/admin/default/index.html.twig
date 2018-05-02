@@ -25,11 +25,11 @@
         <h3>{{ 'general.homepage-video'|trans }}</h3>
         <a  class="btn btn-default" href="{{ path('video') }}">{{ 'general.edit-videos'|trans}} <span class="glyphicon glyphicon-film" aria-hidden="true"></span></a>
     </div>
+    {% if is_granted('ROLE_SUPER_ADMIN') %}
     <div class="section">
         <h3>{{ 'parameter.parameters'|trans }}</h3>
         <a  class="btn btn-default" href="{{ path('parameter_list') }}">{{ 'general.edit-parameters'|trans}} <span class="glyphicon glyphicon-check" aria-hidden="true"></span></a>
     </div>
-    {% if is_granted('ROLE_SUPER_ADMIN') %}
     <div class="section">
         <h3>{{ 'general.cache-management'|trans }}</h3>
         <a  class="btn btn-default" href="{{ path('clear_cache') }}">{{ 'general.clear-cache'|trans}} <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></a>

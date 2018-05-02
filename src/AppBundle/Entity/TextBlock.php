@@ -81,7 +81,7 @@ class TextBlock extends ContentBase
      *
      * @param string $content
      *
-     * @return TextBox
+     * @return TextBlock
      */
     public function setContent($content)
     {

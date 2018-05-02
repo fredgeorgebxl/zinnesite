@@ -4,6 +4,7 @@ namespace AppBundle\Twig;
 
 use IrishDan\ResponsiveImageBundle\ResponsiveImageInterface;
 use IrishDan\ResponsiveImageBundle\StyleManager;
+use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Helpers;
 
 
@@ -17,10 +18,11 @@ class AppExtension extends \Twig_Extension
     private $styleManager;
     private $helpers;
 
-    public function __construct(StyleManager $styleManager, Helpers $helpers)
+    public function __construct(StyleManager $styleManager, Helpers $helpers, ObjectManager $em)
     {
         $this->styleManager = $styleManager;
         $this->helpers = $helpers;
+        $this->em = $em;
     }
 
     /**
@@ -40,6 +42,11 @@ class AppExtension extends \Twig_Extension
                 ]
             ),
             new \Twig_SimpleFunction('styled_image_url', [$this, 'styledImageUrl'], [
+                    'is_safe' => ['html'],
+                    'needs_environment' => true,
+                ]
+            ),
+            new \Twig_SimpleFunction('text_block', [$this, 'insertTextBlock'], [
                     'is_safe' => ['html'],
                     'needs_environment' => true,
                 ]
@@ -68,6 +75,13 @@ class AppExtension extends \Twig_Extension
     public function styledImageUrl(\Twig_Environment $environment, ResponsiveImageInterface $image, $styleName){
         $this->styleManager->setImageStyle($image, $styleName);
         return $image->getStyle();
+    }
+    
+    public function insertTextBlock(\Twig_Environment $environment, $blockname){
+        $textBlock = $this->em->getRepository(\AppBundle\Entity\TextBlock::class)->findOneByName($blockname);
+        return $environment->render('default/textblock.html.twig', [
+            'textblock' => $textBlock,
+        ]);
     }
 
     /**

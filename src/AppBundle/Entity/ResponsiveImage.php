@@ -102,6 +102,11 @@ class ResponsiveImage implements ResponsiveImageInterface
     protected $user = null;
     
     /**
+     * @ORM\OneToOne(targetEntity="TextBlock", mappedBy="picture")
+     */
+    protected $textbox = null;
+    
+    /**
      * @ORM\OneToOne(targetEntity="Event", mappedBy="picture")
      */
     protected $event = null;
@@ -460,6 +465,20 @@ class ResponsiveImage implements ResponsiveImageInterface
     public function setGallery(\AppBundle\Entity\Gallery $gallery = null)
     {
         $this->gallery = $gallery;
+
+        return $this;
+    }
+    
+    /**
+     * Set textBox
+     *
+     * @param \AppBundle\Entity\Event $event
+     *
+     * @return ResponsiveImage
+     */
+    public function setTextBox(\AppBundle\Entity\TextBlock $textbox = null)
+    {
+        $this->textbox = $textbox;
 
         return $this;
     }

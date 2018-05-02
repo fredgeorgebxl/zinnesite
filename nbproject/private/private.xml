@@ -5,22 +5,19 @@
         <group>
             <file>file:/www/symfony_test/src/AppBundle/Form/ParameterType.php</file>
             <file>file:/www/symfony_test/src/AppBundle/Form/ParameterListType.php</file>
-            <file>file:/www/symfony_test/app/Resources/views/default/index.html.twig</file>
             <file>file:/www/symfony_test/app/Resources/views/admin/parameters/index.html.twig</file>
+            <file>file:/www/symfony_test/src/AppBundle/Form/TextBlockType.php</file>
             <file>file:/www/symfony_test/src/AppBundle/Controller/Admin/EventController.php</file>
             <file>file:/www/symfony_test/src/AppBundle/Entity/Parameter.php</file>
+            <file>file:/www/symfony_test/app/Resources/views/admin/textblock/new.html.twig</file>
             <file>file:/www/symfony_test/app/Resources/translations/App.fr.yml</file>
-            <file>file:/www/symfony_test/app/Resources/views/admin/repertoire/edit.html.twig</file>
-            <file>file:/www/symfony_test/src/AppBundle/Controller/Admin/ParameterController.php</file>
-            <file>file:/www/symfony_test/app/config/config.yml</file>
-            <file>file:/www/symfony_test/app/config/services.yml</file>
+            <file>file:/www/symfony_test/src/AppBundle/Entity/TextBlock.php</file>
             <file>file:/www/symfony_test/src/AppBundle/Form/EventType.php</file>
-            <file>file:/www/symfony_test/app/AppKernel.php</file>
-            <file>file:/www/symfony_test/src/AppBundle/Entity/Gallery.php</file>
-            <file>file:/www/symfony_test/src/AppBundle/Form/ImageType.php</file>
-            <file>file:/www/symfony_test/app/Resources/views/admin/repertoire/index.html.twig</file>
-            <file>file:/www/symfony_test/src/AppBundle/Form/RegistrationType.php</file>
-            <file>file:/www/symfony_test/src/AppBundle/Controller/Admin/GalleryController.php</file>
+            <file>file:/www/symfony_test/src/AppBundle/Menu/Builder.php</file>
+            <file>file:/www/symfony_test/src/AppBundle/Controller/Admin/TextBlockController.php</file>
+            <file>file:/www/symfony_test/src/AppBundle/Entity/Repertoire.php</file>
+            <file>file:/www/symfony_test/app/Resources/views/admin/textblock/index.html.twig</file>
+            <file>file:/www/symfony_test/app/Resources/views/admin/textblock/edit.html.twig</file>
             <file>file:/www/symfony_test/src/AppBundle/Entity/Event.php</file>
         </group>
     </open-files>
