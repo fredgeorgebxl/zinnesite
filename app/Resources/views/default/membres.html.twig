@@ -16,7 +16,7 @@
         </div>
         <div class="medium-6 large-8 columns">
             <h2>{{ chef.firstname }} {{ chef.lastname }}{{ 'website.chef'|trans }}</h2>
-            {{ 'website.chef-description'|trans|raw }}
+            {{ text_block('chef_description') }}
         </div>
     </div>
     {% endif %}

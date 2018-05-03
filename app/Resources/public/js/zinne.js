@@ -7,6 +7,13 @@ $(document).ready(function(){
         e.preventDefault();
         scrollToAnchor($(this).attr("href"));
     });
+    /*
+    var tl = new TimelineLite({onComplete:function() {
+        this.restart();
+    }});
+    tl.to(".popup", 1, {rotation:3, delay:4, ease:Elastic.easeInOut});
+    tl.to(".popup", 1, {rotation:-5, delay:4, ease:Elastic.easeInOut});
+    */
 });
 
 var controller = new ScrollMagic.Controller();

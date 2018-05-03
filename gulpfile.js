@@ -25,6 +25,7 @@ gulp.task('js', function () {
         'bower_components/greensock-js/src/uncompressed/plugins/CSSPlugin.js',
         'bower_components/greensock-js/src/uncompressed/easing/EasePack.js',
         'bower_components/greensock-js/src/uncompressed/TweenLite.js',
+        'bower_components/greensock-js/src/uncompressed/TimelineLite.js',
         'bower_components/greensock-js/src/uncompressed/plugins/ScrollToPlugin.js',
         'bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js',
         'bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js'])

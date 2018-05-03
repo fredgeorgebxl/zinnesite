@@ -6,15 +6,15 @@
     <h1>{{ 'parameter.parameters'|trans}}</h1>
     {{ form_start(form) }}
     {{ form_errors(form.parameters) }}
-
-    <ul>
+    <div class="parameters" data-prototype="{{ form_widget(form.parameters.vars.prototype)|e('html_attr') }}">
     {% for paramField in form.parameters %}
-        <li>
+        <div class="row space-down">
             {{ form_errors(paramField) }}
-            {{ form_widget(paramField) }}
-        </li>
+            <div class="col-xs-6">{{ form_widget(paramField.name) }}</div>
+            <div class="col-xs-6">{{ form_widget(paramField.value) }}</div>
+        </div>
     {% endfor %}
-    </ul>
+    </div>
     {{ form_rest(form) }}
     {{ form_end(form) }}
 {% endblock %}

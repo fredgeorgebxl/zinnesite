@@ -11,6 +11,10 @@
 {% endblock %}
 {% block body %}
     <section class="main-hp text-center">
+        {% if parameters.get('popup_is_activated') %}
+        {% set blockname = parameters.get('popup_block_name') %}
+        {{ text_block(blockname) }}
+        {% endif %}
         <div class="main-hp-content centercontent">
             <nav class="main-hp-menu menu-centered hide-for-small-only hide-for-medium-only nowrap">
                 {{ knp_menu_render('main',{'currentClass' : 'active'}) }}
@@ -19,10 +23,7 @@
                     <li><a href="https://www.youtube.com/channel/UC_tp-m7g0eqs0IwxhA1k9mA" target="_blank" class="youtube fi-social-youtube" title="Youtube"></a></li>
                 </ul>
             </nav>
-                {% if parameters.get('popup_is_activated') %}
-                {% set blockname = parameters.get('popup_block_name') %}
-                {{ text_block(blockname) }}
-                {% endif %}
+                
             <div class="main-logo">
                     <img src="{{ asset('images/main-hp-logo.png') }}" alt="Logo Zinnechœur" />
             </div>

@@ -1,13 +1,23 @@
 {% trans_default_domain 'Front' %}
-<div class="textblock {{ textblock.name }}">
+{% set classes = 'textblock' %}
+{% if parameters.get('popup_block_name') == textblock.name %}
+{% set popup = true %}
+{% set classes = classes~' popup callout secondary' %}
+{% endif %}
+<div class="{{ classes }}"{% if popup is defined and popup == true %} data-closable{% endif %}>
     <div class="row">
         {% if textblock.picture is not null %}
-        <div class="small-3 medium-2 columns">
+        <div class="hide-for-small-only medium-4 columns">
             {{ styled_image(textblock.picture, 'project_full') }}
         </div>
         {% endif %}
-        <div class="event-content small-9 medium-10 columns">
+        <div class="event-content{% if textblock.picture is not null %} small-12 medium-8{% endif %} columns">
             {{ textblock.content|raw }}
         </div>
     </div>
+    {% if popup is defined and popup == true %}
+    <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+        <span aria-hidden="true">&times;</span>
+    </button>
+    {% endif %}
 </div>
