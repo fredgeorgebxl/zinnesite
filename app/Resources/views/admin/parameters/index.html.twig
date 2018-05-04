@@ -4,17 +4,24 @@
 {% block title %}{{ 'general.administration'|trans}} | {{ 'parameter.parameters'|trans}}{% endblock %}
 {% block body %}
     <h1>{{ 'parameter.parameters'|trans}}</h1>
+    
     {{ form_start(form) }}
     {{ form_errors(form.parameters) }}
-    <div class="parameters" data-prototype="{{ form_widget(form.parameters.vars.prototype)|e('html_attr') }}">
+    <div class="parameters">
     {% for paramField in form.parameters %}
-        <div class="row space-down">
-            {{ form_errors(paramField) }}
-            <div class="col-xs-6">{{ form_widget(paramField.name) }}</div>
-            <div class="col-xs-6">{{ form_widget(paramField.value) }}</div>
+        <div class="row">
+            <div class="col-sm-11 col-md-6">{{ form_row(paramField) }}</div>
+            {% if is_granted('ROLE_SUPER_ADMIN') %}
+                <div class="col-sm-1 col-md-6"><br/><br/><a href="{{ path('parameter_delete', {'ent_id': paramField.vars.data.id}) }}">X</a></div>
+            {% endif %}
         </div>
     {% endfor %}
     </div>
     {{ form_rest(form) }}
     {{ form_end(form) }}
+    {% if is_granted('ROLE_SUPER_ADMIN') %}
+        <div class="section">
+            <a  class="btn btn-primary" href="{{ path('parameter_add') }}">{{ 'parameter.add'|trans}} <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+        </div>
+    {% endif %}
 {% endblock %}

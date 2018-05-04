@@ -36,7 +36,7 @@ security:
         - { path: ^/profile, role: ROLE_USER }
         - { path: ^/admin/user, role: ROLE_SUPER_ADMIN }
         - { path: ^/admin/clearcache, role: ROLE_SUPER_ADMIN }
-        - { path: ^/admin/parameter, role: ROLE_SUPER_ADMIN }
+        - { path: ^/admin/parameter/, role: ROLE_SUPER_ADMIN }
         - { path: ^/admin, role: ROLE_ADMIN }
 
             # activate different ways to authenticate

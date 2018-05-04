@@ -113,6 +113,10 @@ gallery:
 parameter:
     parameters: 'Paramètres'
     save: 'Enregistrer'
+    add: 'Nouveau paramètre'
+    name: 'Nom'
+    value: 'Valeur'
+    type: 'Type'
 videos:
     videos: 'Vidéos'
     video: 'vidéo'
