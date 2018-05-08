@@ -3,7 +3,7 @@
 {% block title %}{{ 'website.title'|trans }} | {{ 'website.repertoire'|trans }}{% endblock %}
 {% block opengraph %}
 <meta property="og:title" content="{{ 'website.repertoire'|trans }}" />
-<meta name="og:description" content="{{ 'website.repertoire-intro'|trans|striptags|truncate(150, true) }}" />
+<meta name="og:description" content="{{ text_block('repertoire_intro', true) }}" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="{{ absolute_url(path('repertoire')) }}" />
 <meta property="og:image" content="{{ absolute_url(asset('images/og-default.jpg')) }}" />
@@ -12,7 +12,7 @@
     <div class="column row">
         <div class="column row">
         <h1>{{ 'website.repertoire'|trans }}</h1>
-        <p class="spacedown">{{ 'website.repertoire-intro'|trans }}</p>
+        <div class="spacedown">{{ text_block('repertoire_intro') }}</div>
     {% for song in repertoire %}
         <div class="rep spacedown medium-4 large-3 columns end">
             <h3 class="text-center">{{ song.title }}</h3>
@@ -22,7 +22,7 @@
         </div>
         <div class="column row">
         <h2>{{ 'website.oldrepertoire'|trans }}</h2>
-        <p class="spacedown">{{ 'website.repertoire-old-intro'|trans }}</p>
+        <div class="spacedown">{{ text_block('repertoire_old_intro') }}</div>
     {% for oldsong in oldrepertoire %}
         <div class="oldrep spacedown small-6 medium-3 large-2 columns end">
             <h4 class="text-center">{{ oldsong.title }}</h4>

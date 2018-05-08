@@ -2,7 +2,7 @@
 {% extends 'base.html.twig' %}
 {% form_theme form 'form/foundation_6_layout.html.twig' %}
 {% block title %}{{ 'website.title'|trans }} | {{ 'website.contact'|trans }}{% endblock %}
-{% block description %}{{ 'website.contact-intro'|trans|striptags|truncate(150, true) }}{% endblock %}
+{% block description %}{{ text_block('contact_intro', true) }}{% endblock %}
 {% block opengraph %}
 <meta property="og:title" content="{{ 'website.contact'|trans }}" />
 <meta property="og:description" content="{{ 'website.contact-intro'|trans|striptags|truncate(150, true) }}" />
@@ -13,7 +13,7 @@
 {% block body %}
     <div class="column row">
         <h1>{{ 'website.contact'|trans }}</h1>
-        <p>{{ 'website.contact-intro'|trans|raw }}</p>
+        {{ text_block('contact_intro') }}
         {% if messagesent is defined and messagesent is not null %}
             {% if messagesent == 1 %}
                 <div class="callout success large">{{ 'website.contactform.sendconfirm'|trans }}</div>

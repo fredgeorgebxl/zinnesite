@@ -4,6 +4,7 @@
 {% set popup = true %}
 {% set classes = classes~' popup callout secondary' %}
 {% endif %}
+{% if truncated is defined and truncated == false %}
 <div class="{{ classes }}"{% if popup is defined and popup == true %} data-closable{% endif %}>
     <div class="row">
         {% if textblock.picture is not null %}
@@ -21,3 +22,6 @@
     </button>
     {% endif %}
 </div>
+{% else %}
+    {{ textblock.content|raw|striptags|truncate(150, true) }}
+{% endif %}

@@ -1,7 +1,7 @@
 {% trans_default_domain 'Front' %}
 {% extends 'base.html.twig' %}
 {% block title %}{{ 'website.title'|trans }} | {{ 'website.joinus-title'|trans }}{% endblock %}
-{% block description %}{{ 'website.joinus-content'|trans|striptags|truncate(150, true) }}{% endblock %}
+{% block description %}{{ text_block('repertoire_old_intro', true) }}{% endblock %}
 {% block opengraph %}
 <meta property="og:title" content="{{ 'website.joinus-title'|trans }}" />
 <meta property="og:description" content="{{ 'website.joinus-content'|trans|striptags|truncate(150, true) }}" />
@@ -12,6 +12,6 @@
 {% block body %}
 <div class="column row">
      <h1>{{ 'website.joinus-title'|trans }}</h1>
-     <p>{{ 'website.joinus-content'|trans|raw }}</p>
+     <div>{{ text_block('nous_rejoindre_contenu') }}</div>
 </div>
 {% endblock %}

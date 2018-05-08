@@ -53,7 +53,7 @@
         {% endif %}
         <div class="column row presentation-content hpcontent">
             <h2 class="text-center">{{ 'website.hp-presentation-title'|trans }}</h2>
-            {{ 'website.hp-presentation-content'|trans|raw }}
+            {{ text_block('homepage_presentation_text') }}
             <p class="text-center">
                 <a href="{{ path('membres') }}" class="button large">{{ 'website.homebtn.choristes'|trans }}</a>
             </p>
@@ -63,7 +63,7 @@
         <a id="repertoire"></a>
         <div class="column row hpcontent">
             <h2 class="text-center">{{ 'website.hp-repertoire-title'|trans }}</h2>
-            {{ 'website.hp-repertoire-content'|trans|raw }}
+            {{ text_block('homepage_repertoire_description') }}
             <p class="text-center">
                 <a href="{{ path('repertoire') }}" class="button large">{{ 'website.homebtn.repertoire'|trans }}</a>
             </p>
@@ -77,7 +77,7 @@
                 {% if video is not null %}
                 {{ embed_video(video) }}
                 {% endif %}
-                {{ 'website.hp-video-description'|trans|raw }}
+                {{ text_block('homepage_video_descriptiont') }}
             </div>
             <div class="medium-6 columns hp-photos">
                 {% if pictures|length %}
@@ -98,7 +98,7 @@
                 </div>
                 </div>
                 {% endif %}
-                {{ 'website.hp-images-description'|trans|raw }}
+                {{ text_block('homepage_images_description') }}
             </div>
         </div>
     </section>
@@ -106,7 +106,7 @@
         <a id="contact"></a>
         <div class="column row hpcontent">
             <h2 class="text-center">{{ 'website.hp-contact-title'|trans }}</h2>
-            {{ 'website.hp-contact-content'|trans|raw }}
+            {{ text_block('homepage_contact_text') }}
             <p class="text-center medium-6 column">
                 <a href="{{ path('contact') }}" class="button large">{{ 'website.homebtn.contact'|trans }}</a>
             </p>

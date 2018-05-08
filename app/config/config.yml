@@ -9,7 +9,7 @@ imports:
 parameters:
     locale: fr
     responsive_image.image_entity_class: 'AppBundle\Entity\ResponsiveImage'
-    publishable_entities: [event, gallery, repertoire]
+    publishable_entities: [event, gallery, repertoire, textblock]
         
     zinne:
         seasons-available:

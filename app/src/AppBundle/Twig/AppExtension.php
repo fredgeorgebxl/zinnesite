@@ -46,7 +46,7 @@ class AppExtension extends \Twig_Extension
                     'needs_environment' => true,
                 ]
             ),
-            new \Twig_SimpleFunction('text_block', [$this, 'insertTextBlock', 'truncated'], [
+            new \Twig_SimpleFunction('text_block', [$this, 'insertTextBlock'], [
                     'is_safe' => ['html'],
                     'needs_environment' => true,
                 ]
@@ -77,16 +77,11 @@ class AppExtension extends \Twig_Extension
         return $image->getStyle();
     }
     
-    public function insertTextBlock(\Twig_Environment $environment, $blockname, $truncated = false){
+    public function insertTextBlock(\Twig_Environment $environment, $blockname){
         $textBlock = $this->em->getRepository(\AppBundle\Entity\TextBlock::class)->findOneByName($blockname);
-        if ($textBlock){
-            return $environment->render('default/textblock.html.twig', [
-                'textblock' => $textBlock,
-                'truncated' => $truncated,
-            ]);
-        } else {
-            return '';
-        }
+        return $environment->render('default/textblock.html.twig', [
+            'textblock' => $textBlock,
+        ]);
     }
 
     /**

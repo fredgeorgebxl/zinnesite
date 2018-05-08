@@ -2,7 +2,7 @@
 {% import "macros.html.twig" as macros %}
 {% extends 'base.html.twig' %}
 {% block title %}{{ 'website.title'|trans }} | {{ 'website.photos'|trans }}{% endblock %}
-{% block description %}{{ 'website.photos-intro'|trans|striptags|truncate(150, true) }}{% endblock %}
+{% block description %}{{ text_block('photos_intro', true) }}{% endblock %}
 {% block opengraph %}
 <meta property="og:title" content="{{ 'website.photos'|trans }}" />
 <meta name="og:description" content="{{ 'website.photos-intro'|trans|striptags|truncate(150, true) }}" />
@@ -13,7 +13,7 @@
 {% block body %}
     <div class="column row photos-page">
         <h1>{{ 'website.photos'|trans }}</h1>
-        <p>{{ 'website.photos-intro'|trans|raw }}</p>
+        {{ text_block('photos_intro') }}
         <div class="row">
         {% for gallery in galleries %}
             {% if gallery.pictures|length %}
