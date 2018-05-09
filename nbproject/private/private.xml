@@ -6,8 +6,10 @@
             <file>file:/www/symfony_test/src/AppBundle/Form/ParameterType.php</file>
             <file>file:/www/symfony_test/src/AppBundle/Form/ParameterListType.php</file>
             <file>file:/www/symfony_test/app/Resources/views/admin/parameters/index.html.twig</file>
+            <file>file:/www/symfony_test/app/Resources/views/default/index.html.twig</file>
             <file>file:/www/symfony_test/app/Resources/views/admin/parameters/new.html.twig</file>
             <file>file:/www/symfony_test/app/Resources/views/admin/default/index.html.twig</file>
+            <file>file:/www/symfony_test/app/Resources/views/default/joinus.html.twig</file>
             <file>file:/www/symfony_test/app/Resources/views/default/textblock.html.twig</file>
             <file>file:/www/symfony_test/src/AppBundle/Twig/AppExtension.php</file>
             <file>file:/www/symfony_test/src/AppBundle/Controller/Admin/ParameterController.php</file>
