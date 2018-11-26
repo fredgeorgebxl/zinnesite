@@ -4,9 +4,11 @@
     <p class="date h4">{{ event.date|date('d/m/Y') }}</p>
     <span class="dtstart hide">{{ event.date|date('Y-m-d') }}</span>
     <div class="row">
+        {% if event.picture is defined and event.picture is not null %}
         <div class="small-3 medium-2 columns">
             {{ styled_image(event.picture, 'project_thumb') }}
         </div>
+        {% endif %}
         <div class="event-content small-9 medium-10 columns">
             <a href="{{ path('event', {'slug' : event.slug}) }}"><h3 class="summary">{{ event.name }}</h3></a>
             <p class="location">{{ event.location }}</p>
