@@ -10,7 +10,8 @@ parameters:
     locale: fr
     responsive_image.image_entity_class: 'AppBundle\Entity\ResponsiveImage'
     publishable_entities: [event, gallery, repertoire, textblock]
-        
+    session.storage.options:
+        cache_limiter: 0
     zinne:
         seasons-available:
             - '2018-19'

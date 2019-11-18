@@ -4,18 +4,20 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit2bacd54528de0599260d3905a1eaec01
+class ComposerStaticInit6cabc2b94ac581d2f6601084ad598d90
 {
     public static $files = array (
         '92c8763cd6170fce6fcfe7e26b4e8c10' => __DIR__ . '/..' . '/symfony/phpunit-bridge/bootstrap.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
+        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
-        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
-        '023d27dca8066ef29e6739335ea73bad' => __DIR__ . '/..' . '/symfony/polyfill-php70/bootstrap.php',
-        'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
-        '6a47392539ca2329373e0d33e1dba053' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/bootstrap.php',
         '32dcc8afd4335739640db7d200c1971d' => __DIR__ . '/..' . '/symfony/polyfill-apcu/bootstrap.php',
+        '6a47392539ca2329373e0d33e1dba053' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/bootstrap.php',
+        'bd9634f2d41831496de0d3dfe4c94881' => __DIR__ . '/..' . '/symfony/polyfill-php56/bootstrap.php',
+        '023d27dca8066ef29e6739335ea73bad' => __DIR__ . '/..' . '/symfony/polyfill-php70/bootstrap.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -31,6 +33,7 @@ class ComposerStaticInit2bacd54528de0599260d3905a1eaec01
             'Symfony\\Polyfill\\Php70\\' => 23,
             'Symfony\\Polyfill\\Php56\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Polyfill\\Ctype\\' => 23,
             'Symfony\\Polyfill\\Apcu\\' => 22,
             'Symfony\\Component\\' => 18,
             'Symfony\\Bundle\\SwiftmailerBundle\\' => 33,
@@ -46,6 +49,7 @@ class ComposerStaticInit2bacd54528de0599260d3905a1eaec01
             'Sensio\\Bundle\\GeneratorBundle\\' => 30,
             'Sensio\\Bundle\\FrameworkExtraBundle\\' => 35,
             'Sensio\\Bundle\\DistributionBundle\\' => 33,
+            'SensioLabs\\Security\\' => 20,
         ),
         'P' => 
         array (
@@ -78,6 +82,7 @@ class ComposerStaticInit2bacd54528de0599260d3905a1eaec01
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
+            'Gedmo\\' => 6,
         ),
         'F' => 
         array (
@@ -85,7 +90,12 @@ class ComposerStaticInit2bacd54528de0599260d3905a1eaec01
         ),
         'D' => 
         array (
+            'Doctrine\\ORM\\' => 13,
             'Doctrine\\Instantiator\\' => 22,
+            'Doctrine\\DBAL\\' => 14,
+            'Doctrine\\Common\\Lexer\\' => 22,
+            'Doctrine\\Common\\Inflector\\' => 26,
+            'Doctrine\\Common\\Collections\\' => 28,
             'Doctrine\\Common\\Cache\\' => 22,
             'Doctrine\\Common\\Annotations\\' => 28,
             'Doctrine\\Common\\' => 16,
@@ -127,6 +137,10 @@ class ComposerStaticInit2bacd54528de0599260d3905a1eaec01
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Symfony\\Polyfill\\Ctype\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
         'Symfony\\Polyfill\\Apcu\\' => 
         array (
@@ -188,6 +202,10 @@ class ComposerStaticInit2bacd54528de0599260d3905a1eaec01
         array (
             0 => __DIR__ . '/..' . '/sensio/distribution-bundle',
         ),
+        'SensioLabs\\Security\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sensiolabs/security-checker/SensioLabs/Security',
+        ),
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
@@ -244,13 +262,37 @@ class ComposerStaticInit2bacd54528de0599260d3905a1eaec01
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
         ),
+        'Gedmo\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/gedmo/doctrine-extensions/lib/Gedmo',
+        ),
         'FOS\\UserBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/friendsofsymfony/user-bundle',
         ),
+        'Doctrine\\ORM\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/orm/lib/Doctrine/ORM',
+        ),
         'Doctrine\\Instantiator\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
+        ),
+        'Doctrine\\DBAL\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/dbal/lib/Doctrine/DBAL',
+        ),
+        'Doctrine\\Common\\Lexer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/lexer/lib/Doctrine/Common/Lexer',
+        ),
+        'Doctrine\\Common\\Inflector\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/inflector/lib/Doctrine/Common/Inflector',
+        ),
+        'Doctrine\\Common\\Collections\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/doctrine/collections/lib/Doctrine/Common/Collections',
         ),
         'Doctrine\\Common\\Cache\\' => 
         array (
@@ -263,6 +305,9 @@ class ComposerStaticInit2bacd54528de0599260d3905a1eaec01
         'Doctrine\\Common\\' => 
         array (
             0 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
+            1 => __DIR__ . '/..' . '/doctrine/event-manager/lib/Doctrine/Common',
+            2 => __DIR__ . '/..' . '/doctrine/persistence/lib/Doctrine/Common',
+            3 => __DIR__ . '/..' . '/doctrine/reflection/lib/Doctrine/Common',
         ),
         'Doctrine\\Bundle\\DoctrineCacheBundle\\' => 
         array (
@@ -298,43 +343,6 @@ class ComposerStaticInit2bacd54528de0599260d3905a1eaec01
                 0 => __DIR__ . '/..' . '/twig/twig/lib',
             ),
         ),
-        'S' => 
-        array (
-            'SensioLabs\\Security' => 
-            array (
-                0 => __DIR__ . '/..' . '/sensiolabs/security-checker',
-            ),
-        ),
-        'G' => 
-        array (
-            'Gedmo\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/gedmo/doctrine-extensions/lib',
-            ),
-        ),
-        'D' => 
-        array (
-            'Doctrine\\ORM\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/doctrine/orm/lib',
-            ),
-            'Doctrine\\DBAL\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/doctrine/dbal/lib',
-            ),
-            'Doctrine\\Common\\Lexer\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/doctrine/lexer/lib',
-            ),
-            'Doctrine\\Common\\Inflector\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/doctrine/inflector/lib',
-            ),
-            'Doctrine\\Common\\Collections\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/doctrine/collections/lib',
-            ),
-        ),
         'B' => 
         array (
             'Behat\\Transliterator' => 
@@ -364,11 +372,11 @@ class ComposerStaticInit2bacd54528de0599260d3905a1eaec01
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit2bacd54528de0599260d3905a1eaec01::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit2bacd54528de0599260d3905a1eaec01::$prefixDirsPsr4;
-            $loader->fallbackDirsPsr4 = ComposerStaticInit2bacd54528de0599260d3905a1eaec01::$fallbackDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit2bacd54528de0599260d3905a1eaec01::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit2bacd54528de0599260d3905a1eaec01::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit6cabc2b94ac581d2f6601084ad598d90::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit6cabc2b94ac581d2f6601084ad598d90::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInit6cabc2b94ac581d2f6601084ad598d90::$fallbackDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit6cabc2b94ac581d2f6601084ad598d90::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit6cabc2b94ac581d2f6601084ad598d90::$classMap;
 
         }, null, ClassLoader::class);
     }

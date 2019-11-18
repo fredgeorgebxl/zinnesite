@@ -97,7 +97,6 @@ class Uploader
     {
         $uploadMaxSize = trim($uploadMaxSize);
         $last = strtolower($uploadMaxSize[strlen($uploadMaxSize) - 1]);
-        $uploadMaxSize = substr(trim($uploadMaxSize),0,-1);
 
         switch ($last) {
             case 'g':
